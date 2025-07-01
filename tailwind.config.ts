@@ -19,6 +19,7 @@ export default {
         textGrey: "var(--text-grey)",
         textBlue: "var(--text-blue)",
         textLightBlue: "var(--text-light-blue)",
+        backgroundGray: "var(--background-gray)",
       },
       fontStretch: {
         'extra-condensed': '50%',

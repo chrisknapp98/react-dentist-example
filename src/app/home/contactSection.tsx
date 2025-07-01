@@ -30,16 +30,16 @@ function ContactItem({ icon, iconWidth, iconHeight, alt, label, children, href }
   
   export function ContactSection() {
     return (
-      <section className="px-20 pb-10 bg-gray-100">
-        <div className="bg-practiceRed rounded-b-[12vw] text-practiceWhite py-20 shadow-2xl">
+      <section className="px-20 py-10 bg-gray-100">
+        <div className="bg-practiceRed rounded-[12vw] text-practiceWhite py-20 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-6">
             <ContactItem
               icon="phone.svg"
               alt="Telefon-Symbol"
               label="Telefonnummer"
-              href="tel:+491605541210"
+              href="tel:09241 8822"
             >
-              +49 160 5541210
+              09241 8822
             </ContactItem>
   
             <ContactItem

@@ -13,6 +13,7 @@
   --text-grey: #383838;
   --text-blue: #1c296a;
   --text-light-blue: #709fce;
+  --background-gray: #444444;
 }
 
 @media (prefers-color-scheme: dark) {
