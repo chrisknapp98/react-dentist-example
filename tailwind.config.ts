@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "475px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -20,6 +23,7 @@ export default {
         textBlue: "var(--text-blue)",
         textLightBlue: "var(--text-light-blue)",
         backgroundGray: "var(--background-gray)",
+        backgroundLightGray: "var(--background-light-gray)",
       },
       fontStretch: {
         'extra-condensed': '50%',

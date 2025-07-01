@@ -30,8 +30,8 @@ function ContactItem({ icon, iconWidth, iconHeight, alt, label, children, href }
   
   export function ContactSection() {
     return (
-      <section className="px-20 py-10 bg-gray-100">
-        <div className="bg-practiceRed rounded-[12vw] text-practiceWhite py-20 shadow-2xl">
+      <section className="px-6 md:px-20 py-10 bg-gray-100">
+        <div className="bg-practiceRed rounded-3xl text-practiceWhite py-20 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-3 text-center gap-6">
             <ContactItem
               icon="phone.svg"

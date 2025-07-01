@@ -1,6 +1,6 @@
 import { Header } from "./common/header/header";
 import { ContactSection } from "./home/contactSection";
-import { WelcomeBanner } from "./home/welcomeBanner";
+import { WelcomeBanner } from "./comingSoon/welcomeBanner";
 
 export default function Home() {
   return (

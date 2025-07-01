@@ -1,22 +1,11 @@
 import Image from "next/image";
 import { Button } from "../button/button";
+import { ContactHeader } from "./contactHeader";
 
 export function Header() {
     return (
       <header className="w-full">
-        <div className="flex gap-10 w-full bg-practiceRed text-practiceWhite justify-end py-4 text-sm px-20">
-          <div>
-            <Image src="/icons/phone.svg" alt="Telefon Icon" width={20} height={20} className="inline-block mr-2" />
-            <a href="tel:092418822" className="underline">09241 8822</a>
-          </div>
-          <div>
-            <Image src="/icons/envelope.svg" alt="E-Mail Icon" width={20} height={20} className="inline-block mr-2" />
-            <a href="mailto:praxis.dumbach@outlook.de" className="underline">praxis.dumbach@outlook.de</a>
-          </div>
-          <a href="https://www.instagram.com/">
-            <Image src="/icons/instagram.svg" alt="Instagram Icon" width={20} height={20} className="inline-block mr-2" />
-          </a>
-        </div>
+        <ContactHeader />
 
         <nav className="relative flex justify-between items-center bg-gray-200 px-20 py-8 z-10 shadow-md">
           <div className="absolute left-20 top-[-1px] w-[600px] h-[180px] z-20">
