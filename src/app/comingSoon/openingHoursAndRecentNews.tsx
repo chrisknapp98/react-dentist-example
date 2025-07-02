@@ -8,27 +8,27 @@ export function OpeningHoursAndRecentNews() {
             <tbody>
                 <tr>
                 <td className="px-2">Montag</td>
-                <td className="px-2">08:00 - 12:00</td>
+                <td className="px-2">8:00 - 12:00</td>
                 <td className="px-2">13:45 - 17:45</td>
                 </tr>
                 <tr>
                 <td className="px-2">Dienstag</td>
-                <td className="px-2">08:00 - 12:00</td>
+                <td className="px-2">8:00 - 12:00</td>
                 <td className="px-2">13:45 - 17:45</td>
                 </tr>
                 <tr>
                 <td className="px-2">Mittwoch</td>
-                <td className="px-2">08:00 - 12:00</td>
+                <td className="px-2">8:00 - 12:00</td>
                 <td className="px-2">13:45 - 17:45</td>
                 </tr>
                 <tr>
                 <td className="px-2">Donnerstag</td>
-                <td className="px-2">08:00 - 12:00</td>
+                <td className="px-2">8:00 - 12:00</td>
                 <td className="px-2">13:45 - 17:45</td>
                 </tr>
                 <tr>
                 <td className="px-2">Freitag</td>
-                <td className="px-2">08:00 - 13:00</td>
+                <td className="px-2">8:00 - 13:00</td>
                 <td className="px-2"></td>
                 </tr>
             </tbody>
