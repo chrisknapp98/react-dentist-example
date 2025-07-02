@@ -58,7 +58,7 @@ function ContactItem({ icon, iconWidth, iconHeight, alt, label, children, href }
               alt="Standort-Symbol"
               label="Adresse"
             >
-              Bahnhofstr. 16. 91257 Pegnitz
+              Bahnhofstr. 16, 91257 Pegnitz
             </ContactItem>
           </div>
         </div>
