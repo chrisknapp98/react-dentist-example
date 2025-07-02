@@ -9,7 +9,7 @@ export default function Datenschutz() {
             <ContactHeaderWithLogo />
 
             <div className="px-6 mb-6 sm:px-20">
-                <h1 className="font-extralight text-4xl">{"Datenschutzerklärung (Entwurf)".toUpperCase()}</h1>
+                <h1 className="font-extralight text-2xl md:text-4xl">{"Datenschutzerklärung (Entwurf)".toUpperCase()}</h1>
                 <hr className="my-4 border-t border-gray-300" />
                     <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
                         <section>
