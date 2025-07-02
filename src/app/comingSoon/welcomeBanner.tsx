@@ -8,9 +8,9 @@ import { ContactHeader } from "../common/header/contactHeader";
 export function WelcomeBanner() {
   return (
     <section >
-      <div className="flex flex-col w-full h-screen bg-backgroundGray shadow-md text-text-grey p-t-20 p-b-20 px-6 md:px-32 justify-center gap-6 md:gap-10 items-center
+      <div className="flex flex-col w-full min-h-screen bg-backgroundGray shadow-md text-text-grey pb-10 sm:pb-0 px-6 lg:px-32 justify-center gap-6 md:gap-10 items-center
 ">
-        <div className="h-48"></div>
+        <div className="h-56 md:h-48"></div>
       {/* <div className="w-full flex flex-col items-center gap-6"> */}
         <h1 className="text-3xl md:text-5xl font-thin text-white">HERZLICH WILLKOMMEN</h1>
         <p className="text-lg text-white text-center">
@@ -32,9 +32,9 @@ export function WelcomeBanner() {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch py-10 px-6 md:px-48">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10 px-6 sm:px-20">
         <RoundedFrame title="Sprechzeiten ab 01.09.2025">
-          <table className="w-full text-left">
+          <table className="w-full text-left text-nowrap">
             <tbody>
               <tr>
                 <td className="px-2">Montag</td>
@@ -91,9 +91,9 @@ export function WelcomeBanner() {
       {/* <div className="fixed top-0 left-0 w-full z-50"> */}
         <div>
             <ContactHeader alignment="center" />
-            <div className="flex justify-center pt-4 pb-20 bg-gray-200 font-light text-4xl shadow-lg">
+            <div className="flex justify-center pt-4 pb-10 md:pb-20 bg-gray-200 font-light text-4xl shadow-lg">
                 <p>COMING SOON!</p>
-                <div className="absolute top-[130px] w-[300px] md:w-[600px] h-[100px] md:h-[180px] z-20">
+                <div className="absolute top-[120px] md:top-[130px] w-[350px] sm:w-[450px] md:w-[600px] h-[113px] sm:h-[140px] md:h-[180px] z-20">
                   <Image 
                     src="images/logo_praxis_rounded.svg" 
                     alt="Logo Praxis Dres. Dumbach & Dr. Knapp"
