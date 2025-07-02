@@ -112,6 +112,9 @@ export default function Impressum() {
                         </p>
                     </div>
                 </div>
+                <p className="text-sm text-gray-500 mt-10">
+                    Die auf dieser Website verwendeten Icons stammen von <a href="https://feathericons.com" target="_blank" rel="noopener noreferrer" className="underline">Feather Icons</a> und stehen unter der MIT-Lizenz.
+                </p>
             </div>
             <Footer />
         </div>
