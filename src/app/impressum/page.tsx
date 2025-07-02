@@ -1,12 +1,13 @@
+import { Footer } from "../common/footer/footer";
 import { ContactHeader } from "../common/header/contactHeader";
 import Image from "next/image";
 
 export default function Impressum() {
     return (
-        <div className="w-full">
+        <div className="w-full font-sans">
             {/* <div className="absolute top-0 left-0 w-full z-10"> */}
                 {/* <div className="fixed top-0 left-0 w-full z-50"> */}
-                <div>
+            <div>
                 <div className="w-full">
                     <ContactHeader alignment="center" />
                     <div className="flex justify-center pb-10 md:pb-20 font-light text-4xl">
@@ -129,6 +130,7 @@ export default function Impressum() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
