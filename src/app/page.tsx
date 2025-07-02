@@ -15,7 +15,6 @@ export default function Home() {
             alt="Willkommen in unserer Zahnarztpraxis"
             fill
             className="object-cover w-full"
-            priority
           />
       </div>
       <ContactSection />
