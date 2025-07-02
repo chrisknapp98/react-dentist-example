@@ -4,8 +4,7 @@ import { ContactHeader } from "../common/header/contactHeader";
 export function WelcomeBanner() {
   return (
     <section >
-      <div className="flex flex-col w-full min-h-screen bg-backgroundGray shadow-md text-text-grey pb-10 sm:pb-0 px-6 lg:px-32 justify-center gap-6 md:gap-10 items-center">
-        <div className="h-56 md:h-48"></div>
+      <div className="flex flex-col w-full bg-backgroundGray shadow-md text-text-grey pt-64 sm:pt-72 md:pt-[350px] pb-10 px-6 lg:px-32 xl:px-56 justify-start gap-6 md:gap-10 items-center">
         <h1 className="text-3xl md:text-5xl font-thin text-white">HERZLICH WILLKOMMEN</h1>
         <p className="text-lg text-white text-center">
         Am 01.09.2025 eröffnet unsere Zahnarztpraxis mit Kieferorthopädie in Pegnitz!
