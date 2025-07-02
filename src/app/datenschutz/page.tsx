@@ -49,13 +49,6 @@ export default function Datenschutz() {
                             E-Mail: <a href="mailto:info@praxis-drdumbach.de" className="underline">info@praxis-drdumbach.de</a>
                         </address>
                         </section>
-
-                        <section>
-                        <h2 className="text-lg mb-2">5. Widerspruchsrecht</h2>
-                        <p>
-                            Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einzulegen.
-                        </p>
-                        </section>
                     </div>
                 </div>
             <Footer />
