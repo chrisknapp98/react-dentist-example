@@ -1,29 +1,12 @@
-import Image from 'next/image';
-import { ContactHeader } from '../common/header/contactHeader';
 import { Footer } from '../common/footer/footer';
+import { ContactHeaderWithLogo } from '../common/header/contactHeaderWithLogo';
 
 export default function Datenschutz() {
     return (
         <div className="font-sans">
             {/* <div className="absolute top-0 left-0 w-full z-10"> */}
                 {/* <div className="fixed top-0 left-0 w-full z-50"> */}
-            <div>
-                <div className="w-full">
-                    <ContactHeader alignment="center" />
-                    <div className="flex justify-center pb-10 md:pb-20 font-light text-4xl">
-                        {/* <div className="absolute top-[120px] md:top-[52px] w-[350px] sm:w-[450px] md:w-[600px] h-[113px] sm:h-[140px] md:h-[180px] z-20"> */}
-                        <div className="relative top-[-3px] md:top-[-1px] w-[350px] sm:w-[450px] md:w-[600px] h-[113px] sm:h-[140px] md:h-[180px] z-20">
-                            <Image 
-                            src="images/logo_praxis.svg" 
-                            alt="Logo Praxis Dres. Dumbach & Dr. Knapp"
-                            fill
-                            className="object-contain"
-                            priority
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ContactHeaderWithLogo />
 
             <div className="px-6 mb-6 sm:px-20">
                 <h1 className="font-extralight text-4xl">{"Datenschutzerklärung (Entwurf)".toUpperCase()}</h1>
