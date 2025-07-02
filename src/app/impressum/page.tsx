@@ -11,7 +11,7 @@ export default function Impressum() {
             <div className="px-6 mb-6 sm:px-20">
                 <h1 className="font-extralight text-4xl">IMPRESSUM</h1>
                 <hr className="my-4 border-t border-gray-300" />
-                <div className="text-sm text-gray-800 space-y-6">
+                <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
                     <div>
                         <h2 className="text-lg mb-2">Angaben gemäß § 5 TMG</h2>
                         <p>
