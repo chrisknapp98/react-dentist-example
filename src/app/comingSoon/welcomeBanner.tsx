@@ -21,7 +21,7 @@ export function WelcomeBanner() {
         Ab sofort können Sie auch zahnärztliche Termine bei uns vereinbaren. Möchten Sie eine Kontrolluntersuchung, Beratung oder Zahnreinigung? 
         <br />
         <br />
-        Rufen Sie gerne an unter <a href="tel:09241 8822">09241 8822</a>.
+        Rufen Sie gerne an unter <a href="tel:09241 8822" className="underline">09241 8822</a>.
         </p>
       </div>
 
