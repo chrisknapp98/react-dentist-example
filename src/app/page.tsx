@@ -2,6 +2,7 @@ import { ContactSection } from "./home/contactSection";
 import { WelcomeBanner } from "./comingSoon/welcomeBanner";
 import { OpeningHoursAndRecentNews } from "./comingSoon/openingHoursAndRecentNews";
 import Image from "next/image";
+import { Footer } from "./common/footer/footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           />
       </div>
       <ContactSection />
+      <Footer />
     </div>
   )
 }
