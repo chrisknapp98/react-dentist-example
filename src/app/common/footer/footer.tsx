@@ -6,6 +6,8 @@ export function Footer() {
             <p className="text-sm">© Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach, 2025</p>
             <p className="text-xs mt-2">
                 <Link href="/impressum">Impressum</Link>
+                {" | "}
+                <Link href="/datenschutz">Datenschutz</Link>
             </p>
         </footer>
     );
