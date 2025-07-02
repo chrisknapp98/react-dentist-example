@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Button } from "../common/button/button";
-import { TextualLogo } from "../common/logo/textualLogo";
 import { Header } from "../common/header/header";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 

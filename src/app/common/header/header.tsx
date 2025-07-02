@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "../button/button";
 import { ContactHeader } from "./contactHeader";
 
 export function Header() {
