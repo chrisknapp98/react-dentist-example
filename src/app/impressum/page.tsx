@@ -26,7 +26,7 @@ export default function Impressum() {
                         <h2 className="text-lg mb-2">Kontakt</h2>
                         <p>
                         Telefon: <a href="tel:092418822" className="underline">09241 8822</a><br />
-                        E-Mail: <a href="mailto:info@praxis-drdumbach.de" className="underline">info@praxis-drdumbach.de</a><br />
+                        E-Mail: <a href="mailto:praxis.dumbach@outlook.de" className="underline">praxis.dumbach@outlook.de</a><br />
                         Website: <a href="https://zahnarztpraxis-dumbach.de" className="underline" target="_blank" rel="noopener noreferrer">zahnarztpraxis-dumbach.de</a>
                         </p>
                     </div>

@@ -46,7 +46,7 @@ export default function Datenschutz() {
                             Bahnhofstraße 16<br />
                             91257 Pegnitz<br />
                             Tel: <a href="tel:092418822" className="underline">09241 8822</a><br />
-                            E-Mail: <a href="mailto:info@praxis-drdumbach.de" className="underline">info@praxis-drdumbach.de</a>
+                            E-Mail: <a href="mailto:praxis.dumbach@outlook.de" className="underline">praxis.dumbach@outlook.de</a>
                         </address>
                         </section>
                     </div>
