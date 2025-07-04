@@ -9,7 +9,7 @@ export default function Home() {
     <div className="font-sans">
       <WelcomeBanner />
       <OpeningHoursAndRecentNews />
-      <div className="relative w-full h-96 z-0">
+      <div className="relative w-full h-48 md:h-96 z-0">
         <Image
             src="/images/praxis_foto.png"
             alt="Willkommen in unserer Zahnarztpraxis"
