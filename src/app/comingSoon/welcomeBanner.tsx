@@ -1,4 +1,4 @@
-import Image from "next/image";
+import LogoPraxis from "@/images/logo_praxis.svg";
 import { ContactHeader } from "../common/header/contactHeader";
 
 export function WelcomeBanner() {
@@ -31,14 +31,8 @@ export function WelcomeBanner() {
             <ContactHeader alignment="center" />
             <div className="flex justify-center pt-4 pb-10 md:pb-20 bg-gray-200 font-light text-4xl shadow-lg">
                 <p>COMING SOON!</p>
-                <div className="absolute top-[120px] md:top-[130px] w-[350px] sm:w-[450px] md:w-[600px] h-[113px] sm:h-[140px] md:h-[180px] z-20">
-                  <Image 
-                    src="images/logo_praxis_rounded.svg" 
-                    alt="Logo Praxis Dres. Dumbach & Dr. Knapp"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+                <div className="absolute top-[120px] md:top-[130px] w-[350px] sm:w-[450px] md:w-[600px] h-[105px] sm:h-[135px] md:h-[180px] z-20">
+                  <LogoPraxis className="w-full h-full rounded-2xl" />
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import LogoPraxis from "@/images/logo_praxis.svg";
 import { ContactHeader } from "./contactHeader";
 
 export function Header() {
@@ -8,13 +8,7 @@ export function Header() {
 
         <nav className="relative flex justify-between items-center bg-gray-200 px-20 py-8 z-10 shadow-md">
           <div className="absolute left-20 top-[-1px] w-[600px] h-[180px] z-20">
-            <Image
-              src="/images/logo_praxis.svg"
-              alt="Logo Praxis Dres. Dumbach & Dr. Knapp"
-              fill
-              className="object-contain"
-              priority
-            />
+            <LogoPraxis className="w-full h-full rounded-b-2xl" />
           </div>
 
           {/* Empty space to the left so layout stays correct */}
