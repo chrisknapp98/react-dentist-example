@@ -10,7 +10,11 @@ export function WelcomeBanner() {
         Am 01.09.2025 eröffnet unsere Zahnarztpraxis mit Kieferorthopädie in Pegnitz!
         <br />
         <br />
-        In der neuen Gemeinschaftspraxis sind Dr. Stephanie Knapp Dumbach und Dr. Johannes Dumbach als Zahnärzte und Dr. Georg Dumbach als Kieferorthopäde für Sie da.
+        In der neuen Gemeinschaftspraxis sind 
+        Dr.&nbsp;Stephanie&nbsp;Knapp&nbsp;Dumbach und 
+        Dr.&nbsp;Johannes&nbsp;Dumbach als Zahnärzte und 
+        Dr.&nbsp;Georg&nbsp;Dumbach als Kieferorthopäde für Sie da.
+        <br />
         <br />
         Nach über 30 Jahren Kieferorthopädie möchten wir Ihnen nun Behandlungen aus dem gesamten Spektrum der Zahnmedizin anbieten!
         <br />
