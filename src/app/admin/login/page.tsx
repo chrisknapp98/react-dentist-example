@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -37,6 +38,9 @@ export default function AdminLogin() {
 
     return (
         <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <Head>
+                <meta name="robots" content="noindex, nofollow" />
+            </Head>
             <h2>Admin Login</h2>
             <input
                 type="password"
