@@ -15,7 +15,6 @@ export function WelcomeBanner() {
         Dr.&nbsp;Johannes&nbsp;Dumbach als Zahnärzte und 
         Dr.&nbsp;Georg&nbsp;Dumbach als Kieferorthopäde für Sie da.
         <br />
-        <br />
         Nach über 30 Jahren Kieferorthopädie möchten wir Ihnen nun Behandlungen aus dem gesamten Spektrum der Zahnmedizin anbieten!
         <br />
         <br />
