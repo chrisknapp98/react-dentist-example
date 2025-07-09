@@ -26,7 +26,7 @@ export default function Datenschutz() {
                     <article>
                         <h2 className="text-lg mb-2">2. Hosting und Zugriffsdaten</h2>
                         <p>
-                            Diese Website wird technisch über die Anbieter <strong>Vercel Inc. (USA)</strong> und <strong>IONOS SE (Deutschland)</strong> bereitgestellt. Beim Aufruf der Website werden automatisch bestimmte technische Daten durch die Server erfasst, z. B. Ihre IP-Adresse, Datum und Uhrzeit des Zugrufs, Browsertyp und Betriebssystem. Diese sogenannten Server-Logfiles werden benötigt, um die Website stabil und sicher bereitzustellen.
+                            Diese Website wird technisch über die Anbieter <strong>Vercel Inc. (USA)</strong> und <strong>IONOS SE (Deutschland)</strong> bereitgestellt. Beim Aufruf der Website werden automatisch bestimmte technische Daten durch die Server erfasst, z. B. Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp und Betriebssystem. Diese sogenannten Server-Logfiles werden benötigt, um die Website stabil und sicher bereitzustellen.
                         </p>
                         <p>
                             <strong>Vercel Inc.</strong><br />
