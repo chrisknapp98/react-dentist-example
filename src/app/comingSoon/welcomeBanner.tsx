@@ -7,7 +7,8 @@ export function WelcomeBanner() {
     <section >
       <div className="flex flex-col w-full bg-backgroundGray shadow-md text-text-grey pt-64 sm:pt-72 md:pt-[350px] pb-10 px-6 lg:px-32 xl:px-56 justify-start gap-6 md:gap-10 items-center">
         <h1 className="text-3xl md:text-5xl font-thin text-white text-center">HERZLICH WILLKOMMEN</h1>
-        <p className="text-lg text-white text-center">
+        <div className="text-lg text-white text-center">
+        <p>
         Am 01.09.2025 eröffnet unsere Zahnarztpraxis mit Kieferorthopädie in Pegnitz!
         <br />
         <br />
@@ -25,8 +26,11 @@ export function WelcomeBanner() {
         Ab sofort können Sie auch zahnärztliche Termine bei uns vereinbaren. Möchten Sie eine Kontrolluntersuchung, Beratung oder Zahnreinigung? 
         <br />
         <br />
-        <p className="font-bold">Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.</p>
         </p>
+        <p className="font-bold">
+          Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.
+        </p>
+        </div>
       </div>
 
       <div className="absolute top-0 left-0 w-full z-10">

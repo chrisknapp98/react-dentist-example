@@ -7,7 +7,7 @@ export function ContactHeader(props: { alignment?: "center" | "end" }) {
   const alignmentClass = props.alignment === "center" ? "justify-center" : "justify-end";
 
   return (
-    <div className={`flex gap-6 md:gap-10 w-full bg-practiceRed text-practiceWhite ${alignmentClass} py-4 text-xs vs:text-sm px-1 vs:px-2 md:px-20`}>
+    <div className={`flex gap-2 vs:gap-4 sm:gap-6 md:gap-10 w-full bg-practiceRed text-practiceWhite ${alignmentClass} py-4 text-xs vs:text-sm px-0 md:px-20`}>
       <div className="flex items-center gap-1 vs:gap-2">
         <PhoneIcon className="w-5 h-5 text-practiceWhite" />
         <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>
