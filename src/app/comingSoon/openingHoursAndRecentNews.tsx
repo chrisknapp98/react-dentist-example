@@ -5,7 +5,7 @@ export function OpeningHoursAndRecentNews() {
     return (
         <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10 px-6 sm:px-20">
         <RoundedFrame title="Sprechzeiten ab 01.09.2025">
-            <table className="w-full text-left text-nowrap">
+            <table className="w-full text-left text-nowrap text-sm vs:text-md sm:text-lg font-light">
             <tbody>
                 <tr>
                 <td className="px-2">Montag</td>
@@ -36,7 +36,7 @@ export function OpeningHoursAndRecentNews() {
             </table>
         </RoundedFrame>
         <RoundedFrame title="Aktuelles">
-            <div className="justify-start">
+            <div className="justify-start text-sm vs:text-md sm:text-lg font-light">
             Für unser Team suchen wir noch Verstärkung in der Assistenz. 
             <br />
             <br />

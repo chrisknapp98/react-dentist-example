@@ -8,7 +8,7 @@ export function ContactHeaderWithLogo() {
             <ContactHeaderWithAutoAlignment />
             <div className="flex justify-center xl:justify-start pb-10 lg:px-20">
                 {/* <div className="absolute top-[120px] md:top-[52px] w-[350px] sm:w-[450px] md:w-[600px] h-[113px] sm:h-[140px] md:h-[180px] z-20"> */}
-                <div className="relative xl:top-[-54px] w-[350px] sm:w-[450px] md:w-[600px] h-[105px] sm:h-[135px] md:h-[180px] z-20">
+                <div className="relative xl:top-[-54px] w-[300px] vs:w-[350px] sm:w-[450px] md:w-[600px] h-[90px] vs:h-[105px] sm:h-[135px] md:h-[180px] z-20">
                     <Link href="/">
                         <LogoPraxis className="w-full h-full rounded-b-2xl" />
                     </Link>
