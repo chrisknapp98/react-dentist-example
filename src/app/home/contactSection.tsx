@@ -1,6 +1,7 @@
 import PhoneIcon from '@/icons/phone.svg';
 import MailIcon from '@/icons/mail.svg';
 import MapPinIcon from '@/icons/map-pin.svg';
+import { ContactInformation } from '../common/contactInformation/contactInformation';
 
 type ContactItemProps = {
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -39,18 +40,18 @@ export function ContactSection() {
             icon={PhoneIcon}
             alt="Telefon-Symbol"
             label="Telefonnummer"
-            href="tel:09241 8822"
+            href={ContactInformation.telephoneLink}
           >
-            09241 8822
+            {ContactInformation.telephoneDisplay}
           </ContactItem>
 
           <ContactItem
             icon={MailIcon}
             alt="E-Mail-Symbol"
             label="E-Mail-Adresse"
-            href="mailto:praxis.dumbach@outlook.de"
+            href={ContactInformation.emailLink}
           >
-            praxis.dumbach@outlook.de
+            {ContactInformation.email}
           </ContactItem>
 
           <ContactItem

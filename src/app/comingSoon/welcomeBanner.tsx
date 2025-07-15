@@ -1,5 +1,6 @@
 import LogoPraxis from "@/images/logo_praxis.svg";
 import { ContactHeader } from "../common/header/contactHeader";
+import { ContactInformation } from "../common/contactInformation/contactInformation";
 
 export function WelcomeBanner() {
   return (
@@ -24,7 +25,7 @@ export function WelcomeBanner() {
         Ab sofort können Sie auch zahnärztliche Termine bei uns vereinbaren. Möchten Sie eine Kontrolluntersuchung, Beratung oder Zahnreinigung? 
         <br />
         <br />
-        Rufen Sie gerne an unter <a href="tel:09241 8822" className="underline">09241 8822</a>.
+        Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.
         </p>
       </div>
 

@@ -1,5 +1,6 @@
 import { Footer } from "../common/footer/footer";
 import { ContactHeaderWithLogo } from "../common/header/contactHeaderWithLogo";
+import { ContactInformation } from "../common/contactInformation/contactInformation";
 
 export default function Impressum() {
     return (
@@ -25,9 +26,9 @@ export default function Impressum() {
                     <div>
                         <h2 className="text-lg mb-2">Kontakt</h2>
                         <p>
-                        Telefon: <a href="tel:092418822" className="underline">09241 8822</a><br />
-                        E-Mail: <a href="mailto:praxis.dumbach@outlook.de" className="underline">praxis.dumbach@outlook.de</a><br />
-                        Website: <a href="https://zahnarztpraxis-dumbach.de" className="underline" target="_blank" rel="noopener noreferrer">zahnarztpraxis-dumbach.de</a>
+                        Telefon: <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a><br />
+                        E-Mail: <a href={ContactInformation.emailLink} className="underline">{ContactInformation.email}</a><br />
+                        Website: <a href={ContactInformation.website} className="underline" target="_blank" rel="noopener noreferrer">{ContactInformation.domain}</a>
                         </p>
                     </div>
 

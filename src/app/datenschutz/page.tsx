@@ -1,3 +1,4 @@
+import { ContactInformation } from '../common/contactInformation/contactInformation';
 import { Footer } from '../common/footer/footer';
 import { ContactHeaderWithLogo } from '../common/header/contactHeaderWithLogo';
 
@@ -57,8 +58,8 @@ export default function Datenschutz() {
                             Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach<br />
                             Bahnhofstraße 16<br />
                             91257 Pegnitz<br />
-                            Tel: <a href="tel:092418822" className="underline">09241 8822</a><br />
-                            E-Mail: <a href="mailto:praxis.dumbach@outlook.de" className="underline">praxis.dumbach@outlook.de</a>
+                            Tel: <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a><br />
+                            E-Mail: <a href={ContactInformation.emailLink} className="underline">{ContactInformation.email}</a>
                         </address>
                     </article>
                     <article>

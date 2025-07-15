@@ -1,3 +1,4 @@
+import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 
 export function OpeningHoursAndRecentNews() {
@@ -41,7 +42,7 @@ export function OpeningHoursAndRecentNews() {
             <br />
             Wir freuen uns über Ihre Bewerbung an: 
             <br />
-            <a href="mailto:praxis.dumbach@outlook.de">praxis.dumbach@outlook.de</a>!
+            <a href={ContactInformation.emailLink}>{ContactInformation.email}</a>!
             </div>
         </RoundedFrame>
         </div>
