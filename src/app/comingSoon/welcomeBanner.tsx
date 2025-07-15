@@ -25,7 +25,7 @@ export function WelcomeBanner() {
         Ab sofort können Sie auch zahnärztliche Termine bei uns vereinbaren. Möchten Sie eine Kontrolluntersuchung, Beratung oder Zahnreinigung? 
         <br />
         <br />
-        Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.
+        <p className="font-bold">Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.</p>
         </p>
       </div>
 
