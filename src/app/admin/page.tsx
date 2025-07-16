@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -61,6 +62,9 @@ export default function AdminPage() {
 
     return (
         <div style={{ maxWidth: 600, margin: "0 auto", padding: "20px" }}>
+            <Head>
+                <meta name="robots" content="noindex, nofollow" />
+            </Head>
             <h1>Admin: Announcements</h1>
             <button onClick={handleLogout} style={{ marginBottom: "10px" }}>Logout</button>
 
