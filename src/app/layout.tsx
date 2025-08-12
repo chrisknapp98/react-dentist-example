@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     images: [
       {
-        url: "/images/praxis_foto_cropped.png",
+        url: "/images/praxis_foto_cropped.jpg",
         width: 1200,
         height: 630,
         alt: "Außenansicht der Zahnarztpraxis in Pegnitz"
