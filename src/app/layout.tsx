@@ -72,7 +72,22 @@ export default function RootLayout({
     },
     "description": "Moderne Zahnmedizin und Kieferorthopädie in Pegnitz. Eröffnung am 01.09.2025.",
     "openingDate": "2025-09-01",
-    "sameAs": [
+    "availableLanguage": ["de", "en", "es", "fr"],
+    "areaServed": ["Pegnitz", "Bayreuth", "Creußen", "Auerbach", "Lauf", "Plech", "Kirchenthumbach", "Eschenbach"],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Barrierefrei", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Rollstuhlgerecht", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Nähe Bahnhof", "value": true }
+    ],
+    "availableService": [
+      { "@type": "MedicalBusiness", "name": "Zahnreinigung (PZR)" },
+      { "@type": "MedicalBusiness", "name": "Kieferorthopädie" },
+      { "@type": "MedicalBusiness", "name": "unsichtbare Zahnspange (Aligner)" },
+      { "@type": "MedicalBusiness", "name": "Implantate" },
+      { "@type": "MedicalBusiness", "name": "CEREC – Kronen/Brücken" },
+      { "@type": "MedicalBusiness", "name": "Veneers" },
+      { "@type": "MedicalBusiness", "name": "Parodontitis-Behandlung" },
+      { "@type": "MedicalBusiness", "name": "Schienen (Knirschen/CMD)" }
     ]
   };
 
