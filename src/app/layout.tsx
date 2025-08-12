@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: PRACTICE_NAME,
     description:
       "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei. Eröffnung am 01.09.2025.",
-    siteName: "Zahnarzt Pegnitz",
+    siteName: PRACTICE_NAME,
     locale: "de_DE",
     images: [
       {
