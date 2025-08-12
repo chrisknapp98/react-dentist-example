@@ -33,6 +33,14 @@ export const metadata: Metadata = {
       "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei. Eröffnung am 01.09.2025.",
     siteName: "Zahnarzt Pegnitz",
     locale: "de_DE",
+    images: [
+      {
+        url: "/images/praxis_foto_cropped.png",
+        width: 1200,
+        height: 630,
+        alt: "Außenansicht der Zahnarztpraxis in Pegnitz"
+      }
+    ]
   },
   twitter: {
     card: "summary",
