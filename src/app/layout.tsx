@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ContactInformation } from "./common/contactInformation/contactInformation";
@@ -89,3 +89,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const viewport: Viewport = {
+  themeColor: "#9b2c4e", // practice red
+};
