@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     ]
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: PRACTICE_NAME,
     description:
       "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Eröffnung am 01.09.2025.",
