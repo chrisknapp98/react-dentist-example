@@ -2,7 +2,7 @@
 
 export function RoundedFrame(props: { title: string, children?: React.ReactNode }) {
     return (
-        <div className="rounded-2xl bg-practiceRed overflow-hidden shadow-lg items-center flex flex-col">
+        <div className="max-w-[45ch] rounded-2xl bg-practiceRed overflow-hidden shadow-lg items-center flex flex-col">
             <div className="text-white text-xl font-bold text-center p-2">
                 {props.title}
             </div>

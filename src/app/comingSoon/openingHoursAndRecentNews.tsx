@@ -42,12 +42,15 @@ export function OpeningHoursAndRecentNews() {
         </RoundedFrame>
         <RoundedFrame title="Aktuelles">
             <div className="justify-start text-sm vs:text-md sm:text-lg font-light">
-            Für unser Team suchen wir noch Verstärkung in der Assistenz. 
+            Gerne können Sie bereits jetzt Termine vereinbaren. 
+            <br />
+            Zwischen dem 18.08.25 und 28.08.25 sind wir telefonisch von 08:00 bis 12:00 erreichbar. 
+            <br />
+            Alternativ per E-Mail an{" "}
+            <a href={ContactInformation.emailLink} className="underline  whitespace-nowrap">{ContactInformation.email}</a>.
             <br />
             <br />
-            Wir freuen uns über Ihre Bewerbung an: 
-            <br />
-            <a href={ContactInformation.emailLink}>{ContactInformation.email}</a>!
+            Wir freuen uns auf Ihren Besuch!
             </div>
         </RoundedFrame>
         </div>
