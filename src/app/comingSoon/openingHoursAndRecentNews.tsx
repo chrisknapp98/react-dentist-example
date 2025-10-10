@@ -4,7 +4,7 @@ import { RoundedFrame } from "../common/frame/roundedFrame";
 export function OpeningHoursAndRecentNews() {
     return (
         <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10 px-6 sm:px-20">
-        <RoundedFrame title="Sprechzeiten ab 01.09.2025">
+        <RoundedFrame title="Sprechzeiten">
             <div>
             <table className="w-full text-left text-nowrap text-sm vs:text-md sm:text-lg font-light">
             <tbody>
