@@ -3,6 +3,7 @@ import { RoundedFrame } from "../common/frame/roundedFrame";
 
 export function OpeningHoursAndRecentNews() {
     return (
+        <div className="flex justify-center">
         <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10 px-6 sm:px-20">
         <RoundedFrame title="Sprechzeiten">
             <div>
@@ -48,6 +49,7 @@ export function OpeningHoursAndRecentNews() {
             <a href={ContactInformation.emailLink} className="underline  whitespace-nowrap">{ContactInformation.email}</a>.
             </div>
         </RoundedFrame>
+        </div>
         </div>
     )
 }
