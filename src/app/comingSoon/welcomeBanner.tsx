@@ -9,7 +9,7 @@ export function WelcomeBanner() {
         <h1 className="text-3xl md:text-5xl font-thin text-white text-center">HERZLICH WILLKOMMEN</h1>
         <div className="text-lg text-white text-center">
         <p>
-        Am 01.09.2025 eröffnet unsere Zahnarztpraxis mit Kieferorthopädie in Pegnitz!
+        Am 01.09.2025 eröffnete unsere Zahnarztpraxis mit Kieferorthopädie in Pegnitz!
         <br />
         <br />
         In der neuen Gemeinschaftspraxis sind 
@@ -17,7 +17,7 @@ export function WelcomeBanner() {
         Dr.&nbsp;Johannes&nbsp;Dumbach als Zahnärzte und 
         Dr.&nbsp;Georg&nbsp;Dumbach als Kieferorthopäde für Sie da.
         <br />
-        Nach über 30 Jahren Kieferorthopädie möchten wir Ihnen nun Behandlungen aus dem gesamten Spektrum der Zahnmedizin anbieten!
+        Nach über 30 Jahren Kieferorthopädie bieten wir Ihnen nun Behandlungen aus dem gesamten Spektrum der Zahnmedizin an!
         <br />
         <br />
         Wir freuen uns darauf Sie bald in unseren neuen Behandlungsräumen in Pegnitz begrüßen zu dürfen!
@@ -28,7 +28,7 @@ export function WelcomeBanner() {
         <br />
         </p>
         <p className="font-bold">
-          Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.
+        Rufen Sie gerne an unter <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a>.
         </p>
         </div>
       </div>
