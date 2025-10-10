@@ -38,6 +38,8 @@ export function OpeningHoursAndRecentNews() {
             </table>
             <p className="font-light text-sm vs:text-md sm:text-lg mt-2 px-2">
                 Termine nach Vereinbarung.
+                <br />
+                Kieferorthopädische Termine am Freitag&shy;nachmittag nach Absprache.
             </p>
             </div>
         </RoundedFrame>
