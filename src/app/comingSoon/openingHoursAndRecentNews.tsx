@@ -3,8 +3,9 @@ import { RoundedFrame } from "../common/frame/roundedFrame";
 
 export function OpeningHoursAndRecentNews() {
     return (
+        <div className="flex justify-center">
         <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10 px-6 sm:px-20">
-        <RoundedFrame title="Sprechzeiten ab 01.09.2025">
+        <RoundedFrame title="Sprechzeiten">
             <div>
             <table className="w-full text-left text-nowrap text-sm vs:text-md sm:text-lg font-light">
             <tbody>
@@ -37,22 +38,20 @@ export function OpeningHoursAndRecentNews() {
             </table>
             <p className="font-light text-sm vs:text-md sm:text-lg mt-2 px-2">
                 Termine nach Vereinbarung.
+                <br />
+                Kieferorthopädische Termine am Freitag&shy;nachmittag nach Absprache.
             </p>
             </div>
         </RoundedFrame>
         <RoundedFrame title="Aktuelles">
             <div className="justify-start text-sm vs:text-md sm:text-lg font-light">
-            Gerne können Sie bereits jetzt Termine vereinbaren. 
+            Für unser Team suchen wir noch Verstärkung in der Assistenz. 
             <br />
-            Zwischen dem 18.08.25 und 28.08.25 sind wir telefonisch von 08:00 bis 12:00 erreichbar. 
-            <br />
-            Alternativ per E-Mail an{" "}
+            Wir freuen uns über Ihre Bewerbung an:{" "}
             <a href={ContactInformation.emailLink} className="underline  whitespace-nowrap">{ContactInformation.email}</a>.
-            <br />
-            <br />
-            Wir freuen uns auf Ihren Besuch!
             </div>
         </RoundedFrame>
+        </div>
         </div>
     )
 }
