@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(ContactInformation.website),
   title:  PRACTICE_NAME,
   description:
-    "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz – ab dem 01.09.2025 für Sie da! Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
+    "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
   alternates: {
     canonical: ContactInformation.website,
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: ContactInformation.website,
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei. Eröffnung am 01.09.2025.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
     siteName: PRACTICE_NAME,
     locale: "de_DE",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Eröffnung am 01.09.2025.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
   },
 };
 
@@ -70,8 +70,7 @@ export default function RootLayout({
       "addressRegion": ContactInformation.address.region,
       "addressCountry": ContactInformation.address.country
     },
-    "description": "Moderne Zahnmedizin und Kieferorthopädie in Pegnitz. Eröffnung am 01.09.2025.",
-    "openingDate": "2025-09-01",
+    "description": "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
     "availableLanguage": ["de", "en", "es", "fr"],
     "areaServed": ["Pegnitz", "Bayreuth", "Creußen", "Auerbach", "Lauf", "Plech", "Kirchenthumbach", "Eschenbach"],
     "amenityFeature": [
