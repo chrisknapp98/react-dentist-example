@@ -1,4 +1,3 @@
-import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 
 export function OpeningHoursAndRecentNews() {
