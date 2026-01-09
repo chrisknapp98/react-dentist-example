@@ -1,3 +1,4 @@
+import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 
 export function OpeningHoursAndRecentNews() {
@@ -44,20 +45,10 @@ export function OpeningHoursAndRecentNews() {
         </RoundedFrame>
         <RoundedFrame title="Aktuelles">
             <div className="justify-start text-sm vs:text-md sm:text-lg font-light">
-                Wir sind vom 24.12.2025–06.01.2026 im Urlaub.
+                Für unser Team suchen wir noch Verstärkung in der Assistenz. 
                 <br />
-                In dringenden Fällen wenden Sie sich bitte an den zahnärztlichen Notdienst (
-                <a
-                    href="https://www.notdienst-zahn.de"
-                    className="underline whitespace-nowrap"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    www.notdienst-zahn.de
-                </a>
-                ).
-                <br />
-                Ab dem 07.01.2026 sind wir wieder für Sie da!
+                Wir freuen uns über Ihre Bewerbung an:{" "}
+                <a href={ContactInformation.emailLink} className="underline  whitespace-nowrap">{ContactInformation.email}</a>
             </div>
         </RoundedFrame>
         </div>
