@@ -97,6 +97,55 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ success: true }, { status: 200 });
 }
 
+export async function PUT(req: Request) {
+    if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
+        return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
+    }
+
+    const { orderedIds } = await req.json();
+    console.log("PUT orderedIds:", orderedIds);
+    if (!Array.isArray(orderedIds)) {
+        return NextResponse.json({ error: "orderedIds is required" }, { status: 400 });
+    }
+
+    let announcements: AnnouncementDTO[] = [];
+    const response = await fetchBlobBypassingCache();
+    if (response.ok) {
+        announcements = await response.json();
+    }
+    console.log("BEFORE announcements:", announcements.map(a => a.id));
+    const announcementsById = new Map(announcements.map((a) => [a.id, a]));
+    const reordered: AnnouncementDTO[] = [];
+
+    orderedIds.forEach((id: string) => {
+        const item = announcementsById.get(id);
+        if (item) reordered.push(item);
+    });
+
+    announcements.forEach((item) => {
+        if (!orderedIds.includes(item.id)) reordered.push(item);
+    });
+    const missing = orderedIds.filter(id => !announcementsById.has(id));
+    if (missing.length) {
+        console.warn("PUT missing ids:", missing);
+        return NextResponse.json(
+            { error: "Some ids do not exist", missing },
+            { status: 400 }
+        );
+    }
+    console.log("AFTER reordered:", reordered.map(a => a.id));
+    await put(BLOB_FILENAME, JSON.stringify(reordered, null, 2), {
+        contentType: "application/json",
+        access: "public",
+        addRandomSuffix: false,
+        token: BLOB_WRITE_TOKEN,
+    });
+
+    return NextResponse.json({ success: true }, { status: 200 });
+}
+
 async function fetchBlobBypassingCache(): Promise<Response> {
-    return await fetch(`${BLOB_URL}?t=${Date.now()}`);
+  const url = new URL(BLOB_URL!);
+  url.searchParams.set("t", String(Date.now()));
+  return fetch(url.toString(), { cache: "no-store" });
 }

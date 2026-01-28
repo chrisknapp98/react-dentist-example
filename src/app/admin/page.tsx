@@ -1,14 +1,19 @@
 "use client";
 import Head from "next/head";
 
-import { useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AnnouncementDTO } from "../api/announcements/announcementDTO";
+import { RecentNewsFrame } from "../comingSoon/recentNewsFrame";
+import { ContactInformation } from "../common/contactInformation/contactInformation";
+import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
 
 export default function AdminPage() {
     const [message, setMessage] = useState("");
     const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(false);
+    const messageRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -20,7 +25,10 @@ export default function AdminPage() {
                 setIsAuthenticated(true);
                 fetch("/api/announcements")
                     .then((res) => res.json())
-                    .then((data) => setAnnouncements(data));
+                    .then((data) => { 
+                        if (data.error) return;
+                        setAnnouncements(data); 
+                    });
             } else {
                 router.push("/admin/login");
             }
@@ -31,7 +39,7 @@ export default function AdminPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!message) return alert("Please fill in all fields.");
+        if (!message) return alert("Bitte füllen Sie das Feld aus.");
 
         const res = await fetch("/api/announcements", {
             method: "POST",
@@ -41,8 +49,14 @@ export default function AdminPage() {
 
         if (res.ok) {
             const newAnnouncement: AnnouncementDTO = await res.json();
-            setAnnouncements([...announcements, newAnnouncement]);
+            const nextAnnouncements = [newAnnouncement, ...announcements];
+            setAnnouncements(nextAnnouncements);
             setMessage("");
+            await fetch("/api/announcements", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ orderedIds: nextAnnouncements.map((item) => item.id) }),
+            });
         }
     };
 
@@ -58,34 +72,213 @@ export default function AdminPage() {
         router.push("/admin/login");
     };
 
+    const moveAnnouncement = async (fromIndex: number, direction: "up" | "down") => {
+        const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
+        if (targetIndex < 0 || targetIndex >= announcements.length) return;
+
+        const next = [...announcements];
+        const [moved] = next.splice(fromIndex, 1);
+        next.splice(targetIndex, 0, moved);
+        setAnnouncements(next);
+
+        await fetch("/api/announcements", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ orderedIds: next.map((item) => item.id) }),
+        });
+    };
+
+    const insertAtCursor = (text: string) => {
+        const textarea = messageRef.current;
+        if (!textarea) {
+            setMessage((prev) => `${prev}${text}`);
+            return;
+        }
+        const start = textarea.selectionStart ?? textarea.value.length;
+        const end = textarea.selectionEnd ?? textarea.value.length;
+        const nextValue = `${message.slice(0, start)}${text}${message.slice(end)}`;
+        setMessage(nextValue);
+        requestAnimationFrame(() => {
+            textarea.focus();
+            const nextCursor = start + text.length;
+            textarea.setSelectionRange(nextCursor, nextCursor);
+        });
+    };
+    const previewItems = useMemo(() => {
+        if (!message) return announcements;
+        return [{ id: "draft", message, date: new Date().toISOString() }, ...announcements];
+    }, [message, announcements]);
+
     if (!isAuthenticated) return null;
 
     return (
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "20px" }}>
+        <div className="min-h-screen bg-gradient-to-b from-[#f7f2f4] via-white to-[#f3f3f6] text-textGrey">
             <Head>
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
-            <h1>Admin: Announcements</h1>
-            <button onClick={handleLogout} style={{ marginBottom: "10px" }}>Logout</button>
+            <div className="mx-auto max-w-6xl px-6 py-12">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <p className="text-xs uppercase tracking-[0.3em] text-practiceGrey">Adminbereich</p>
+                        <h1 className="mt-2 text-3xl font-light text-textBlue sm:text-4xl">Aktuelles</h1>
+                        <p className="mt-2 text-sm text-textGrey/80">
+                            Kurze Hinweise für die Startseite veröffentlichen.
+                        </p>
+                    </div>
+                    <button
+                        onClick={handleLogout}
+                        className="inline-flex items-center justify-center rounded-full border border-practiceGrey/40 px-5 py-2 text-sm font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-white"
+                    >
+                        Abmelden
+                    </button>
+                </div>
 
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <input type="text" placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required style={{ color: "black" }}/>
-                <button type="submit">Add Announcement</button>
-            </form>
+                <div className="flex justify-center">
+                    {/* can we make them similar width? */}
+                    <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10">
+                        <div className="flex-1 rounded-3xl bg-white p-8 shadow-[0_20px_60px_-35px_rgba(65,71,125,0.6)] ring-1 ring-black/5">
+                            <div className="flex items-center justify-between">
+                                <h2 className="text-lg font-semibold text-textBlue">Neue Meldung</h2>
+                                <span className="rounded-full bg-practiceSkin/40 px-3 py-1 text-xs font-medium text-textGrey">
+                                    {announcements.length} aktiv
+                                </span>
+                            </div>
+                            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                                <label className="block text-sm font-medium text-textGrey" htmlFor="announcement-message">
+                                    Nachricht
+                                </label>
+                                <textarea
+                                    id="announcement-message"
+                                    ref={messageRef}
+                                    placeholder="Beispiel: Am Freitag, 2. Februar, bleibt die Praxis geschlossen."
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    required
+                                    rows={4}
+                                    className="w-full resize-none rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
+                                />
+                                <div className="flex flex-wrap gap-2 text-xs text-textGrey">
+                                    <span className="mr-2 font-medium text-textGrey/70 flex items-center">Schnell einfügen:</span>
+                                    <button
+                                        type="button"
+                                        onClick={() => insertAtCursor(`[${ContactInformation.email}](${ContactInformation.emailLink})`)}
+                                        className="rounded-full border border-practiceGrey/40 px-3 py-1.5 transition hover:border-practiceGrey hover:bg-practiceGrey/10"
+                                    >
+                                        E-Mail
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => insertAtCursor(`[${ContactInformation.telephoneDisplay}](${ContactInformation.telephoneLink})`)}
+                                        className="rounded-full border border-practiceGrey/40 px-3 py-1.5 transition hover:border-practiceGrey hover:bg-practiceGrey/10"
+                                    >
+                                        Telefon
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => insertAtCursor("[sichtbarer Text](link)")}
+                                        className="rounded-full border border-practiceGrey/40 px-3 py-1.5 transition hover:border-practiceGrey hover:bg-practiceGrey/10"
+                                    >
+                                        Link
+                                    </button>
+                                </div>
+                                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                    <p className="text-xs text-textGrey/60">
+                                        Kurz und klar für Patient:innen formulieren.
+                                    </p>
+                                    <button
+                                        type="submit"
+                                        className="inline-flex items-center justify-center rounded-full bg-practiceRed px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
+                                    >
+                                        Veröffentlichen
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
 
-            <h2>Existing Announcements</h2>
-            {announcements.length === 0 ? (
-                <p>No announcements.</p>
-            ) : (
-                <ul>
-                    {announcements.map((a) => (
-                        <li key={a.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                            <span>{new Date(a.date).toLocaleString()}: {a.message}</span>
-                            <button onClick={() => handleDelete(a.id)} style={{ marginLeft: 10 }}>Delete</button>
-                        </li>
-                    ))}
-                </ul>
-            )}
+                        <div className="flex-1 flex flex-col items-start gap-4">
+                            <div className="flex w-full max-w-[45ch] items-center justify-between">
+                                <h3 className="text-xs uppercase tracking-[0.3em] text-practiceGrey">Vorschau</h3>
+                                <label className="flex items-center gap-2 text-xs text-textGrey">
+                                    <input
+                                        type="checkbox"
+                                        className="h-4 w-4 rounded border-practiceGrey/40 text-practiceRed focus:ring-practiceRed/30"
+                                        checked={previewOnlyCurrent}
+                                        onChange={(event) => setPreviewOnlyCurrent(event.target.checked)}
+                                    />
+                                    Nur aktuelle Meldung
+                                </label>
+                            </div>
+                            <div className="h-full flex items-stretch">
+                                <RecentNewsFrame
+                                    announcements={previewItems}
+                                    showOnlyCurrent={previewOnlyCurrent}
+                                    autoAdvanceMs={5000}
+                                    frameClassName="w-full max-w-none"
+                                    emptyState={
+                                        <div className="text-sm font-light text-textGrey/70">
+                                            Noch keine Meldungen angelegt.
+                                        </div>
+                                    }
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-12">
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-xl font-semibold text-textBlue">Aktive Meldungen</h2>
+                        <span className="text-xs text-textGrey/60">
+                            {announcements.length === 0 ? "Keine Meldungen" : "Reihenfolge anpassbar"}
+                        </span>
+                    </div>
+                    {announcements.length === 0 ? (
+                        <div className="mt-6 rounded-3xl border border-dashed border-practiceGrey/40 bg-white/70 p-10 text-center text-sm text-textGrey/70">
+                            Noch keine Meldungen. Lege oben die erste Meldung an.
+                        </div>
+                    ) : (
+                        <ul className="mt-6 space-y-4">
+                            {announcements.map((a, index) => (
+                                <li
+                                    key={a.id}
+                                    className="flex flex-col gap-4 rounded-3xl border border-practiceGrey/20 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between"
+                                >
+                                    <div>
+                                        <p className="text-xs uppercase tracking-[0.22em] text-practiceGrey">
+                                            {new Date(a.date).toLocaleString("de-DE")}
+                                        </p>
+                                        <p className="mt-2 text-base text-textGrey">
+                                            {renderMessageWithLinks(a.message, { linkClassName: "underline" })}
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        <button
+                                            onClick={() => moveAnnouncement(index, "up")}
+                                            disabled={index === 0}
+                                            className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
+                                        >
+                                            Nach oben
+                                        </button>
+                                        <button
+                                            onClick={() => moveAnnouncement(index, "down")}
+                                            disabled={index === announcements.length - 1}
+                                            className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
+                                        >
+                                            Nach unten
+                                        </button>
+                                        <button
+                                            onClick={() => handleDelete(a.id)}
+                                            className="rounded-full border border-practiceRed/40 px-3 py-2 text-xs font-medium text-practiceRed transition hover:border-practiceRed hover:bg-practiceRed/10"
+                                        >
+                                            Löschen
+                                        </button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
