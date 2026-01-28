@@ -56,7 +56,7 @@ export async function POST(req: Request) {
             token: BLOB_WRITE_TOKEN,
         });
 
-        return NextResponse.json(newAnnouncement, { status: 201 });
+        return NextResponse.json(announcements, { status: 201 });
     } catch (error) {
         console.error("Error adding announcement:", error);
         return NextResponse.json({ error: "Failed to add announcement" }, { status: 500 });
@@ -94,7 +94,7 @@ export async function DELETE(req: Request) {
         token: BLOB_WRITE_TOKEN,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(announcements, { status: 200 });
 }
 
 export async function PUT(req: Request) {
@@ -103,7 +103,6 @@ export async function PUT(req: Request) {
     }
 
     const { orderedIds } = await req.json();
-    console.log("PUT orderedIds:", orderedIds);
     if (!Array.isArray(orderedIds)) {
         return NextResponse.json({ error: "orderedIds is required" }, { status: 400 });
     }
@@ -113,7 +112,6 @@ export async function PUT(req: Request) {
     if (response.ok) {
         announcements = await response.json();
     }
-    console.log("BEFORE announcements:", announcements.map(a => a.id));
     const announcementsById = new Map(announcements.map((a) => [a.id, a]));
     const reordered: AnnouncementDTO[] = [];
 
@@ -127,21 +125,18 @@ export async function PUT(req: Request) {
     });
     const missing = orderedIds.filter(id => !announcementsById.has(id));
     if (missing.length) {
-        console.warn("PUT missing ids:", missing);
         return NextResponse.json(
             { error: "Some ids do not exist", missing },
             { status: 400 }
         );
     }
-    console.log("AFTER reordered:", reordered.map(a => a.id));
     await put(BLOB_FILENAME, JSON.stringify(reordered, null, 2), {
         contentType: "application/json",
         access: "public",
         addRandomSuffix: false,
         token: BLOB_WRITE_TOKEN,
     });
-
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(reordered, { status: 200 });
 }
 
 async function fetchBlobBypassingCache(): Promise<Response> {

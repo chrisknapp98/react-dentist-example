@@ -15,6 +15,18 @@ export default function AdminPage() {
     const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(false);
     const messageRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
+    const announcementsRef = useRef<AnnouncementDTO[]>([]);
+
+    const fetchAnnouncements = async () => {
+        const res = await fetch("/api/announcements");
+        const data = await res.json();
+        if (data?.error) return;
+        setAnnouncements(data ?? []);
+    };
+
+    useEffect(() => {
+        announcementsRef.current = announcements;
+    }, [announcements]);
 
     useEffect(() => {
         async function checkAuth() {
@@ -23,12 +35,7 @@ export default function AdminPage() {
 
             if (data.valid) {
                 setIsAuthenticated(true);
-                fetch("/api/announcements")
-                    .then((res) => res.json())
-                    .then((data) => { 
-                        if (data.error) return;
-                        setAnnouncements(data); 
-                    });
+                await fetchAnnouncements();
             } else {
                 router.push("/admin/login");
             }
@@ -47,23 +54,23 @@ export default function AdminPage() {
             body: JSON.stringify({ message }),
         });
 
-        if (res.ok) {
-            const newAnnouncement: AnnouncementDTO = await res.json();
-            const nextAnnouncements = [newAnnouncement, ...announcements];
-            setAnnouncements(nextAnnouncements);
-            setMessage("");
-            await fetch("/api/announcements", {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ orderedIds: nextAnnouncements.map((item) => item.id) }),
-            });
-        }
+        if (!res.ok) return;
+        const updatedAnnouncements: AnnouncementDTO[] = await res.json();
+        setAnnouncements(() => updatedAnnouncements);
+        setMessage("");
     };
 
     const handleDelete = async (id: string) => {
-        const res = await fetch(`/api/announcements?id=${id}`, { method: "DELETE" });
-        if (res.ok) {
-            setAnnouncements(announcements.filter((a) => a.id !== id));
+        const previous = announcementsRef.current;
+        setAnnouncements((prev) => prev.filter((a) => a.id !== id));
+
+        try {
+            const res = await fetch(`/api/announcements?id=${id}`, { method: "DELETE" });
+            if (!res.ok) throw new Error("Delete failed");
+            const updatedAnnouncements: AnnouncementDTO[] = await res.json();
+            setAnnouncements(() => updatedAnnouncements);
+        } catch {
+            setAnnouncements(previous);
         }
     };
 
@@ -76,16 +83,24 @@ export default function AdminPage() {
         const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
         if (targetIndex < 0 || targetIndex >= announcements.length) return;
 
+        const previous = announcementsRef.current;
         const next = [...announcements];
         const [moved] = next.splice(fromIndex, 1);
         next.splice(targetIndex, 0, moved);
-        setAnnouncements(next);
+        setAnnouncements(() => next);
 
-        await fetch("/api/announcements", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ orderedIds: next.map((item) => item.id) }),
-        });
+        try {
+            const res = await fetch("/api/announcements", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ orderedIds: next.map((item) => item.id) }),
+            });
+            if (!res.ok) throw new Error("Reorder failed");
+            const updatedAnnouncements: AnnouncementDTO[] = await res.json();
+            setAnnouncements(() => updatedAnnouncements);
+        } catch {
+            setAnnouncements(previous);
+        }
     };
 
     const insertAtCursor = (text: string) => {
