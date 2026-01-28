@@ -150,8 +150,8 @@ export default function AdminPage() {
 
                 <div className="flex justify-center">
                     {/* can we make them similar width? */}
-                    <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch justify-center py-10">
-                        <div className="flex-1 rounded-3xl bg-white p-8 shadow-[0_20px_60px_-35px_rgba(65,71,125,0.6)] ring-1 ring-black/5">
+                    <div className="flex w-full max-w-5xl flex-col gap-6 md:gap-10 items-stretch justify-center py-10 lg:flex-row">
+                        <div className="w-full rounded-3xl bg-white p-8 shadow-[0_20px_60px_-35px_rgba(65,71,125,0.6)] ring-1 ring-black/5 lg:w-1/2 lg:flex-none lg:self-stretch">
                             <div className="flex items-center justify-between">
                                 <h2 className="text-lg font-semibold text-textBlue">Neue Meldung</h2>
                                 <span className="rounded-full bg-practiceSkin/40 px-3 py-1 text-xs font-medium text-textGrey">
@@ -210,8 +210,8 @@ export default function AdminPage() {
                             </form>
                         </div>
 
-                        <div className="flex-1 flex flex-col items-start gap-4">
-                            <div className="flex w-full max-w-[45ch] items-center justify-between">
+                        <div className="flex w-full flex-col items-start gap-4 lg:w-1/2 lg:flex-none lg:self-stretch">
+                            <div className="flex w-full items-center justify-between">
                                 <h3 className="text-xs uppercase tracking-[0.3em] text-practiceGrey">Vorschau</h3>
                                 <label className="flex items-center gap-2 text-xs text-textGrey">
                                     <input
@@ -223,12 +223,12 @@ export default function AdminPage() {
                                     Nur aktuelle Meldung
                                 </label>
                             </div>
-                            <div className="h-full flex items-stretch">
+                            <div className="h-full w-full flex items-stretch">
                                 <RecentNewsFrame
                                     announcements={previewItems}
                                     showOnlyCurrent={previewOnlyCurrent}
                                     autoAdvanceMs={5000}
-                                    frameClassName="w-full max-w-none"
+                                    frameClassName="w-full max-w-none h-full"
                                     emptyState={
                                         <div className="text-sm font-light text-textGrey/70">
                                             Noch keine Meldungen angelegt.
