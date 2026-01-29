@@ -151,9 +151,18 @@ export default function AdminPage() {
                         Abmelden
                     </button>
                 </div>
-                <div className="mt-6 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80">
-                    Hinweis: Aktualisierungen können einige Sekunden bis Minuten dauern. Bitte jeweils nur eine Änderung
-                    durchführen und warten, bis sie im Backend verarbeitet wurde.
+                <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80 sm:flex-row sm:items-center sm:justify-between">
+                    <p>
+                        Hinweis: Aktualisierungen können einige Sekunden bis Minuten dauern. Bitte jeweils nur eine Änderung
+                        durchführen und warten, bis sie im Backend verarbeitet wurde.
+                    </p>
+                    <button
+                        type="button"
+                        onClick={fetchAnnouncements}
+                        className="inline-flex items-center justify-center rounded-full border border-practiceGrey/40 px-4 py-1.5 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-white"
+                    >
+                        Aktualisieren
+                    </button>
                 </div>
 
                 <div className="flex justify-center">
