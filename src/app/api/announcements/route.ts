@@ -47,7 +47,7 @@ export async function POST(req: Request) {
         }
 
         const newAnnouncement = { id: randomUUID(), message, date: new Date().toISOString() };
-        announcements.push(newAnnouncement);
+        announcements.unshift(newAnnouncement);
 
         await put(BLOB_FILENAME, JSON.stringify(announcements, null, 2), {
             contentType: "application/json",
