@@ -12,7 +12,7 @@ export default function AdminPage() {
     const [message, setMessage] = useState("");
     const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(false);
+    const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
     const messageRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
     const announcementsRef = useRef<AnnouncementDTO[]>([]);
