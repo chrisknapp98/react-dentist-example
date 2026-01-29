@@ -151,6 +151,10 @@ export default function AdminPage() {
                         Abmelden
                     </button>
                 </div>
+                <div className="mt-6 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80">
+                    Hinweis: Aktualisierungen können einige Sekunden bis Minuten dauern. Bitte jeweils nur eine Änderung
+                    durchführen und warten, bis sie im Backend verarbeitet wurde.
+                </div>
 
                 <div className="flex justify-center">
                     <div className="flex w-full max-w-5xl flex-col gap-6 md:gap-10 items-stretch justify-center py-10 lg:flex-row">
