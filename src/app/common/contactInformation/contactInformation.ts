@@ -14,5 +14,7 @@ export class ContactInformation {
     static readonly domain = 'zahnarztpraxis-dumbach.de';
     static readonly website = 'https://zahnarztpraxis-dumbach.de';
     static readonly address = Address
+    static readonly emergencyServiceDisplayWebsite = 'www.notdienst-zahn.de';
+    static readonly emergencyServiceWebsite = 'https://www.notdienst-zahn.de';
 
 }

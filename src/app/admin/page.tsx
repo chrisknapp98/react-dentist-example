@@ -189,6 +189,13 @@ export default function AdminPage() {
                                     </button>
                                     <button
                                         type="button"
+                                        onClick={() => insertAtCursor(`[${ContactInformation.emergencyServiceDisplayWebsite}](${ContactInformation.emergencyServiceWebsite})`)}
+                                        className="rounded-full border border-practiceGrey/40 px-3 py-1.5 transition hover:border-practiceGrey hover:bg-practiceGrey/10"
+                                    >
+                                        Notdienst
+                                    </button>
+                                    <button
+                                        type="button"
                                         onClick={() => insertAtCursor("[sichtbarer Text](link)")}
                                         className="rounded-full border border-practiceGrey/40 px-3 py-1.5 transition hover:border-practiceGrey hover:bg-practiceGrey/10"
                                     >
