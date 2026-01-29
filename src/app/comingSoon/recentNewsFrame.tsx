@@ -54,26 +54,30 @@ export function RecentNewsFrame({
                     emptyState
                 ) : (
                         <div className="space-y-4">
-                            <div className="relative w-full overflow-hidden rounded-xl bg-white/60 p-4">
+                            <div className="relative w-full overflow-hidden rounded-xl">
                                 {showOnlyCurrent ? (
-                                <p className="text-textGrey">
-                                    {renderMessageWithLinks(announcements[activeIndex]?.message ?? "", {
-                                    linkClassName: "underline",
-                                    })}
-                                </p>
-                                ) : (
-                                <div
-                                    className="flex w-full transition-transform duration-500 ease-out will-change-transform"
-                                    style={{ transform: `translate3d(-${activeIndex * 100}%,0,0)` }}
-                                >
-                                    {announcements.map((a) => (
-                                    <div key={a.id} className="w-full min-w-full flex-shrink-0 box-border px-4">
+                                    <div className="rounded-xl bg-white/60 p-4">
                                         <p className="text-textGrey">
-                                        {renderMessageWithLinks(a.message, { linkClassName: "underline" })}
+                                            {renderMessageWithLinks(announcements[activeIndex]?.message ?? "", {
+                                                linkClassName: "underline",
+                                            })}
                                         </p>
                                     </div>
-                                    ))}
-                                </div>
+                                ) : (
+                                    <div
+                                        className="flex w-full transition-transform duration-500 ease-out will-change-transform"
+                                        style={{ transform: `translate3d(-${activeIndex * 100}%,0,0)` }}
+                                    >
+                                        {announcements.map((a) => (
+                                            <div key={a.id} className="w-full min-w-full flex-shrink-0 px-3 sm:px-4">
+                                                <div className="rounded-xl bg-white/60 p-4">
+                                                    <p className="text-textGrey">
+                                                        {renderMessageWithLinks(a.message, { linkClassName: "underline" })}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
                                 )}
                             </div>
                         {!showOnlyCurrent && announcements.length > 1 ? (
