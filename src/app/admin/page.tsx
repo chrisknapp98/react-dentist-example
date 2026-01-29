@@ -149,7 +149,6 @@ export default function AdminPage() {
                 </div>
 
                 <div className="flex justify-center">
-                    {/* can we make them similar width? */}
                     <div className="flex w-full max-w-5xl flex-col gap-6 md:gap-10 items-stretch justify-center py-10 lg:flex-row">
                         <div className="w-full rounded-3xl bg-white p-8 shadow-[0_20px_60px_-35px_rgba(65,71,125,0.6)] ring-1 ring-black/5 lg:w-1/2 lg:flex-none lg:self-stretch">
                             <div className="flex items-center justify-between">

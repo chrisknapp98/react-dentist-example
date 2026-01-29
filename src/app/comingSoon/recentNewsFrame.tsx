@@ -24,7 +24,6 @@ export function RecentNewsFrame({
 }: RecentNewsFrameProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
-    const count = announcements.length;
 
     useEffect(() => {
         if (showOnlyCurrent) setActiveIndex(0);
