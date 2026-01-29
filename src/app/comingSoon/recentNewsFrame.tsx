@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnnouncementDTO } from "../api/announcements/announcementDTO";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
@@ -24,6 +24,16 @@ export function RecentNewsFrame({
 }: RecentNewsFrameProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+    const touchEndXRef = useRef<number | null>(null);
+
+    const goToNext = () => {
+        setActiveIndex((prev) => (prev + 1) % announcements.length);
+    };
+
+    const goToPrev = () => {
+        setActiveIndex((prev) => (prev - 1 + announcements.length) % announcements.length);
+    };
 
     useEffect(() => {
         if (showOnlyCurrent) setActiveIndex(0);
@@ -49,6 +59,47 @@ export function RecentNewsFrame({
                 className="w-full text-sm vs:text-md sm:text-lg font-light"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={(event) => {
+                    if (announcements.length < 2 || showOnlyCurrent) return;
+                    const touch = event.touches[0];
+                    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+                    touchEndXRef.current = touch.clientX;
+                    setIsPaused(true);
+                }}
+                onTouchMove={(event) => {
+                    if (!touchStartRef.current) return;
+                    touchEndXRef.current = event.touches[0].clientX;
+                }}
+                onTouchEnd={(event) => {
+                    if (announcements.length < 2 || showOnlyCurrent) {
+                        touchStartRef.current = null;
+                        touchEndXRef.current = null;
+                        setIsPaused(false);
+                        return;
+                    }
+                    const start = touchStartRef.current;
+                    const endX = touchEndXRef.current;
+                    const endTouch = event.changedTouches[0];
+                    if (!start || endX === null) {
+                        touchStartRef.current = null;
+                        touchEndXRef.current = null;
+                        setIsPaused(false);
+                        return;
+                    }
+                    const deltaX = endX - start.x;
+                    const deltaY = endTouch.clientY - start.y;
+                    const swipeThreshold = 40;
+                    if (Math.abs(deltaX) > swipeThreshold && Math.abs(deltaX) > Math.abs(deltaY)) {
+                        if (deltaX < 0) {
+                            goToNext();
+                        } else {
+                            goToPrev();
+                        }
+                    }
+                    touchStartRef.current = null;
+                    touchEndXRef.current = null;
+                    setIsPaused(false);
+                }}
             >
                 {announcements.length === 0 ? (
                     emptyState
