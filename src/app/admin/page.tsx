@@ -47,6 +47,7 @@ export default function AdminPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!message) return alert("Bitte füllen Sie das Feld aus.");
+        if (!window.confirm("Neue Meldung jetzt veröffentlichen?")) return;
 
         const res = await fetch("/api/announcements", {
             method: "POST",
@@ -61,6 +62,7 @@ export default function AdminPage() {
     };
 
     const handleDelete = async (id: string) => {
+        if (!window.confirm("Diese Meldung wirklich löschen?")) return;
         const previous = announcementsRef.current;
         setAnnouncements((prev) => prev.filter((a) => a.id !== id));
 
@@ -82,6 +84,8 @@ export default function AdminPage() {
     const moveAnnouncement = async (fromIndex: number, direction: "up" | "down") => {
         const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
         if (targetIndex < 0 || targetIndex >= announcements.length) return;
+        const confirmText = direction === "up" ? "Meldung nach oben verschieben?" : "Meldung nach unten verschieben?";
+        if (!window.confirm(confirmText)) return;
 
         const previous = announcementsRef.current;
         const next = [...announcements];
