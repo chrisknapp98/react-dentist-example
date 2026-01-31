@@ -4,10 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnnouncementDTO } from "../api/announcements/announcementDTO";
 import { RoundedFrame } from "../common/frame/roundedFrame";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
+import { ContactInformation } from "../common/contactInformation/contactInformation";
 
 type RecentNewsFrameProps = {
   announcements: AnnouncementDTO[];
-  emptyState: React.ReactNode;
+  emptyState?: string;
   title?: string;
   showOnlyCurrent?: boolean;
   autoAdvanceMs?: number;
@@ -16,9 +17,11 @@ type RecentNewsFrameProps = {
 
 type TouchStart = { x: number; y: number };
 
+const defaultEmptyState = `Aktuell liegen keine Meldungen vor.\nBei Fragen erreichen Sie uns per [E-Mail](${ContactInformation.emailLink}) oder telefonisch unter [${ContactInformation.telephoneDisplay}](${ContactInformation.telephoneLink})`;
+
 export function RecentNewsFrame({
   announcements,
-  emptyState,
+  emptyState = defaultEmptyState,
   title = "Aktuelles",
   showOnlyCurrent = false,
   autoAdvanceMs = 5500,
@@ -32,7 +35,7 @@ export function RecentNewsFrame({
 
   const canInteract = useMemo(
     () => announcements.length >= 2 && !showOnlyCurrent,
-    [announcements.length, showOnlyCurrent]
+    [announcements.length, showOnlyCurrent],
   );
 
   const goToNext = useCallback(() => {
@@ -40,7 +43,9 @@ export function RecentNewsFrame({
   }, [announcements.length]);
 
   const goToPrev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + announcements.length) % announcements.length);
+    setActiveIndex(
+      (prev) => (prev - 1 + announcements.length) % announcements.length,
+    );
   }, [announcements.length]);
 
   const resetTouch = useCallback(() => {
@@ -60,13 +65,16 @@ export function RecentNewsFrame({
       touchEndXRef.current = touch.clientX;
       setIsPaused(true);
     },
-    [canInteract]
+    [canInteract],
   );
 
-  const handleTouchMove = useCallback((event: React.TouchEvent<HTMLDivElement>) => {
-    if (!touchStartRef.current) return;
-    touchEndXRef.current = event.touches[0].clientX;
-  }, []);
+  const handleTouchMove = useCallback(
+    (event: React.TouchEvent<HTMLDivElement>) => {
+      if (!touchStartRef.current) return;
+      touchEndXRef.current = event.touches[0].clientX;
+    },
+    [],
+  );
 
   const handleTouchEnd = useCallback(
     (event: React.TouchEvent<HTMLDivElement>) => {
@@ -91,7 +99,8 @@ export function RecentNewsFrame({
 
       const swipeThreshold = 40;
       const isHorizontalSwipe =
-        Math.abs(deltaX) > swipeThreshold && Math.abs(deltaX) > Math.abs(deltaY);
+        Math.abs(deltaX) > swipeThreshold &&
+        Math.abs(deltaX) > Math.abs(deltaY);
 
       if (isHorizontalSwipe) {
         if (deltaX < 0) goToNext();
@@ -101,7 +110,7 @@ export function RecentNewsFrame({
       resetTouch();
       setIsPaused(false);
     },
-    [canInteract, goToNext, goToPrev, resetTouch]
+    [canInteract, goToNext, goToPrev, resetTouch],
   );
 
   useEffect(() => {
@@ -114,11 +123,19 @@ export function RecentNewsFrame({
 
     const interval = setInterval(goToNext, autoAdvanceMs);
     return () => clearInterval(interval);
-  }, [announcements.length, isPaused, showOnlyCurrent, autoAdvanceMs, goToNext]);
+  }, [
+    announcements.length,
+    isPaused,
+    showOnlyCurrent,
+    autoAdvanceMs,
+    goToNext,
+  ]);
 
   useEffect(() => {
     if (activeIndex >= announcements.length) setActiveIndex(0);
   }, [activeIndex, announcements.length]);
+
+  const isSingle = announcements.length === 1 || showOnlyCurrent;
 
   return (
     <RoundedFrame title={title} className={frameClassName}>
@@ -131,28 +148,39 @@ export function RecentNewsFrame({
         onTouchEnd={handleTouchEnd}
       >
         {announcements.length === 0 ? (
-          emptyState
+          <div className="rounded-xl p-4">
+            {renderMessageWithLinks(emptyState)}
+          </div>
         ) : (
           <div className="space-y-4">
             <div className="relative w-full overflow-hidden rounded-xl">
               {showOnlyCurrent ? (
-                <div className="rounded-xl bg-white/60 p-4">
+                <div
+                  className={`rounded-xl p-4 ${isSingle ? "" : "bg-white/60"}`}
+                >
                   <p className="text-textGrey">
-                    {renderMessageWithLinks(announcements[activeIndex]?.message ?? "", {
-                      linkClassName: "underline",
-                    })}
+                    {renderMessageWithLinks(
+                      announcements[activeIndex]?.message ?? "",
+                    )}
                   </p>
                 </div>
               ) : (
                 <div
                   className="flex w-full transition-transform duration-500 ease-out will-change-transform"
-                  style={{ transform: `translate3d(-${activeIndex * 100}%,0,0)` }}
+                  style={{
+                    transform: `translate3d(-${activeIndex * 100}%,0,0)`,
+                  }}
                 >
                   {announcements.map((a) => (
-                    <div key={a.id} className="w-full min-w-full flex-shrink-0 px-3 sm:px-4">
-                      <div className="rounded-xl bg-white/60 p-4">
+                    <div
+                      key={a.id}
+                      className="w-full min-w-full flex-shrink-0 px-3 sm:px-4"
+                    >
+                      <div
+                        className={`rounded-xl p-4 ${isSingle ? "" : "bg-white/60"}`}
+                      >
                         <p className="text-textGrey">
-                          {renderMessageWithLinks(a.message, { linkClassName: "underline" })}
+                          {renderMessageWithLinks(a.message)}
                         </p>
                       </div>
                     </div>

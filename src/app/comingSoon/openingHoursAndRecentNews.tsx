@@ -32,17 +32,6 @@ export function OpeningHoursAndRecentNews() {
         <OpeningHours />
         <RecentNewsFrame
             announcements={announcements}
-            emptyState={
-                <div className="justify-start">
-                    Aktuell liegen keine Meldungen vor.
-                    <br />
-                    Bei Fragen erreichen Sie uns per{" "}
-                    <a href={ContactInformation.emailLink} className="underline whitespace-nowrap">
-                        E-Mail
-                    </a>
-                    .
-                </div>
-            }
         />
         </div>
         </div>

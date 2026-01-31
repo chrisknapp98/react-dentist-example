@@ -252,11 +252,6 @@ export default function AdminPage() {
                                     showOnlyCurrent={previewOnlyCurrent}
                                     autoAdvanceMs={5000}
                                     frameClassName="w-full max-w-none h-full"
-                                    emptyState={
-                                        <div className="text-sm font-light text-textGrey/70">
-                                            Noch keine Meldungen angelegt.
-                                        </div>
-                                    }
                                 />
                             </div>
                         </div>
