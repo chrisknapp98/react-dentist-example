@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "../../common/button/button";
 
 export default function AdminLogin() {
     const [password, setPassword] = useState("");
@@ -67,12 +68,12 @@ export default function AdminLogin() {
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
                         />
-                        <button
+                        <Button
                             type="submit"
-                            className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-practiceRed px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
+                            className="mt-2 w-full text-sm font-semibold shadow-lg shadow-practiceRed/30"
                         >
                             Anmelden
-                        </button>
+                        </Button>
                     </form>
 
                     {error && (

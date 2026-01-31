@@ -7,6 +7,7 @@ import { AnnouncementDTO } from "../api/announcements/announcementDTO";
 import { RecentNewsFrame } from "../comingSoon/recentNewsFrame";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
+import { Button } from "../common/button/button";
 
 export default function AdminPage() {
   const [message, setMessage] = useState("");
@@ -278,12 +279,9 @@ export default function AdminPage() {
                   <p className="text-xs text-textGrey/60">
                     Kurz und klar für Patient:innen formulieren.
                   </p>
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-practiceRed px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
-                  >
-                    Veröffentlichen
-                  </button>
+                                <Button type="submit" className="text-sm font-semibold shadow-lg shadow-practiceRed/30">
+                                    Veröffentlichen
+                                </Button>
                 </div>
               </form>
             </div>
