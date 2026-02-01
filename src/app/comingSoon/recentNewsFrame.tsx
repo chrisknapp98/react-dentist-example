@@ -148,7 +148,7 @@ export function RecentNewsFrame({
         onTouchEnd={handleTouchEnd}
       >
         {announcements.length === 0 ? (
-          <div className="rounded-xl p-4">
+          <div className="rounded-xl p-3 sm:p-4">
             {renderMessageWithLinks(emptyState)}
           </div>
         ) : (
@@ -177,7 +177,7 @@ export function RecentNewsFrame({
                       className="w-full min-w-full flex-shrink-0 px-3 sm:px-4"
                     >
                       <div
-                        className={`rounded-xl p-4 ${isSingle ? "" : "bg-white/60"}`}
+                        className={`rounded-xl ${isSingle ? "" : "p-4 bg-white/60"}`}
                       >
                         <p className="text-textGrey">
                           {renderMessageWithLinks(a.message)}
