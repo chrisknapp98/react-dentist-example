@@ -135,10 +135,14 @@ export function RecentNewsFrame({
     if (activeIndex >= announcements.length) setActiveIndex(0);
   }, [activeIndex, announcements.length]);
 
-  const isSingle = announcements.length === 1 || showOnlyCurrent;
+  const isSingle = announcements.length <= 1 || showOnlyCurrent;
 
   return (
-    <RoundedFrame title={title} className={frameClassName}>
+    <RoundedFrame
+      title={title}
+      className={frameClassName}
+      bodyClassName={`${isSingle ? "p-3 sm:p-4" : "py-3 sm:py-4"}`}
+    >
       <div
         className="w-full text-sm vs:text-md sm:text-lg font-light"
         onMouseEnter={handleMouseEnter}
@@ -156,7 +160,7 @@ export function RecentNewsFrame({
             <div className="relative w-full overflow-hidden rounded-xl">
               {showOnlyCurrent ? (
                 <div
-                  className={`rounded-xl p-4 ${isSingle ? "" : "bg-white/60"}`}
+                  className={`rounded-xl p-3 sm:p-4 ${isSingle ? "" : "bg-white/60"}`}
                 >
                   <p className="text-textGrey">
                     {renderMessageWithLinks(
