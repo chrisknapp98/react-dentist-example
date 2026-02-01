@@ -16,7 +16,7 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const baseClass =
-    "font-medium px-6 py-2.5 rounded-full shadow-md transition-all duration-150 transform hover:scale-[1.03] active:scale-[0.99]";
+    "font-medium px-6 py-2.5 rounded-full shadow-md transition-transform duration-200 ease-out transform-gpu hover:scale-[1.03] active:scale-[0.99]";
   let colorClass = '';
 
   if (color === "practiceRed") {
