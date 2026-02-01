@@ -14,6 +14,10 @@ export default function AdminPage() {
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
+  const [confirmState, setConfirmState] = useState<{
+    message: string;
+    onConfirm: () => void | Promise<void>;
+  } | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
@@ -54,8 +58,13 @@ export default function AdminPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message) return alert("Bitte füllen Sie das Feld aus.");
-    if (!window.confirm("Neue Meldung jetzt veröffentlichen?")) return;
+    setConfirmState({
+      message: "Neue Meldung jetzt veröffentlichen?",
+      onConfirm: submitAnnouncement,
+    });
+  };
 
+  const submitAnnouncement = async () => {
     const res = await fetch("/api/announcements", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -68,8 +77,14 @@ export default function AdminPage() {
     setMessage("");
   };
 
-  const handleDelete = async (id: string) => {
-    if (!window.confirm("Diese Meldung wirklich löschen?")) return;
+  const handleDelete = (id: string) => {
+    setConfirmState({
+      message: "Diese Meldung wirklich löschen?",
+      onConfirm: () => deleteAnnouncement(id),
+    });
+  };
+
+  const deleteAnnouncement = async (id: string) => {
     const previous = announcementsRef.current;
     setAnnouncements((prev) => prev.filter((a) => a.id !== id));
 
@@ -90,17 +105,25 @@ export default function AdminPage() {
     router.push("/admin/login");
   };
 
-  const moveAnnouncement = async (
-    fromIndex: number,
-    direction: "up" | "down",
-  ) => {
+  const moveAnnouncement = (fromIndex: number, direction: "up" | "down") => {
     const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
     if (targetIndex < 0 || targetIndex >= announcements.length) return;
     const confirmText =
       direction === "up"
         ? "Meldung nach oben verschieben?"
         : "Meldung nach unten verschieben?";
-    if (!window.confirm(confirmText)) return;
+    setConfirmState({
+      message: confirmText,
+      onConfirm: () => performMove(fromIndex, direction),
+    });
+  };
+
+  const performMove = async (
+    fromIndex: number,
+    direction: "up" | "down",
+  ) => {
+    const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
+    if (targetIndex < 0 || targetIndex >= announcements.length) return;
 
     const previous = announcementsRef.current;
     const next = [...announcements];
@@ -146,6 +169,12 @@ export default function AdminPage() {
     ];
   }, [message, announcements]);
 
+  const confirmAction = async () => {
+    const action = confirmState?.onConfirm;
+    setConfirmState(null);
+    if (action) await action();
+  };
+
   if (!isAuthenticated) return null;
 
   return (
@@ -153,6 +182,29 @@ export default function AdminPage() {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      {confirmState ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
+          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+            <p className="text-sm text-textGrey">{confirmState.message}</p>
+            <div className="mt-6 flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setConfirmState(null)}
+                className="rounded-full border border-practiceGrey/40 px-4 py-2 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10"
+              >
+                Abbrechen
+              </button>
+              <button
+                type="button"
+                onClick={confirmAction}
+                className="rounded-full bg-practiceRed px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
+              >
+                Bestätigen
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
