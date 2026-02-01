@@ -173,35 +173,6 @@ export default function AdminPage() {
             Abmelden
           </button>
         </div>
-        <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            Hinweis: Aktualisierungen können einige Sekunden bis Minuten dauern.
-            Bitte jeweils nur eine Änderung durchführen und warten, bis sie im
-            Backend verarbeitet wurde.
-          </p>
-          <button
-            type="button"
-            onClick={fetchAnnouncements}
-            className="relative inline-flex min-w-[140px] items-center justify-center rounded-full border border-practiceGrey/40 px-4 py-1.5 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-white disabled:opacity-60"
-            disabled={isRefreshing}
-          >
-            <span
-              className={`transition-opacity duration-200 ${
-                isRefreshing ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              Aktualisieren
-            </span>
-            <span
-              className={`absolute inline-flex h-4 w-4 items-center justify-center transition-all duration-200 ${
-                isRefreshing ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <span className="h-3.5 w-3.5 rounded-full border-2 border-practiceGrey/60 border-t-transparent animate-spin" />
-            </span>
-          </button>
-        </div>
-
         <div className="flex justify-center">
           <div className="flex w-full max-w-5xl flex-col gap-6 md:gap-10 items-stretch justify-center py-10 lg:flex-row">
             <div className="w-full rounded-3xl bg-white p-8 shadow-[0_20px_60px_-35px_rgba(65,71,125,0.6)] ring-1 ring-black/5 lg:w-1/2 lg:flex-none lg:self-stretch">
@@ -279,9 +250,12 @@ export default function AdminPage() {
                   <p className="text-xs text-textGrey/60">
                     Kurz und klar für Patient:innen formulieren.
                   </p>
-                                <Button type="submit" className="text-sm font-semibold shadow-lg shadow-practiceRed/30">
-                                    Veröffentlichen
-                                </Button>
+                  <Button
+                    type="submit"
+                    className="text-sm font-semibold shadow-lg shadow-practiceRed/30"
+                  >
+                    Veröffentlichen
+                  </Button>
                 </div>
               </form>
             </div>
@@ -315,7 +289,35 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-8 space-y-6">
+          <div className="flex flex-col gap-3 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              Hinweis: Aktualisierungen können einige Sekunden bis Minuten
+              dauern. Bitte jeweils nur eine Änderung durchführen und warten,
+              bis sie im Backend verarbeitet wurde.
+            </p>
+            <button
+              type="button"
+              onClick={fetchAnnouncements}
+              className="relative inline-flex min-w-[140px] items-center justify-center rounded-full border border-practiceGrey/40 px-4 py-1.5 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-white disabled:opacity-60"
+              disabled={isRefreshing}
+            >
+              <span
+                className={`transition-opacity duration-200 ${
+                  isRefreshing ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                Aktualisieren
+              </span>
+              <span
+                className={`absolute inline-flex h-4 w-4 items-center justify-center transition-all duration-200 ${
+                  isRefreshing ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <span className="h-3.5 w-3.5 rounded-full border-2 border-practiceGrey/60 border-t-transparent animate-spin" />
+              </span>
+            </button>
+          </div>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-textBlue">
               Aktive Meldungen
