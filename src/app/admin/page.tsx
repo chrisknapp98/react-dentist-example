@@ -22,8 +22,10 @@ export default function AdminPage() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
   const announcementsRef = useRef<AnnouncementDTO[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchAnnouncements = async () => {
+    setIsLoading(true);
     setIsRefreshing(true);
     try {
       const res = await fetch("/api/announcements");
@@ -31,6 +33,7 @@ export default function AdminPage() {
       if (data?.error) return;
       setAnnouncements(data ?? []);
     } finally {
+      setIsLoading(false);
       setTimeout(() => setIsRefreshing(false), 500);
     }
   };
@@ -118,10 +121,7 @@ export default function AdminPage() {
     });
   };
 
-  const performMove = async (
-    fromIndex: number,
-    direction: "up" | "down",
-  ) => {
+  const performMove = async (fromIndex: number, direction: "up" | "down") => {
     const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
     if (targetIndex < 0 || targetIndex >= announcements.length) return;
 
@@ -335,6 +335,7 @@ export default function AdminPage() {
                   showOnlyCurrent={previewOnlyCurrent}
                   autoAdvanceMs={5000}
                   frameClassName="w-full max-w-none h-full"
+                  isLoading={isLoading}
                 />
               </div>
             </div>

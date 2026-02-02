@@ -13,6 +13,7 @@ type RecentNewsFrameProps = {
   showOnlyCurrent?: boolean;
   autoAdvanceMs?: number;
   frameClassName?: string;
+  isLoading?: boolean;
 };
 
 type TouchStart = { x: number; y: number };
@@ -26,6 +27,7 @@ export function RecentNewsFrame({
   showOnlyCurrent = false,
   autoAdvanceMs = 5500,
   frameClassName,
+  isLoading = false,
 }: RecentNewsFrameProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -151,7 +153,17 @@ export function RecentNewsFrame({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {announcements.length === 0 ? (
+        {isLoading ? (
+          <div className="flex items-center gap-3 rounded-xl p-3 sm:p-4">
+            <span
+              className="h-4 w-4 animate-spin rounded-full border-2 border-practiceRed/30 border-t-practiceRed"
+              aria-hidden="true"
+            />
+            <span className="text-textGrey">
+              Aktuelle Meldungen werden geladen...
+            </span>
+          </div>
+        ) : announcements.length === 0 ? (
           <div className="rounded-xl p-3 sm:p-4">
             {renderMessageWithLinks(emptyState)}
           </div>
