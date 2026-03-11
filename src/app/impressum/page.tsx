@@ -138,24 +138,6 @@ export default function Impressum() {
           </div>
 
           <div>
-            <h2 className="text-lg mb-2">EU-Streitschlichtung</h2>
-            <p>
-              Die Europäische Kommission stellt eine Plattform zur
-              Online-Streitbeilegung (OS) bereit:{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr/"
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                https://ec.europa.eu/consumers/odr/
-              </a>
-              .<br />
-              Unsere E-Mail-Adresse finden Sie oben im Impressum.
-            </p>
-          </div>
-
-          <div>
             <h2 className="text-lg mb-2">
               Verbraucherstreitbeilegung/&#8203;Universalschlichtungsstelle
             </h2>
