@@ -14,7 +14,7 @@ export default function Impressum() {
         <hr className="my-4 border-t border-gray-300" />
         <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
           <div>
-            <h2 className="text-lg mb-2">Angaben gemäß § 5 TMG</h2>
+            <h2 className="text-lg mb-2">Angaben gemäß § 5 DDG</h2>
             <p>
               Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp
               Dumbach
