@@ -62,12 +62,12 @@ export default function Impressum() {
               97070 Würzburg
               <br />
               <a
-                href="http://www.regierung.unterfranken.bayern.de"
+                href="https://www.regierung.unterfranken.bayern.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline"
               >
-                http://www.regierung.unterfranken.bayern.de
+                https://www.regierung.unterfranken.bayern.de
               </a>
             </p>
           </div>
