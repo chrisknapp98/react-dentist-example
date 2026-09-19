@@ -16,11 +16,11 @@ export function SiteHeader() {
       <ContactHeader alignment="center" />
       <div
         className={`relative z-30 bg-gray-200 shadow-md transition-[height] duration-300 ease-in-out xl:h-24 ${
-          isMobileMenuOpen ? "h-[21rem] md:h-[23rem]" : "h-16 md:h-24"
+          isMobileMenuOpen ? "h-[23rem] md:h-[25rem]" : "h-16 md:h-24"
         }`}
       >
         <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-end px-5 sm:px-10 md:h-24 md:px-32">
-          <div className="absolute left-5 top-2 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]">
+          <div className="absolute left-5 top-5 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]">
             <LogoPraxis className="h-full w-full" />
           </div>
           <button
@@ -90,7 +90,7 @@ export function SiteHeader() {
             id="mobile-navigation"
             aria-label="Hauptnavigation"
             aria-hidden={!isMobileMenuOpen}
-            className={`absolute left-0 top-full w-full px-5 py-3 text-right text-base font-medium text-textGrey transition-all duration-200 sm:px-10 md:px-32 xl:hidden ${
+            className={`absolute left-0 top-full w-full px-5 pb-3 pt-10 text-right text-base font-medium text-textGrey transition-all duration-200 sm:px-10 md:px-32 xl:hidden ${
               isMobileMenuOpen
                 ? "visible translate-y-0 opacity-100"
                 : "invisible -translate-y-2 opacity-0 pointer-events-none"
