@@ -11,20 +11,29 @@ export function OpeningHoursAndRecentNews() {
 
   useEffect(() => {
     let isMounted = true;
-    fetch("/api/announcements")
-      .then((res) => res.json())
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+
+    fetch("/api/announcements", { cache: "no-store", signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : []))
       .then((data: AnnouncementDTO[]) => {
         if (!isMounted) return;
         setAnnouncements(data ?? []);
-        setIsLoading(false);
       })
       .catch(() => {
         if (!isMounted) return;
         setAnnouncements([]);
+      })
+      .finally(() => {
+        window.clearTimeout(timeoutId);
+        if (!isMounted) return;
         setIsLoading(false);
       });
+
     return () => {
       isMounted = false;
+      window.clearTimeout(timeoutId);
+      controller.abort();
     };
   }, []);
 
