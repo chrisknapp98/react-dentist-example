@@ -4,6 +4,8 @@ import { useState } from "react";
 import LogoPraxis from "@/images/logo_praxis.svg";
 import MenuIcon from "@/icons/menu.svg";
 import CloseIcon from "@/icons/x.svg";
+import InstagramIcon from "@/icons/instagram.svg";
+import { ContactInformation } from "../contactInformation/contactInformation";
 import { ContactHeader } from "./contactHeader";
 
 export function SiteHeader() {
@@ -14,7 +16,7 @@ export function SiteHeader() {
       <ContactHeader alignment="center" />
       <div
         className={`relative z-30 bg-gray-200 shadow-md transition-[height] duration-300 ease-in-out xl:h-24 ${
-          isMobileMenuOpen ? "h-72 md:h-80" : "h-16 md:h-24"
+          isMobileMenuOpen ? "h-[21rem] md:h-[23rem]" : "h-16 md:h-24"
         }`}
       >
         <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-end px-5 sm:px-10 md:h-24 md:px-32">
@@ -74,6 +76,15 @@ export function SiteHeader() {
             >
               Kontakt
             </a>
+            <a
+              href={ContactInformation.instagramLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Zahnarztpraxis Dres. Dumbach auf Instagram"
+              className="text-black transition-colors hover:text-practiceRed"
+            >
+              <InstagramIcon className="h-5 w-5" aria-hidden="true" />
+            </a>
           </nav>
           <nav
             id="mobile-navigation"
@@ -109,6 +120,14 @@ export function SiteHeader() {
               className="block py-3 transition-colors hover:text-practiceRed"
             >
               Kontakt
+            </a>
+            <a
+              href={ContactInformation.instagramLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex py-3 transition-colors hover:text-practiceRed"
+            >
+              Instagram
             </a>
           </nav>
         </div>
