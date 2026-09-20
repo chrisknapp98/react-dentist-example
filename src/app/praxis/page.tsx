@@ -217,7 +217,7 @@ export default function PraxisPage() {
                 Ihre Wünsche und Ihre Zahngesundheit im Mittelpunkt.
               </p>
               <a
-                href="/#kontakt"
+                href="/kontakt"
                 className="mt-8 inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#7f203e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
               >
                 Kontakt aufnehmen

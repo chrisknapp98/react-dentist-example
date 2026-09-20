@@ -1,4 +1,5 @@
 import { RoundedFrame } from "../common/frame/roundedFrame";
+import { openingHours, openingHoursNote } from "../common/openingHours/openingHours";
 
 export function OpeningHours() {
     return (
@@ -6,37 +7,19 @@ export function OpeningHours() {
             <div>
             <table className="w-full text-left text-nowrap text-sm vs:text-md sm:text-lg font-light">
             <tbody>
-                <tr>
-                <td className="px-2">Montag</td>
-                <td className="px-2">8:00 – 12:00</td>
-                <td className="px-2">13:00 – 17:45</td>
-                </tr>
-                <tr>
-                <td className="px-2">Dienstag</td>
-                <td className="px-2">8:00 – 12:00</td>
-                <td className="px-2">13:00 – 17:45</td>
-                </tr>
-                <tr>
-                <td className="px-2">Mittwoch</td>
-                <td className="px-2">8:00 – 12:00</td>
-                <td className="px-2">13:45 – 17:45</td>
-                </tr>
-                <tr>
-                <td className="px-2">Donnerstag</td>
-                <td className="px-2">8:00 – 12:00</td>
-                <td className="px-2">13:45 – 17:45</td>
-                </tr>
-                <tr>
-                <td className="px-2">Freitag</td>
-                <td className="px-2">8:00 – 13:00</td>
-                <td className="px-2"></td>
-                </tr>
+                {openingHours.map(({ day, morning, afternoon }) => (
+                    <tr key={day}>
+                    <td className="px-2">{day}</td>
+                    <td className="px-2">{morning}</td>
+                    <td className="px-2">{afternoon}</td>
+                    </tr>
+                ))}
             </tbody>
             </table>
             <p className="font-light text-sm vs:text-md sm:text-lg mt-2 px-2">
-                Termine nach Vereinbarung.
+                {openingHoursNote.appointments}
                 <br />
-                Kieferorthopädische Termine am Freitag&shy;nachmittag nach Absprache.
+                {openingHoursNote.orthodontics}
             </p>
             </div>
         </RoundedFrame>

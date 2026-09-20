@@ -56,8 +56,8 @@ export default function Datenschutz() {
                         <p className="mt-4 font-medium">Verantwortlich für die Datenverarbeitung:</p>
                         <address className="not-italic">
                             Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach<br />
-                            Bahnhofstraße 16<br />
-                            91257 Pegnitz<br />
+                            {ContactInformation.address.street}<br />
+                            {ContactInformation.address.postcode} {ContactInformation.address.city}<br />
                             Tel: <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a><br />
                             E-Mail: <a href={ContactInformation.emailLink} className="underline">{ContactInformation.email}</a>
                         </address>

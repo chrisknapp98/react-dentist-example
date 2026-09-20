@@ -22,9 +22,9 @@ export default function Impressum() {
               Dr. Johannes Dumbach, Dr. Stephanie Knapp Dumbach, Dr. Georg
               Dumbach
               <br />
-              Bahnhofstr. 16
+              {ContactInformation.address.street}
               <br />
-              91257 Pegnitz
+              {ContactInformation.address.postcode} {ContactInformation.address.city}
             </p>
           </div>
 

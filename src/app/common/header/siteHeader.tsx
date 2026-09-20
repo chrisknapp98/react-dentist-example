@@ -76,7 +76,7 @@ export function SiteHeader() {
               Team
             </a>
             <a
-              href="/#kontakt"
+              href="/kontakt"
               className="transition-colors hover:text-practiceRed"
             >
               Kontakt
@@ -121,7 +121,7 @@ export function SiteHeader() {
               Team
             </a>
             <a
-              href="/#kontakt"
+              href="/kontakt"
               className="block py-3 transition-colors hover:text-practiceRed"
             >
               Kontakt

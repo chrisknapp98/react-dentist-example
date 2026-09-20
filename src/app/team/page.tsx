@@ -147,7 +147,7 @@ export default function TeamPage() {
                 passenden Weg.
               </p>
               <a
-                href="/#kontakt"
+                href="/kontakt"
                 className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-textBlue transition-colors hover:bg-practiceSkin focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 Kontakt aufnehmen
