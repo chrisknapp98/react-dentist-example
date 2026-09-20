@@ -1,0 +1,74 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Footer } from "../common/footer/footer";
+import { SiteHeader } from "../common/header/siteHeader";
+import { ServicesAccordion } from "./servicesAccordion";
+import { services } from "./services";
+
+export const metadata: Metadata = {
+  title: "Leistungen | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
+  description:
+    "Ein Überblick über die zahnmedizinischen und kieferorthopädischen Leistungen unserer Praxis in Pegnitz.",
+};
+
+export default function LeistungenPage() {
+  return (
+    <div className="font-sans">
+      <SiteHeader />
+      <main>
+        <section className="bg-backgroundLightGray">
+          <div className="relative h-72 overflow-hidden sm:h-80 lg:h-96">
+            <Image
+              src="/image-collection/praxis-dumbach-behandlungszimmer-04.jpg"
+              alt="Behandlungseinheit mit zahnmedizinischen Instrumenten"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
+            <div className="mx-auto max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
+                Unsere Leistungen
+              </p>
+              <h1 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl md:text-5xl">
+                Moderne Zahnmedizin und Kieferorthopädie
+              </h1>
+              <div className="mt-8 max-w-3xl space-y-4 text-base leading-7 text-textGrey sm:text-lg sm:leading-8">
+                <p>
+                  Hier zeigen wir Ihnen einen Einblick in viele Behandlungen,
+                  die wir in unserer Gemeinschaftspraxis anbieten. Wichtig ist
+                  uns im Gespräch mit Ihnen bei Ihrer Untersuchung
+                  herauszufinden, was für Sie und Ihre Zähne die passende
+                  Therapie ist. Dabei steht eine angst- und schmerzfreie
+                  Behandlung an oberster Stelle. Sprechen Sie uns gerne auf
+                  Sorgen und Wünsche rund um Ihre Zähne an. Wir nehmen uns Zeit
+                  für eine individuelle Beratung.
+                </p>
+                <p>
+                  Wir freuen uns, wenn wir Sie als Patientinnen und Patienten
+                  bei uns begrüßen dürfen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-14 sm:px-12 md:py-20 lg:px-20" aria-label="Behandlungsübersicht">
+          <div className="mx-auto max-w-6xl">
+            <div className="relative z-0 rounded-t-2xl bg-practiceRed px-6 py-10 text-center sm:rounded-t-3xl sm:py-12">
+              <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+                Unsere Leistungen im Überblick
+              </h2>
+            </div>
+            <div className="relative z-10 -mt-6 sm:-mt-6">
+              <ServicesAccordion services={services} />
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
