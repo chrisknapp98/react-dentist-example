@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import LogoPraxis from "@/images/logo_praxis.svg";
 import MenuIcon from "@/icons/menu.svg";
 import CloseIcon from "@/icons/x.svg";
@@ -20,9 +21,13 @@ export function SiteHeader() {
         }`}
       >
         <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-end px-5 sm:px-10 md:h-24 md:px-32">
-          <div className="absolute left-5 top-5 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]">
+          <Link
+            href="/"
+            aria-label="Zur Startseite"
+            className="absolute left-5 top-5 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]"
+          >
             <LogoPraxis className="h-full w-full" />
-          </div>
+          </Link>
           <button
             type="button"
             aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
