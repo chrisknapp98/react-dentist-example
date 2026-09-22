@@ -34,9 +34,16 @@ export default function Home() {
               Zahnmedizin und Kieferorthopädie unter einem Dach.
             </h2>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {treatmentAreas.map((area) => (
-              <article key={area.title} className="rounded-3xl bg-white p-7 sm:p-8">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {treatmentAreas.map((area, index) => (
+              <article
+                key={area.title}
+                className={`rounded-3xl bg-white p-7 sm:p-8 ${
+                  index === treatmentAreas.length - 1
+                    ? "sm:col-span-2 lg:col-span-1"
+                    : ""
+                }`}
+              >
                 <h3 className="text-2xl font-light text-textBlue">{area.title}</h3>
                 <p className="mt-3 leading-7 text-textGrey">{area.text}</p>
               </article>
