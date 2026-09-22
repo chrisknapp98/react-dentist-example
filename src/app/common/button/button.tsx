@@ -1,3 +1,5 @@
+import { BUTTON_INTERACTION_CLASS } from "./buttonStyles";
+
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
@@ -16,7 +18,7 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const baseClass =
-    "font-medium px-6 py-2.5 rounded-full shadow-md transition-transform duration-200 ease-out transform-gpu hover:scale-[1.03] active:scale-[0.99]";
+    `font-medium px-6 py-2.5 rounded-full shadow-md ${BUTTON_INTERACTION_CLASS}`;
   let colorClass = '';
 
   if (color === "practiceRed") {

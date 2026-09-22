@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "../common/footer/footer";
+import { BUTTON_INTERACTION_CLASS } from "../common/button/buttonStyles";
 import { SiteHeader } from "../common/header/siteHeader";
 
 export const metadata: Metadata = {
@@ -219,7 +220,7 @@ export default function PraxisPage() {
               </p>
               <a
                 href="/kontakt"
-                className="mt-8 inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#7f203e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
+                className={`mt-8 inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed ${BUTTON_INTERACTION_CLASS}`}
               >
                 Kontakt aufnehmen
               </a>
