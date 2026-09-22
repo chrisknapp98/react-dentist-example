@@ -14,6 +14,7 @@ export function WelcomeBanner() {
           fill
           priority
           sizes="100vw"
+          quality={90}
           className="object-cover object-[59%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1c296a]/90 via-[#1c296a]/55 to-[#1c296a]/10" />

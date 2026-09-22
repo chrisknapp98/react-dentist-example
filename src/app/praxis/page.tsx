@@ -38,6 +38,7 @@ export default function PraxisPage() {
               fill
               priority
               sizes="100vw"
+              quality={90}
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-textBlue/75 via-textBlue/30 to-transparent" />
