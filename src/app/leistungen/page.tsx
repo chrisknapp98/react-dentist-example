@@ -62,7 +62,7 @@ export default function LeistungenPage() {
           aria-label="Behandlungsübersicht"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="relative z-0 rounded-t-2xl bg-practiceRed px-6 py-10 text-center sm:rounded-t-3xl sm:py-12">
+            <div className="relative z-0 rounded-t-2xl bg-practiceRed px-6 pb-16 pt-10 text-center sm:rounded-t-3xl sm:pb-[4.5rem] sm:pt-12">
               <h2 className="text-2xl font-semibold text-white sm:text-3xl">
                 Unsere Leistungen im Überblick
               </h2>
