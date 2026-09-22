@@ -63,7 +63,7 @@ export default function LeistungenPage() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="relative z-0 rounded-t-2xl bg-practiceRed px-6 py-10 text-center sm:rounded-t-3xl sm:py-12">
-              <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+              <h2 className="text-2xl font-semibold text-white sm:text-3xl">
                 Unsere Leistungen im Überblick
               </h2>
             </div>
