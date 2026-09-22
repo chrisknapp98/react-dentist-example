@@ -91,7 +91,7 @@ export default function PraxisPage() {
               </h2>
             </div>
             <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-              <div className="relative min-h-72 overflow-hidden rounded-3xl lg:min-h-[38rem]">
+              <div className="relative aspect-[11/10] overflow-hidden rounded-3xl lg:min-h-[38rem] lg:aspect-auto">
                 <Image
                   src="/image-collection/praxis-dumbach-rezeption-durchgang-01.jpg"
                   alt="Durchgang vom Empfangsbereich der Praxis"
@@ -101,7 +101,7 @@ export default function PraxisPage() {
                 />
               </div>
               <div className="grid gap-5">
-                <div className="relative min-h-60 overflow-hidden rounded-3xl">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
                     src="/image-collection/praxis-dumbach-wartezimmer-glastuer.jpg"
                     alt="Wartebereich der Praxis"
@@ -110,7 +110,7 @@ export default function PraxisPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="relative min-h-60 overflow-hidden rounded-3xl">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
                     src="/image-collection/praxis-dumbach-rezeption-durchgang_patientenbad-01.jpg"
                     alt="Durchgang zwischen Empfang und Patientenbad"
@@ -140,18 +140,18 @@ export default function PraxisPage() {
                 gemeinsam mit Ihnen, was sinnvoll ist.
               </p>
             </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
-              <div className="relative min-h-72 overflow-hidden rounded-3xl md:min-h-[32rem]">
+            <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
+              <div className="relative aspect-[7/5] overflow-hidden rounded-3xl lg:min-h-[32rem] lg:aspect-auto">
                 <Image
                   src="/image-collection/praxis-dumbach-behandlungszimmer-06.jpg"
                   alt="Modernes Behandlungszimmer der Praxis"
                   fill
-                  sizes="(min-width: 768px) 55vw, 100vw"
+                  sizes="(min-width: 1024px) 55vw, 100vw"
                   className="object-cover"
                 />
               </div>
-              <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-1">
-                <div className="relative min-h-60 overflow-hidden rounded-3xl">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+                <div className="relative aspect-[5/3] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
                     src="/image-collection/praxis-dumbach-behandlungseinheit-instrumententablett-01.jpg"
                     alt="Instrumente auf einer Behandlungseinheit"
@@ -160,7 +160,7 @@ export default function PraxisPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="relative min-h-60 overflow-hidden rounded-3xl">
+                <div className="relative aspect-[5/3] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
                     src="/image-collection/praxis-dumbach-roentgenraum-gesamtansicht-01.jpg"
                     alt="Modern ausgestatteter Röntgenraum der Praxis"
@@ -175,17 +175,17 @@ export default function PraxisPage() {
         </section>
 
         <section className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-            <div className="relative min-h-72 overflow-hidden rounded-3xl md:min-h-[30rem]">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-10">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:min-h-[28rem] lg:aspect-auto">
               <Image
                 src="/image-collection/praxis-dumbach-behandlungseinheit-mit-instrumententablett.jpg"
                 alt="Modernes Behandlungszimmer mit Behandlungsstuhl"
                 fill
-                sizes="(min-width: 768px) 45vw, 100vw"
+                sizes="(min-width: 1024px) 55vw, 100vw"
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col justify-center rounded-3xl bg-practiceSkin p-8 sm:p-12">
+            <div className="flex flex-col justify-center rounded-3xl bg-practiceSkin p-8 sm:p-12 lg:h-full">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
                 Ihr Besuch bei uns
               </p>
