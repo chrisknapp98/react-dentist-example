@@ -27,24 +27,13 @@ export default function PraxisPage() {
               quality={90}
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-textBlue/75 via-textBlue/30 to-transparent" />
-            <div className="relative mx-auto flex h-full max-w-7xl items-end px-6 pb-10 sm:px-12 sm:pb-14 lg:px-20 lg:pb-16">
-              <div className="max-w-2xl text-white">
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceSkin">
-                  Unsere Praxis
-                </p>
-                <h1 className="mt-4 text-4xl font-light leading-tight sm:text-5xl md:text-6xl">
-                  Modern. Persönlich. Für Sie da.
-                </h1>
-              </div>
-            </div>
           </div>
 
           <div className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
             <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-20">
               <div className="max-w-2xl text-textGrey">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
-                  Gewachsen mit der Zeit
+                  Unsere Praxis in Pegnitz
                 </p>
                 <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
                   Aus bewährter Kieferorthopädie wurde ein Ort für umfassende
@@ -78,7 +67,7 @@ export default function PraxisPage() {
                 <div className="absolute bottom-0 right-5 w-[42%] overflow-hidden rounded-2xl border-4 border-backgroundLightGray shadow-lg sm:right-8">
                   <div className="relative aspect-[3/4]">
                     <Image
-                      src="/image-collection/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpg"
+                      src="/image-collection/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpeg"
                       alt="Kieferorthopädisches Modell mit einer Zahnspange"
                       fill
                       sizes="(min-width: 1024px) 18vw, 42vw"

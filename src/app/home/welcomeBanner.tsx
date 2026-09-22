@@ -7,48 +7,62 @@ export function WelcomeBanner() {
     <section>
       <SiteHeader />
 
-      <div className="relative flex min-h-[480px] items-end overflow-hidden sm:min-h-[540px] md:min-h-[610px]">
+      {/* <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end"> */}
+      <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end">
         <Image
-          src="/images/praxis_foto.png"
+          src="/image-collection/praxis-dumbach-gebaeude-strassenansicht-04-desktop.jpg"
           alt="Außenansicht der Zahnarztpraxis in Pegnitz"
           fill
           priority
-          sizes="100vw"
+          sizes="(min-width: 1024px) 100vw, 1px"
           quality={90}
           className="object-cover object-[59%_center]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1c296a]/90 via-[#1c296a]/55 to-[#1c296a]/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 sm:px-12 sm:pb-16 lg:px-20 lg:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
+        <div className="relative mx-auto w-full max-w-7xl px-20 pb-10">
           <div className="max-w-xl text-white">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-practiceSkin">
+            <p className="mb-1 inline-flex py-2 text-sm font-semibold uppercase tracking-[0.16em] text-practiceSkin">
               Zahnmedizin &amp; Kieferorthopädie in Pegnitz
             </p>
-            <h1 className="text-4xl font-light leading-tight sm:text-5xl md:text-6xl">
+            <h1 className="text-6xl font-light leading-tight">
               Herzlich willkommen
             </h1>
-            <p className="mt-5 text-base leading-7 text-white/95 sm:text-lg sm:leading-8">
+            <p className="mt-1 text-base leading-7 text-white/95 sm:text-lg sm:leading-8">
               In unserer Gemeinschaftspraxis verbinden wir moderne Zahnmedizin
               und Kieferorthopädie mit einer persönlichen, vertrauensvollen
               Betreuung.
             </p>
-            <p className="mt-8 text-base leading-7 text-white sm:text-lg">
-              Für einen Termin rufen Sie uns an unter
-              <a
-                href={ContactInformation.telephoneLink}
-                className="ml-1 whitespace-nowrap font-semibold underline underline-offset-4"
-              >
-                {ContactInformation.telephoneDisplay}
-              </a>{" "}
-              oder schreiben Sie uns eine
-              <a
-                href={ContactInformation.emailLink}
-                className="ml-1 font-semibold underline underline-offset-4"
-              >
-                E-Mail
-              </a>
-              .
-            </p>
           </div>
+        </div>
+      </div>
+
+      <div className="overflow-hidden bg-backgroundLightGray md:hidden">
+        <div className="relative aspect-[16/15]">
+          <Image
+            src="/image-collection/praxis-dumbach-gebaeude-strassenansicht-04-portrait.jpg"
+            alt="Außenansicht der Zahnarztpraxis in Pegnitz"
+            fill
+            priority
+            sizes="100vw"
+            quality={90}
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-7 sm:px-12 sm:pb-10">
+            <p className="inline-flex py-2 text-sm font-semibold uppercase tracking-[0.16em] text-practiceSkin">
+              Zahnmedizin &amp; Kieferorthopädie in Pegnitz
+            </p>
+            <h1 className="text-4xl font-light leading-tight text-white sm:text-5xl">
+              Herzlich willkommen
+            </h1>
+          </div>
+        </div>
+
+        <div className="px-6 py-6 sm:px-12 sm:py-8">
+          <p className="mt-1 text-base leading-7 text-black/95 sm:text-lg sm:leading-8">
+            In unserer Gemeinschaftspraxis verbinden wir moderne Zahnmedizin und
+            Kieferorthopädie mit einer persönlichen, vertrauensvollen Betreuung.
+          </p>
         </div>
       </div>
     </section>
