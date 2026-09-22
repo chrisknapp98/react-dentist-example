@@ -58,8 +58,9 @@ export function ContactSection() {
             icon={MapPinIcon}
             alt="Standort-Symbol"
             label="Adresse"
+            href="/kontakt"
           >
-            Bahnhofstr. 16, 91257 Pegnitz
+            {ContactInformation.address.street}, {ContactInformation.address.postcode} {ContactInformation.address.city}
           </ContactItem>
         </div>
       </div>

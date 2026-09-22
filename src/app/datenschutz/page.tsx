@@ -1,19 +1,21 @@
 import { ContactInformation } from '../common/contactInformation/contactInformation';
 import { Footer } from '../common/footer/footer';
-import { ContactHeaderWithLogo } from '../common/header/contactHeaderWithLogo';
+import { SiteHeader } from '../common/header/siteHeader';
+import { SITE_HEADER_CONTENT_TOP_PADDING } from '../common/header/siteHeaderLayout';
 
 export default function Datenschutz() {
     return (
         <div className="font-sans">
-            <ContactHeaderWithLogo />
+            <SiteHeader />
 
-            <main className="px-6 mb-6 sm:px-20">
-                <h1 className="font-extralight text-2xl md:text-4xl uppercase">
-                    Datenschutzerklärung
-                </h1>
-                <hr className="my-4 border-t border-gray-300" />
+            <main className={`px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}>
+                <div className="mx-auto max-w-6xl">
+                    <h1 className="font-extralight text-2xl md:text-4xl uppercase">
+                        Datenschutzerklärung
+                    </h1>
+                    <hr className="my-4 border-t border-gray-300" />
 
-                <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
+                    <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
                     <article>
                         <h2 className="text-lg mb-2">1. Allgemeine Hinweise</h2>
                         <p>
@@ -56,8 +58,8 @@ export default function Datenschutz() {
                         <p className="mt-4 font-medium">Verantwortlich für die Datenverarbeitung:</p>
                         <address className="not-italic">
                             Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach<br />
-                            Bahnhofstraße 16<br />
-                            91257 Pegnitz<br />
+                            {ContactInformation.address.street}<br />
+                            {ContactInformation.address.postcode} {ContactInformation.address.city}<br />
                             Tel: <a href={ContactInformation.telephoneLink} className="underline">{ContactInformation.telephoneDisplay}</a><br />
                             E-Mail: <a href={ContactInformation.emailLink} className="underline">{ContactInformation.email}</a>
                         </address>
@@ -68,6 +70,7 @@ export default function Datenschutz() {
                             Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Wenn Sie auf einen solchen Link klicken, verlassen Sie unsere Website. Es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters, auf die wir keinen Einfluss haben.
                         </p>
                     </article>
+                    </div>
                 </div>
             </main>
 

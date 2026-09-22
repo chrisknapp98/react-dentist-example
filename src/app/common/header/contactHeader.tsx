@@ -1,7 +1,6 @@
 import PhoneIcon from '@/icons/phone.svg';
 import MailIcon from '@/icons/mail.svg';
 import { ContactInformation } from '../contactInformation/contactInformation';
-// import InstagramIcon from '@/icons/instagram.svg';
 
 export function ContactHeader(props: { alignment?: "center" | "end" }) {
   const alignmentClass = props.alignment === "center" ? "justify-center" : "justify-end";
@@ -16,9 +15,6 @@ export function ContactHeader(props: { alignment?: "center" | "end" }) {
         <MailIcon className="w-5 h-5 text-practiceWhite" />
         <a href={ContactInformation.emailLink} className="underline">{ContactInformation.email}</a>
       </div>
-      {/* <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="hidden md:flex items-center">
-        <InstagramIcon className="w-5 h-5 text-practiceWhite" />
-      </a> */}
     </div>
   );
 }
