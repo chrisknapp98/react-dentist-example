@@ -24,7 +24,7 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label="Zur Startseite"
-            className="absolute left-5 top-5 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]"
+            className="absolute left-5 top-5 z-20 h-[80px] w-[266px] overflow-hidden rounded-2xl shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:left-12 sm:top-7 sm:h-[105px] sm:w-[350px] md:top-10 md:h-[135px] md:w-[450px] lg:left-20 lg:h-[180px] lg:w-[600px]"
           >
             <LogoPraxis className="h-full w-full" />
           </Link>
