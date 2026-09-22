@@ -50,7 +50,7 @@ export function WelcomeBanner() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 px-6 pb-7 sm:px-12 sm:pb-10">
             <p className="inline-flex py-2 text-sm font-semibold uppercase tracking-[0.16em] text-practiceSkin">
-              Zahnmedizin &amp; Kieferorthopädie in Pegnitz
+              Praxis in Pegnitz
             </p>
             <h1 className="text-4xl font-light leading-tight text-white sm:text-5xl">
               Herzlich willkommen
