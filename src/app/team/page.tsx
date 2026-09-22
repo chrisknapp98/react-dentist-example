@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "../common/footer/footer";
 import { SiteHeader } from "../common/header/siteHeader";
+import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
 
 export const metadata: Metadata = {
   title:
@@ -39,7 +40,9 @@ export default function TeamPage() {
     <div className="font-sans">
       <SiteHeader />
       <main>
-        <section className="bg-backgroundLightGray px-6 py-14 sm:px-12 md:pb-20 md:pt-28 lg:px-20 lg:pt-36">
+        <section
+          className={`bg-backgroundLightGray px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}
+        >
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-center lg:gap-20">
             <div className="order-2 relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
               <Image

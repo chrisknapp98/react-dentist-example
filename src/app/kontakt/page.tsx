@@ -5,6 +5,7 @@ import PhoneIcon from "@/icons/phone.svg";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { Footer } from "../common/footer/footer";
 import { SiteHeader } from "../common/header/siteHeader";
+import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
 import {
   openingHours,
   openingHoursNote,
@@ -29,7 +30,9 @@ export default function KontaktPage() {
     <div className="font-sans">
       <SiteHeader />
       <main>
-        <section className="bg-backgroundLightGray px-6 py-14 sm:px-12 md:pb-20 md:pt-28 lg:px-20 lg:pt-36">
+        <section
+          className={`bg-backgroundLightGray px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}
+        >
           <div className="mx-auto max-w-6xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
               Kontakt

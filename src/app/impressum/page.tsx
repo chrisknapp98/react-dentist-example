@@ -1,18 +1,20 @@
 import { Footer } from "../common/footer/footer";
-import { ContactHeaderWithLogo } from "../common/header/contactHeaderWithLogo";
+import { SiteHeader } from "../common/header/siteHeader";
+import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 
 export default function Impressum() {
   return (
     <div className="w-full font-sans">
-      {/* <div className="absolute top-0 left-0 w-full z-10"> */}
-      {/* <div className="fixed top-0 left-0 w-full z-50"> */}
-      <ContactHeaderWithLogo />
+      <SiteHeader />
 
-      <div className="px-6 mb-6 sm:px-20">
-        <h1 className="font-extralight text-4xl">IMPRESSUM</h1>
-        <hr className="my-4 border-t border-gray-300" />
-        <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
+      <main
+        className={`px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}
+      >
+        <div className="mx-auto max-w-6xl">
+          <h1 className="font-extralight text-4xl">IMPRESSUM</h1>
+          <hr className="my-4 border-t border-gray-300" />
+          <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
           <div>
             <h2 className="text-lg mb-2">Angaben gemäß § 5 DDG</h2>
             <p>
@@ -148,19 +150,20 @@ export default function Impressum() {
             </p>
           </div>
         </div>
-        <p className="text-sm text-gray-500 mt-10">
-          Die auf dieser Website verwendeten Icons stammen von{" "}
-          <a
-            href="https://feathericons.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Feather Icons
-          </a>{" "}
-          und stehen unter der MIT-Lizenz.
-        </p>
-      </div>
+          <p className="text-sm text-gray-500 mt-10">
+            Die auf dieser Website verwendeten Icons stammen von{" "}
+            <a
+              href="https://feathericons.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Feather Icons
+            </a>{" "}
+            und stehen unter der MIT-Lizenz.
+          </p>
+        </div>
+      </main>
       <Footer />
     </div>
   );
