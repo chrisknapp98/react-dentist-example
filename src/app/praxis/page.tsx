@@ -11,21 +11,6 @@ export const metadata: Metadata = {
     "Lernen Sie unsere moderne, barrierefreie Zahnarztpraxis mit Kieferorthopädie in Pegnitz kennen.",
 };
 
-const practiceHighlights = [
-  {
-    title: "Ankommen & wohlfühlen",
-    text: "Helle Räume, klare Wege und eine ruhige Atmosphäre machen Ihren Besuch von Anfang an angenehm.",
-  },
-  {
-    title: "Moderne Ausstattung",
-    text: "Unsere Behandlungsräume und diagnostischen Möglichkeiten sind auf eine präzise, zeitgemäße Behandlung ausgerichtet.",
-  },
-  {
-    title: "Für alle Generationen",
-    text: "Zahnmedizin und Kieferorthopädie unter einem Dach – persönlich abgestimmt auf jedes Alter und jedes Anliegen.",
-  },
-];
-
 export default function PraxisPage() {
   return (
     <div className="font-sans">
@@ -89,37 +74,6 @@ export default function PraxisPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
-                Was Sie erwartet
-              </p>
-              <h2 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl">
-                Mit Ruhe, Klarheit und moderner Technik behandelt
-              </h2>
-            </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {practiceHighlights.map((highlight, index) => (
-                <article
-                  key={highlight.title}
-                  className="rounded-2xl bg-backgroundLightGray p-7 sm:p-8"
-                >
-                  <p className="text-sm font-semibold text-practiceRed">
-                    0{index + 1}
-                  </p>
-                  <h3 className="mt-5 text-xl font-medium text-textBlue">
-                    {highlight.title}
-                  </h3>
-                  <p className="mt-3 leading-7 text-textGrey">
-                    {highlight.text}
-                  </p>
-                </article>
-              ))}
             </div>
           </div>
         </section>

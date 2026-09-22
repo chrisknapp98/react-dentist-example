@@ -60,7 +60,7 @@ export default function TeamPage() {
                 Unser Team
               </p>
               <h1 className="mt-4 text-4xl font-light leading-tight text-textBlue sm:text-5xl">
-                Kompetenz, die persönlich bleibt.
+                Ihre Zahnärzte &amp; Kieferorthopädie in Pegnitz.
               </h1>
               <p className="mt-6 text-base leading-7 sm:text-lg sm:leading-8">
                 Wir verbinden Zahnmedizin und Kieferorthopädie mit dem Anspruch,
