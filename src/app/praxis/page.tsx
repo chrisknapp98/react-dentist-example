@@ -29,7 +29,7 @@ export default function PraxisPage() {
             />
           </div>
 
-          <div className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
+          <div className="px-6 pb-14 pt-10 sm:px-12 sm:pb-16 sm:pt-12 md:pb-20 md:pt-14 lg:px-20">
             <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-20">
               <div className="max-w-2xl text-textGrey">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">

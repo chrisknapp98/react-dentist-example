@@ -29,7 +29,7 @@ export default function LeistungenPage() {
               className="object-cover"
             />
           </div>
-          <div className="px-6 py-14 sm:px-12 md:py-20 lg:px-20">
+          <div className="px-6 pb-14 pt-10 sm:px-12 sm:pb-16 sm:pt-12 md:pb-20 md:pt-14 lg:px-20">
             <div className="mx-auto max-w-4xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
                 Unsere Leistungen
