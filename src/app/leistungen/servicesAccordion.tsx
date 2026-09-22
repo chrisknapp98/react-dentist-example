@@ -39,7 +39,9 @@ export function ServicesAccordion({
                     openIndex === index ? null : index,
                   )
                 }
-                className="group flex w-full items-center justify-between gap-6 px-6 py-5 text-left text-lg font-semibold text-textGrey hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-practiceRed sm:px-12 sm:py-6 sm:text-xl"
+                className={`group flex w-full items-center justify-between gap-6 px-6 pt-5 text-left text-lg font-semibold text-textGrey hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-practiceRed sm:px-12 sm:pt-6 sm:text-xl ${
+                  index === services.length - 1 ? "pb-5 sm:pb-6" : "pb-10 sm:pb-11"
+                }`}
               >
                 <span>{service.title}</span>
                 <ChevronDownIcon
