@@ -67,7 +67,7 @@ export default function PraxisPage() {
                 <div className="absolute bottom-0 right-5 w-[42%] overflow-hidden rounded-2xl border-4 border-backgroundLightGray shadow-lg sm:right-8">
                   <div className="relative aspect-[3/4]">
                     <Image
-                      src="/image-collection/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpeg"
+                      src="/image-collection/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpg"
                       alt="Kieferorthopädisches Modell mit einer Zahnspange"
                       fill
                       sizes="(min-width: 1024px) 18vw, 42vw"
