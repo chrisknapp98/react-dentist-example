@@ -34,7 +34,7 @@ export function SiteHeader() {
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
-            className="rounded-md p-2 text-textGrey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed xl:hidden"
+            className="rounded-md p-2 text-textGrey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed md:-mr-20 lg:mr-0 xl:hidden"
           >
             <span className="relative block h-7 w-7" aria-hidden="true">
               <MenuIcon
