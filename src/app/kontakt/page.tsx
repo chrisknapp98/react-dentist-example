@@ -45,7 +45,7 @@ export default function KontaktPage() {
               uns telefonisch oder per E-Mail. Wir sind gern für Sie da.
             </p>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-3xl bg-white p-7 shadow-sm transition-shadow hover:shadow-md sm:p-8">
                 <PhoneIcon
                   className="h-7 w-7 text-practiceRed"
@@ -71,12 +71,12 @@ export default function KontaktPage() {
                 </p>
                 <a
                   href={ContactInformation.emailLink}
-                  className="mt-2 inline-block break-words text-xl font-medium text-textBlue underline decoration-practiceRed/50 underline-offset-4 transition-colors hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
+                  className="mt-2 inline-block break-words text-lg font-medium text-textBlue underline decoration-practiceRed/50 underline-offset-4 transition-colors hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed lg:text-xl"
                 >
                   {ContactInformation.email}
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-7 shadow-sm transition-shadow hover:shadow-md sm:p-8">
+              <div className="rounded-3xl bg-white p-7 shadow-sm transition-shadow hover:shadow-md sm:col-span-2 sm:p-8 lg:col-span-1">
                 <MapPinIcon
                   className="h-7 w-7 text-practiceRed"
                   aria-hidden="true"
