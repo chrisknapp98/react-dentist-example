@@ -10,6 +10,7 @@ import {
   openingHours,
   openingHoursNote,
 } from "../common/openingHours/openingHours";
+import { MapEmbed } from "./mapEmbed";
 
 export const metadata: Metadata = {
   title:
@@ -128,12 +129,9 @@ export default function KontaktPage() {
             </div>
 
             <div className="overflow-hidden rounded-3xl bg-backgroundLightGray shadow-lg">
-              <iframe
+              <MapEmbed
                 title="Karte zur Zahnarztpraxis & Kieferorthopädie Dres. Dumbach und Dr. Knapp Dumbach in Pegnitz"
                 src={mapEmbedUrl}
-                className="h-[26rem] w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer"
               />
               <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
                 <div>

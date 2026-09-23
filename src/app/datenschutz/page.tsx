@@ -67,7 +67,7 @@ export default function Datenschutz() {
                     <article>
                         <h2 className="text-lg mb-2">5. Externe Links</h2>
                         <p>
-                            Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Wenn Sie auf einen solchen Link klicken, verlassen Sie unsere Website. Es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters, auf die wir keinen Einfluss haben.
+                            Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Die Google-Maps-Karte auf der Kontaktseite wird erst nach Ihrer Einwilligung geladen. Wenn Sie die Karte aktivieren oder einen externen Link anklicken, können Daten an den jeweiligen Anbieter übermittelt werden. Es gelten dann dessen Datenschutzbestimmungen, auf die wir keinen Einfluss haben.
                         </p>
                     </article>
                     </div>
