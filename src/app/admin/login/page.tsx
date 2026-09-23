@@ -33,6 +33,8 @@ export default function AdminLogin() {
 
     if (res.ok) {
       router.push("/admin"); // Redirect to admin panel
+    } else if (res.status === 429) {
+      setError("Zu viele Anmeldeversuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.");
     } else {
       setError("Falsches Passwort");
     }
