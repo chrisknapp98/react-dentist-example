@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   title:  PRACTICE_NAME,
   description:
     "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
-  alternates: {
-    canonical: ContactInformation.website,
-  },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
