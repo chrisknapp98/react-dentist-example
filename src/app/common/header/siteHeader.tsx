@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LogoPraxis from "@/images/logo_praxis.svg";
 import MenuIcon from "@/icons/menu.svg";
 import CloseIcon from "@/icons/x.svg";
@@ -11,6 +12,13 @@ import { ContactHeader } from "./contactHeader";
 
 export function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const navigationLinkClass = (href: string, mobile = false) =>
+    `${mobile ? "block py-3" : ""} transition-colors ${
+      pathname === href
+        ? "text-practiceRed"
+        : "[@media(hover:hover)]:hover:text-practiceRed"
+    }`;
 
   return (
     <header>
@@ -59,25 +67,29 @@ export function SiteHeader() {
           >
             <a
               href="/leistungen"
-              className="transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/leistungen" ? "page" : undefined}
+              className={navigationLinkClass("/leistungen")}
             >
               Leistungen
             </a>
             <a
               href="/praxis"
-              className="transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/praxis" ? "page" : undefined}
+              className={navigationLinkClass("/praxis")}
             >
               Praxis
             </a>
             <a
               href="/team"
-              className="transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/team" ? "page" : undefined}
+              className={navigationLinkClass("/team")}
             >
               Team
             </a>
             <a
               href="/kontakt"
-              className="transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/kontakt" ? "page" : undefined}
+              className={navigationLinkClass("/kontakt")}
             >
               Kontakt
             </a>
@@ -86,7 +98,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               aria-label="Zahnarztpraxis Dres. Dumbach auf Instagram"
-              className="text-black transition-colors hover:text-practiceRed"
+              className="text-black transition-colors [@media(hover:hover)]:hover:text-practiceRed"
             >
               <InstagramIcon className="h-5 w-5" aria-hidden="true" />
             </a>
@@ -104,25 +116,29 @@ export function SiteHeader() {
           >
             <a
               href="/leistungen"
-              className="block py-3 transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/leistungen" ? "page" : undefined}
+              className={navigationLinkClass("/leistungen", true)}
             >
               Leistungen
             </a>
             <a
               href="/praxis"
-              className="block py-3 transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/praxis" ? "page" : undefined}
+              className={navigationLinkClass("/praxis", true)}
             >
               Praxis
             </a>
             <a
               href="/team"
-              className="block py-3 transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/team" ? "page" : undefined}
+              className={navigationLinkClass("/team", true)}
             >
               Team
             </a>
             <a
               href="/kontakt"
-              className="block py-3 transition-colors hover:text-practiceRed"
+              aria-current={pathname === "/kontakt" ? "page" : undefined}
+              className={navigationLinkClass("/kontakt", true)}
             >
               Kontakt
             </a>
@@ -130,7 +146,7 @@ export function SiteHeader() {
               href={ContactInformation.instagramLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex py-3 transition-colors hover:text-practiceRed"
+              className="inline-flex py-3 transition-colors [@media(hover:hover)]:hover:text-practiceRed"
             >
               Instagram
             </a>
