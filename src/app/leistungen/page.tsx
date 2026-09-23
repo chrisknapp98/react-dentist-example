@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "../common/footer/footer";
+import { BUTTON_INTERACTION_CLASS } from "../common/button/buttonStyles";
 import { SiteHeader } from "../common/header/siteHeader";
 import { ServicesAccordion } from "./servicesAccordion";
 import { services } from "./services";
@@ -83,7 +84,7 @@ export default function LeistungenPage() {
               <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">Wir klären es gemeinsam in Ruhe.</h2>
               <p className="mt-5 text-base leading-7 text-textGrey sm:text-lg sm:leading-8">Bringen Sie Ihre Fragen gern mit. Nach einer sorgfältigen Untersuchung besprechen wir verständlich, welche Behandlung sinnvoll sein kann.</p>
             </div>
-            <a href="/kontakt" className="inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed">Beratung vereinbaren</a>
+            <a href="/kontakt" className={`inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white ${BUTTON_INTERACTION_CLASS} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed`}>Beratung vereinbaren</a>
           </div>
         </section>
       </main>

@@ -22,12 +22,12 @@ export function Button({
   let colorClass = '';
 
   if (color === "practiceRed") {
-    colorClass = "bg-practiceRed text-white hover:bg-practiceRed/90";
+    colorClass = "bg-practiceRed text-white [@media(hover:hover)]:hover:bg-practiceRed/90";
   } else if (color === "practiceGrey") {
-    colorClass = "bg-practiceGrey text-white hover:bg-practiceGrey/90";
+    colorClass = "bg-practiceGrey text-white [@media(hover:hover)]:hover:bg-practiceGrey/90";
   } else if (color === "practiceWhite") {
     colorClass =
-      "bg-practiceWhite text-practiceGrey border border-practiceGrey hover:bg-practiceGrey/10";
+      "bg-practiceWhite text-practiceGrey border border-practiceGrey [@media(hover:hover)]:hover:bg-practiceGrey/10";
   }
 
   return (
