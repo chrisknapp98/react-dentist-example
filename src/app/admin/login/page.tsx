@@ -25,18 +25,24 @@ export default function AdminLogin() {
   const handleLogin = async () => {
     setError(""); // Clear previous errors
 
-    const res = await fetch("/api/auth", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
+    try {
+      const res = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
 
-    if (res.ok) {
-      router.push("/admin"); // Redirect to admin panel
-    } else if (res.status === 429) {
-      setError("Zu viele Anmeldeversuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.");
-    } else {
-      setError("Falsches Passwort");
+      if (res.ok) {
+        router.push("/admin"); // Redirect to admin panel
+      } else if (res.status === 429) {
+        setError("Zu viele Anmeldeversuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.");
+      } else if (res.status >= 500) {
+        setError("Die Anmeldung ist momentan nicht verfügbar. Bitte versuchen Sie es später erneut.");
+      } else {
+        setError("Falsches Passwort");
+      }
+    } catch {
+      setError("Keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.");
     }
   };
 
