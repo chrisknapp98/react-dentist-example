@@ -2,6 +2,7 @@ import { put } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import { AnnouncementDTO } from "./announcementDTO";
+import { requireAdmin } from "../../common/authentication/server/requireAdmin";
 
 const BLOB_FILENAME = "announcements.json";
 const BLOB_URL = process.env.NEXT_PUBLIC_VERCEL_BLOB_URL;
@@ -29,6 +30,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
     try {
         if (!BLOB_URL) {
             console.error("BLOB_URL is not set in the environment variables.");
@@ -64,6 +68,9 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
     if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
         return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
     }
@@ -98,6 +105,9 @@ export async function DELETE(req: Request) {
 }
 
 export async function PUT(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
     if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
         return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
     }

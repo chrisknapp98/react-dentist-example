@@ -3,9 +3,10 @@ import bcrypt from "bcryptjs";
 import { Store } from '../../../store/domain/store';
 import { AuthenticationManager } from '../../domain/manager/authenticationManager';
 
-const SECRET_KEY = process.env.SESSION_SECRET || "fallback-secret";
+const SECRET_KEY = process.env.SESSION_SECRET;
 const HASHED_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const COOKIE_NAME = "admin_session";
+const SESSION_DURATION_HOURS = 12;
 
 export class SignedTokenAuthenticationManager implements AuthenticationManager {
   private store: Store;
@@ -15,7 +16,7 @@ export class SignedTokenAuthenticationManager implements AuthenticationManager {
   }
 
   async login(password: string): Promise<boolean> {
-    if (!HASHED_ADMIN_PASSWORD || !password) {
+    if (!SECRET_KEY || !HASHED_ADMIN_PASSWORD || !password) {
       return false;
     }
 
@@ -25,16 +26,22 @@ export class SignedTokenAuthenticationManager implements AuthenticationManager {
     }
 
     const sessionToken = crypto.randomUUID();
-    await this.store.setItem(COOKIE_NAME, sessionToken);
+    await this.store.setItem(COOKIE_NAME, sessionToken, SESSION_DURATION_HOURS);
 
     const hashedToken = this.hashSessionToken(sessionToken);
-    await this.store.setItem(`${COOKIE_NAME}_hashed`, hashedToken);
+    await this.store.setItem(
+      `${COOKIE_NAME}_hashed`,
+      hashedToken,
+      SESSION_DURATION_HOURS,
+    );
 
     return true;
   }
 
   async validateSession(): Promise<boolean> {
     try {
+      if (!SECRET_KEY) return false;
+
       const sessionToken = await this.store.getItem(COOKIE_NAME);
       if (!sessionToken) {
         return false;
@@ -46,7 +53,13 @@ export class SignedTokenAuthenticationManager implements AuthenticationManager {
       }
 
       const hashedToken = this.hashSessionToken(sessionToken);
-      if (hashedToken !== storedHashedToken) {
+      if (
+        hashedToken.length !== storedHashedToken.length ||
+        !crypto.timingSafeEqual(
+          Buffer.from(hashedToken),
+          Buffer.from(storedHashedToken),
+        )
+      ) {
         return false;
       }
 
@@ -62,6 +75,8 @@ export class SignedTokenAuthenticationManager implements AuthenticationManager {
   }
 
   private hashSessionToken(token: string): string {
+    if (!SECRET_KEY) return "";
+
     return crypto.createHmac("sha256", SECRET_KEY).update(token).digest("hex");
   }
 }
