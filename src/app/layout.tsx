@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ContactInformation } from "./common/contactInformation/contactInformation";
 import Script from "next/script";
-import { VercelToolbar } from "@vercel/toolbar/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,9 +52,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Explicitly mount the toolbar in preview deployments so it follows App Router
-  // navigation and records comments against the current pathname.
-  const showPreviewToolbar = process.env.VERCEL_ENV === "preview";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
@@ -97,7 +93,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {showPreviewToolbar && <VercelToolbar />}
         <Script id="ld-dentist" type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
