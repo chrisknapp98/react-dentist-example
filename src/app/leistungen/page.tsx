@@ -79,7 +79,7 @@ export default function LeistungenPage() {
         <section className="bg-practiceSkin px-6 py-14 sm:px-12 md:py-20 lg:px-20">
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">Nicht sicher, was passt?</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">Persönliche Beratung</p>
               <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">Wir klären es gemeinsam in Ruhe.</h2>
               <p className="mt-5 text-base leading-7 text-textGrey sm:text-lg sm:leading-8">Bringen Sie Ihre Fragen gern mit. Nach einer sorgfältigen Untersuchung besprechen wir verständlich, welche Behandlung sinnvoll sein kann.</p>
             </div>
