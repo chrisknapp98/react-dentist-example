@@ -9,6 +9,11 @@ import { ContactInformation } from "../common/contactInformation/contactInformat
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
 import { Button } from "../common/button/button";
 
+type Feedback = {
+  kind: "success" | "error";
+  message: string;
+};
+
 export default function AdminPage() {
   const [message, setMessage] = useState("");
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
@@ -21,17 +26,25 @@ export default function AdminPage() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
-  const announcementsRef = useRef<AnnouncementDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [accessError, setAccessError] = useState<string | null>(null);
 
   const fetchAnnouncements = async () => {
     setIsLoading(true);
     setIsRefreshing(true);
     try {
       const res = await fetch("/api/announcements");
+      if (!res.ok) throw new Error("Failed to load announcements");
       const data = await res.json();
-      if (data?.error) return;
+      if (data?.error) throw new Error("Failed to load announcements");
       setAnnouncements(data ?? []);
+    } catch {
+      setFeedback({
+        kind: "error",
+        message: "Aktuelle Meldungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      });
     } finally {
       setIsLoading(false);
       setTimeout(() => setIsRefreshing(false), 500);
@@ -39,19 +52,19 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    announcementsRef.current = announcements;
-  }, [announcements]);
-
-  useEffect(() => {
     async function checkAuth() {
-      const res = await fetch("/api/auth/validate");
-      const data = await res.json();
+      try {
+        const res = await fetch("/api/auth/validate");
+        const data = await res.json();
 
-      if (data.valid) {
-        setIsAuthenticated(true);
-        await fetchAnnouncements();
-      } else {
-        router.push("/admin/login");
+        if (data.valid) {
+          setIsAuthenticated(true);
+          await fetchAnnouncements();
+        } else {
+          router.push("/admin/login");
+        }
+      } catch {
+        setAccessError("Die Anmeldung konnte nicht überprüft werden. Bitte laden Sie die Seite erneut.");
       }
     }
 
@@ -60,7 +73,10 @@ export default function AdminPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!message) return alert("Bitte füllen Sie das Feld aus.");
+    if (!message.trim()) {
+      setFeedback({ kind: "error", message: "Bitte geben Sie eine Meldung ein." });
+      return;
+    }
     setConfirmState({
       message: "Neue Meldung jetzt veröffentlichen?",
       onConfirm: submitAnnouncement,
@@ -68,16 +84,32 @@ export default function AdminPage() {
   };
 
   const submitAnnouncement = async () => {
-    const res = await fetch("/api/announcements", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
-    });
+    setIsSaving(true);
+    try {
+      const res = await fetch("/api/announcements", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      });
+      if (res.status === 401) {
+        router.push("/admin/login");
+        return;
+      }
+      if (!res.ok) throw new Error("Failed to publish announcement");
 
-    if (!res.ok) return;
-    const updatedAnnouncements: AnnouncementDTO[] = await res.json();
-    setAnnouncements(() => updatedAnnouncements);
-    setMessage("");
+      setMessage("");
+      setFeedback({
+        kind: "success",
+        message: "Meldung veröffentlicht. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+      });
+    } catch {
+      setFeedback({
+        kind: "error",
+        message: "Die Meldung konnte nicht veröffentlicht werden. Bitte versuchen Sie es erneut.",
+      });
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleDelete = (id: string) => {
@@ -88,18 +120,28 @@ export default function AdminPage() {
   };
 
   const deleteAnnouncement = async (id: string) => {
-    const previous = announcementsRef.current;
-    setAnnouncements((prev) => prev.filter((a) => a.id !== id));
+    setIsSaving(true);
 
     try {
       const res = await fetch(`/api/announcements?id=${id}`, {
         method: "DELETE",
       });
+      if (res.status === 401) {
+        router.push("/admin/login");
+        return;
+      }
       if (!res.ok) throw new Error("Delete failed");
-      const updatedAnnouncements: AnnouncementDTO[] = await res.json();
-      setAnnouncements(() => updatedAnnouncements);
+      setFeedback({
+        kind: "success",
+        message: "Meldung gelöscht. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+      });
     } catch {
-      setAnnouncements(previous);
+      setFeedback({
+        kind: "error",
+        message: "Die Meldung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
+      });
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -125,11 +167,10 @@ export default function AdminPage() {
     const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
     if (targetIndex < 0 || targetIndex >= announcements.length) return;
 
-    const previous = announcementsRef.current;
     const next = [...announcements];
     const [moved] = next.splice(fromIndex, 1);
     next.splice(targetIndex, 0, moved);
-    setAnnouncements(() => next);
+    setIsSaving(true);
 
     try {
       const res = await fetch("/api/announcements", {
@@ -137,11 +178,22 @@ export default function AdminPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orderedIds: next.map((item) => item.id) }),
       });
+      if (res.status === 401) {
+        router.push("/admin/login");
+        return;
+      }
       if (!res.ok) throw new Error("Reorder failed");
-      const updatedAnnouncements: AnnouncementDTO[] = await res.json();
-      setAnnouncements(() => updatedAnnouncements);
+      setFeedback({
+        kind: "success",
+        message: "Reihenfolge gespeichert. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+      });
     } catch {
-      setAnnouncements(previous);
+      setFeedback({
+        kind: "error",
+        message: "Die Reihenfolge konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+      });
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -175,6 +227,23 @@ export default function AdminPage() {
     if (action) await action();
   };
 
+  if (accessError) {
+    return (
+      <main className="flex min-h-screen items-center justify-center px-6 text-center text-textGrey">
+        <div>
+          <p>{accessError}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="mt-4 rounded-full bg-practiceRed px-5 py-2.5 text-sm font-semibold text-white"
+          >
+            Erneut versuchen
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   if (!isAuthenticated) return null;
 
   return (
@@ -197,6 +266,7 @@ export default function AdminPage() {
               <button
                 type="button"
                 onClick={confirmAction}
+                disabled={isSaving}
                 className="rounded-full bg-practiceRed px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
               >
                 Bestätigen
@@ -304,6 +374,7 @@ export default function AdminPage() {
                   </p>
                   <Button
                     type="submit"
+                    disabled={isSaving}
                     className="text-sm font-semibold shadow-lg shadow-practiceRed/30"
                   >
                     Veröffentlichen
@@ -341,6 +412,20 @@ export default function AdminPage() {
             </div>
           </div>
         </div>
+
+        {feedback ? (
+          <div
+            role="status"
+            aria-live="polite"
+            className={`rounded-xl px-5 py-3 text-sm ${
+              feedback.kind === "success"
+                ? "bg-green-50 text-green-800"
+                : "bg-red-50 text-red-700"
+            }`}
+          >
+            {feedback.message}
+          </div>
+        ) : null}
 
         <div className="mt-8 space-y-6">
           <div className="flex flex-col gap-3 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80 sm:flex-row sm:items-center sm:justify-between">
@@ -405,20 +490,21 @@ export default function AdminPage() {
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => moveAnnouncement(index, "up")}
-                      disabled={index === 0}
+                      disabled={isSaving || index === 0}
                       className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
                     >
                       Nach oben
                     </button>
                     <button
                       onClick={() => moveAnnouncement(index, "down")}
-                      disabled={index === announcements.length - 1}
+                      disabled={isSaving || index === announcements.length - 1}
                       className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
                     >
                       Nach unten
                     </button>
                     <button
                       onClick={() => handleDelete(a.id)}
+                      disabled={isSaving}
                       className="rounded-full border border-practiceRed/40 px-3 py-2 text-xs font-medium text-practiceRed transition hover:border-practiceRed hover:bg-practiceRed/10"
                     >
                       Löschen

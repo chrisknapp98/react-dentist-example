@@ -34,9 +34,9 @@ export async function POST(req: Request) {
     if (authError) return authError;
 
     try {
-        if (!BLOB_URL) {
-            console.error("BLOB_URL is not set in the environment variables.");
-            return NextResponse.json({ error: "Blob storage URL not configured" }, { status: 500 });
+        if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
+            console.error("Blob storage configuration is missing.");
+            return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
         }
 
         const { message } = await req.json();
@@ -57,6 +57,7 @@ export async function POST(req: Request) {
             contentType: "application/json",
             access: "public",
             addRandomSuffix: false,
+            allowOverwrite: true,
             token: BLOB_WRITE_TOKEN,
         });
 
@@ -98,6 +99,7 @@ export async function DELETE(req: Request) {
         contentType: "application/json",
         access: "public",
         addRandomSuffix: false,
+        allowOverwrite: true,
         token: BLOB_WRITE_TOKEN,
     });
 
@@ -144,6 +146,7 @@ export async function PUT(req: Request) {
         contentType: "application/json",
         access: "public",
         addRandomSuffix: false,
+        allowOverwrite: true,
         token: BLOB_WRITE_TOKEN,
     });
     return NextResponse.json(reordered, { status: 200 });
