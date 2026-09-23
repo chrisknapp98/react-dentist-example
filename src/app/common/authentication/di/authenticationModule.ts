@@ -1,18 +1,18 @@
-import { StoreModule } from "../../store/di/storeModule";
-import { StoreManager } from "../../store/domain/storeManager";
+import { ServerStoreModule } from "../../store/di/serverStoreModule";
+import { Store } from "../../store/domain/store";
 import { AuthenticationManager } from "../domain/manager/authenticationManager";
 import { SignedTokenAuthenticationManager } from "../data/manager/signedTokenAuthenticationManager";
 
 export class AuthenticationModule {
-    private componentStoreModule(): StoreModule {
-        return new StoreModule();
+    private serverStoreModule(): ServerStoreModule {
+        return new ServerStoreModule();
     }
 
-    private componentStoreManager(): StoreManager {
-        return this.componentStoreModule().provide();
+    private componentStore(): Store {
+        return this.serverStoreModule().provide();
     }    
 
     provideManager(): AuthenticationManager {
-        return new SignedTokenAuthenticationManager(this.componentStoreManager());
+        return new SignedTokenAuthenticationManager(this.componentStore());
     }
 }

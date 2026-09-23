@@ -22,7 +22,7 @@ export default function Datenschutz() {
                             Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
                         </p>
                         <p>
-                            Beim Besuch dieser Website werden keine personenbezogenen Daten aktiv erhoben. Es findet kein Tracking statt, und es werden keine Cookies gesetzt.
+                            Beim Besuch dieser Website werden keine personenbezogenen Daten aktiv erhoben. Es findet kein Tracking statt. Nur wenn Sie die Google-Maps-Karte aktivieren, wird ein technisch notwendiges Cookie gespeichert, das Ihre Auswahl festhält.
                         </p>
                     </article>
 
@@ -67,7 +67,7 @@ export default function Datenschutz() {
                     <article>
                         <h2 className="text-lg mb-2">5. Externe Links</h2>
                         <p>
-                            Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Die Google-Maps-Karte auf der Kontaktseite wird erst nach Ihrer Einwilligung geladen. Wenn Sie die Karte aktivieren oder einen externen Link anklicken, können Daten an den jeweiligen Anbieter übermittelt werden. Es gelten dann dessen Datenschutzbestimmungen, auf die wir keinen Einfluss haben.
+                            Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Die Google-Maps-Karte auf der Kontaktseite wird erst nach Ihrer Einwilligung geladen. Ihre Einwilligung wird für sechs Monate in einem Cookie in Ihrem Browser gespeichert und kann über „Maps deaktivieren“ jederzeit widerrufen werden. Wenn Sie die Karte aktivieren oder einen externen Link anklicken, können Daten an den jeweiligen Anbieter übermittelt werden. Es gelten dann dessen Datenschutzbestimmungen, auf die wir keinen Einfluss haben.
                         </p>
                     </article>
                     </div>
