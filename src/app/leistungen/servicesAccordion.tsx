@@ -49,7 +49,7 @@ export function ServicesAccordion({
                             openIndex === index ? null : index,
                           )
                         }
-                        className="group flex w-full items-center justify-between gap-6 px-6 py-5 text-left text-lg font-semibold text-textGrey transition-colors hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-practiceRed sm:px-8 sm:py-6 sm:text-xl"
+                        className="group flex w-full items-center justify-between gap-6 px-6 py-5 text-left text-lg font-semibold text-textGrey transition-colors [@media(hover:hover)]:hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-practiceRed sm:px-8 sm:py-6 sm:text-xl"
                       >
                         <span>{service.title}</span>
                         <ChevronDownIcon
