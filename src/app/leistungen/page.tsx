@@ -62,12 +62,15 @@ export default function LeistungenPage() {
           aria-label="Behandlungsübersicht"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="relative z-0 rounded-t-2xl bg-practiceRed px-6 pb-16 pt-10 text-center sm:rounded-t-3xl sm:pb-[4.5rem] sm:pt-12">
+            <div className="rounded-2xl bg-practiceRed px-6 py-10 text-center sm:rounded-3xl sm:py-12">
               <h2 className="text-2xl font-semibold text-white sm:text-3xl">
                 Unsere Leistungen im Überblick
               </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">
+                Wählen Sie den Bereich, der Sie interessiert. Die Details öffnen sich direkt darunter.
+              </p>
             </div>
-            <div className="relative z-10 -mt-6 sm:-mt-6">
+            <div className="mt-8 sm:mt-10">
               <ServicesAccordion services={services} />
             </div>
           </div>
