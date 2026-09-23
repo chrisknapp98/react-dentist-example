@@ -65,9 +65,15 @@ export default function Datenschutz() {
                         </address>
                     </article>
                     <article>
-                        <h2 className="text-lg mb-2">5. Externe Links</h2>
+                        <h2 className="text-lg mb-2">5. Google Maps</h2>
                         <p>
-                            Unsere Website enthält Links zu externen Websites Dritter (z. B. soziale Netzwerke oder Kartendienste). Die Google-Maps-Karte auf der Kontaktseite wird erst nach Ihrer Einwilligung geladen. Ihre Einwilligung wird für sechs Monate in einem Cookie in Ihrem Browser gespeichert und kann über „Maps deaktivieren“ jederzeit widerrufen werden. Wenn Sie die Karte aktivieren oder einen externen Link anklicken, können Daten an den jeweiligen Anbieter übermittelt werden. Es gelten dann dessen Datenschutzbestimmungen, auf die wir keinen Einfluss haben.
+                            Die Google-Maps-Karte auf der Kontaktseite wird erst nach Ihrer Einwilligung geladen. Wenn Sie die Karte aktivieren, können personenbezogene Daten, insbesondere Ihre IP-Adresse, an Google übermittelt werden. Ihre Einwilligung wird für sechs Monate in einem Cookie in Ihrem Browser gespeichert und kann über „Maps deaktivieren“ jederzeit widerrufen werden. Es gelten die Datenschutzbestimmungen von Google.
+                        </p>
+                    </article>
+                    <article>
+                        <h2 className="text-lg mb-2">6. Externe Links</h2>
+                        <p>
+                            Unsere Website enthält Links zu externen Websites Dritter, zum Beispiel zu sozialen Netzwerken oder Kartendiensten. Wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website. Es gelten dann die Datenschutzbestimmungen des jeweiligen Anbieters, auf die wir keinen Einfluss haben.
                         </p>
                     </article>
                     </div>
