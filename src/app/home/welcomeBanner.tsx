@@ -43,7 +43,7 @@ export function WelcomeBanner() {
             alt="Außenansicht der Zahnarztpraxis in Pegnitz"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 767px) 100vw, 1px"
             quality={90}
             className="object-cover object-center"
           />
