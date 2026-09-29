@@ -14,11 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const PRACTICE_NAME = "Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach";
+const PRACTICE_NAME =
+  "Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach";
 
 export const metadata: Metadata = {
   metadataBase: new URL(ContactInformation.website),
-  title:  PRACTICE_NAME,
+  title: PRACTICE_NAME,
   description:
     "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
   robots: { index: true, follow: true },
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
         url: "/images/praxis_foto_cropped.jpg",
         width: 1200,
         height: 630,
-        alt: "Außenansicht der Zahnarztpraxis in Pegnitz"
-      }
-    ]
+        alt: "Außenansicht der Zahnarztpraxis in Pegnitz",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -55,45 +56,76 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": PRACTICE_NAME,
-    "url": ContactInformation.website,
-    "telephone": ContactInformation.telephoneDisplay,
-    "email": ContactInformation.email,
-    "address": {
+    name: PRACTICE_NAME,
+    url: ContactInformation.website,
+    telephone: ContactInformation.telephoneDisplay,
+    email: ContactInformation.email,
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": ContactInformation.address.street,
-      "postalCode": ContactInformation.address.postcode,
-      "addressLocality": ContactInformation.address.city,
-      "addressRegion": ContactInformation.address.region,
-      "addressCountry": ContactInformation.address.country
+      streetAddress: ContactInformation.address.street,
+      postalCode: ContactInformation.address.postcode,
+      addressLocality: ContactInformation.address.city,
+      addressRegion: ContactInformation.address.region,
+      addressCountry: ContactInformation.address.country,
     },
-    "description": "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
-    "availableLanguage": ["de", "en", "es", "fr"],
-    "areaServed": ["Pegnitz", "Bayreuth", "Creußen", "Auerbach", "Lauf", "Plech", "Kirchenthumbach", "Eschenbach"],
-    "amenityFeature": [
-      { "@type": "LocationFeatureSpecification", "name": "Barrierefrei", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Rollstuhlgerecht", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Nähe Bahnhof", "value": true }
+    description:
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
+    availableLanguage: ["de", "en", "es", "fr"],
+    areaServed: [
+      "Pegnitz",
+      "Bayreuth",
+      "Creußen",
+      "Auerbach",
+      "Lauf",
+      "Plech",
+      "Kirchenthumbach",
+      "Eschenbach",
     ],
-    "availableService": [
-      { "@type": "MedicalBusiness", "name": "Zahnreinigung (PZR)" },
-      { "@type": "MedicalBusiness", "name": "Kieferorthopädie" },
-      { "@type": "MedicalBusiness", "name": "unsichtbare Zahnspange (Aligner)" },
-      { "@type": "MedicalBusiness", "name": "Implantate" },
-      { "@type": "MedicalBusiness", "name": "CEREC – Kronen/Brücken" },
-      { "@type": "MedicalBusiness", "name": "Veneers" },
-      { "@type": "MedicalBusiness", "name": "Parodontitis-Behandlung" },
-      { "@type": "MedicalBusiness", "name": "Schienen (Knirschen/CMD)" }
-    ]
+    amenityFeature: [
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Barrierefrei",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Rollstuhlgerecht",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Nähe Bahnhof",
+        value: true,
+      },
+    ],
+    availableService: [
+      { "@type": "MedicalBusiness", name: "Zahnreinigung (PZR)" },
+      { "@type": "MedicalBusiness", name: "Kieferorthopädie" },
+      { "@type": "MedicalBusiness", name: "unsichtbare Zahnspange (Aligner)" },
+      { "@type": "MedicalBusiness", name: "Implantate" },
+      { "@type": "MedicalBusiness", name: "CEREC – Kronen/Brücken" },
+      { "@type": "MedicalBusiness", name: "Veneers" },
+      { "@type": "MedicalBusiness", name: "Parodontitis-Behandlung" },
+      { "@type": "MedicalBusiness", name: "Schienen (Knirschen/CMD)" },
+    ],
   };
 
   return (
     <html lang="de">
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Script id="ld-dentist" type="application/ld+json"
+        <Script
+          id="ld-dentist"
+          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </body>
