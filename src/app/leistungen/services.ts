@@ -54,8 +54,8 @@ export const services: readonly Service[] = [
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Kieferorthopädie für Kinder & Erwachsene",
     paragraphs: [
-      "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis - seit fast 40 Jahren.",
-      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit, kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung, oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Slltag einschränken.",
+      "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis – seit fast 40 Jahren.",
+      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag einschränken.",
       "Diese Korrekturen sind neben klassischen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
       "Wann ist der richtige Zeitpunkt, eine kieferorthopädische Therapie zu beginnen? Vereinbaren Sie gerne einen Beratungstermin, um den Behandlungsbedarf einzuordnen und die möglichen Therapien zu besprechen.",
     ],
@@ -64,14 +64,14 @@ export const services: readonly Service[] = [
     category: ServiceCategory.VorsorgeUndZahnerhalt,
     title: "Parodontitisbehandlung",
     paragraphs: [
-      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparates, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher, der zu einer chronischen Entzündung des Zahnfleischs führt. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über die Blutzirkulation Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu erhalten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige Prophylaxe ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
+      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparates, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher, das zu einer chronischen Entzündung des Zahnfleischs führt. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über die Blutzirkulation Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu erhalten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige Prophylaxe ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
     ],
   },
   {
     category: ServiceCategory.VorsorgeUndZahnerhalt,
     title: "Regenerative Zahnfleisch-Operationen",
     paragraphs: [
-      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wieder herzustellen. Mithilfe von Schmelz-Matrixproteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
+      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wiederherzustellen. Mithilfe von Schmelz-Matrixproteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
     ],
   },
   {
@@ -85,30 +85,30 @@ export const services: readonly Service[] = [
     category: ServiceCategory.ZahnersatzUndAesthetik,
     title: "Ästhetik (Bleaching, Zahnaufhellung, Kunststoffinfiltration, Veneers)",
     paragraphs: [
-      "Ein strahlendes Lächeln kann das persönliche Wohlbefinden und Selbstvertrauen stärken. Neben der Zahnstellung (Thema der Kieferorthopädie) sind oft bereits das Aufhellung der Zahnfarbe oder das Ausgleichen von Unebenheiten oder kleinen Defekten der Zahnsubstanz ausreichend, um ein harmonisches Aussehen der Zähne zu erreichen. Von der professionellen Zahnaufhellung über Bleaching bis zu Kunststoffinfiltrationen und Veneers aus Keramik oder Komposit, bieten wir Ihnen verschiedene individuelle Möglichkeiten, das Erscheinungsbild Ihrer Zähne zu verbessern.",
+      "Ein strahlendes Lächeln kann das persönliche Wohlbefinden und Selbstvertrauen stärken. Neben der Zahnstellung (Thema der Kieferorthopädie) sind oft bereits das Aufhellen der Zahnfarbe oder das Ausgleichen von Unebenheiten oder kleinen Defekten der Zahnsubstanz ausreichend, um ein harmonisches Aussehen der Zähne zu erreichen. Von der professionellen Zahnaufhellung über Bleaching bis zu Kunststoffinfiltrationen und Veneers aus Keramik oder Komposit bieten wir Ihnen verschiedene individuelle Möglichkeiten, das Erscheinungsbild Ihrer Zähne zu verbessern.",
     ],
   },
   {
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Funktionstherapie",
     paragraphs: [
-      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen schlechten Angewohnheiten, aber auch Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans aber auch ihr Wohlbefinden eine große Rolle spielen.",
+      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen schlechten Angewohnheiten, aber auch das Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans und für Ihr Wohlbefinden eine große Rolle spielen.",
     ],
   },
   {
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Botulinum Behandlung des Kaumuskels Musculus masseter (Botox)",
     paragraphs: [
-      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, die Muskelentspannung zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse und Apperaturen, wie Aufbiss-Schienen statt.",
+      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, die Muskelentspannung zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse und Apparaturen, wie Aufbiss-Schienen statt.",
     ],
   },
   {
     category: ServiceCategory.VorsorgeUndZahnerhalt,
-    title: "Kinderbehandlung- und prophylaxe",
+    title: "Kinderbehandlung und -prophylaxe",
     paragraphs: [
-      "Unsere jungen Patientinnen und Patienten sollen sich bei uns von Anfang an wohlfühlen. Mit regelmäßigen Kontrollen ab dem ersten Zahn, gewöhnen sich Kinder meist schnell an den Zahnarztbesuch. Mit einer kindgerechten Behandlung, regelmäßiger Prophylaxe und spielerischer Vermittlung von Mundhygiene schaffen wir die Grundlage für gesunde Zähne von klein auf. Auch die Kontrolle des Putzerfolgs zu Hause ist entscheidend.",
-      "Wir beraten Sie, ob Fissurenversiegelung sinnvoll sind und füllen kariöse Zähne.",
-      "Uns ist auch die Analyse von Schlucken, Atmung und bestimmten Angewohnheiten wichtig - auch mit Blick auf eine eventuell sinnvolle kieferorthopädische Behandlung.",
+      "Unsere jungen Patientinnen und Patienten sollen sich bei uns von Anfang an wohlfühlen. Mit regelmäßigen Kontrollen ab dem ersten Zahn gewöhnen sich Kinder meist schnell an den Zahnarztbesuch. Mit einer kindgerechten Behandlung, regelmäßiger Prophylaxe und spielerischer Vermittlung von Mundhygiene schaffen wir die Grundlage für gesunde Zähne von klein auf. Auch die Kontrolle des Putzerfolgs zu Hause ist entscheidend.",
+      "Wir beraten Sie, ob Fissurenversiegelungen sinnvoll sind, und füllen kariöse Zähne.",
+      "Uns ist auch die Analyse des Schluckens, der Atmung und bestimmter Angewohnheiten wichtig – auch mit Blick auf eine eventuell sinnvolle kieferorthopädische Behandlung.",
     ],
   },
   {
