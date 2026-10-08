@@ -23,7 +23,7 @@ const dentists = [
   {
     name: "Dr. Johannes Dumbach",
     role: "Zahnarzt",
-    image: "/image-collection/dr-johannes-dumbach-portrait-01.jpg",
+    image: "/image-collection/dr-johannes-dumbach-portrait-07.jpg",
     alt: "Dr. Johannes Dumbach im Empfangsbereich der Praxis",
     text: "Mit seiner umfassenden Erfahrung begleitet er Sie in allen Bereichen der modernen Zahnmedizin. Sorgfältige Planung und eine verständliche Beratung stehen für ihn im Mittelpunkt.",
   },
