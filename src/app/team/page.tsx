@@ -29,7 +29,7 @@ const dentists = [
   },
   {
     name: "Dr. Georg Dumbach",
-    role: "Zahnarzt & Kieferorthopäde",
+    role: "Kieferorthopäde",
     image: "/image-collection/dr-georg-dumbach-portrait.jpg",
     alt: "Dr. Georg Dumbach im Empfangsbereich der Praxis",
     text: "Seine langjährige Erfahrung in der Kieferorthopädie ergänzt unser gemeinsames Angebot für Kinder, Jugendliche und Erwachsene. Ein besonderer Schwerpunkt liegt auf der klassischen kieferorthopädischen Behandlung.",
