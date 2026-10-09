@@ -49,7 +49,10 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <a href="/leistungen" className="mt-8 inline-flex text-sm font-semibold text-practiceRed underline underline-offset-4 transition-colors hover:text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed">
+          <a
+            href="/leistungen"
+            className="mt-8 inline-flex py-4 text-xl font-semibold leading-tight text-practiceRed underline underline-offset-8 transition-colors hover:text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:text-2xl"
+          >
             Alle Leistungen ansehen
           </a>
         </div>
