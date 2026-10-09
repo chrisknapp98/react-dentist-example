@@ -64,14 +64,14 @@ export const services: readonly Service[] = [
     category: ServiceCategory.VorsorgeUndZahnerhalt,
     title: "Parodontitisbehandlung",
     paragraphs: [
-      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparates, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher, das zu einer chronischen Entzündung des Zahnfleischs führt. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über die Blutzirkulation Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu erhalten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige Prophylaxe ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
+      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparats, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher und führt zu einer Entzündung des Zahnfleischs. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über den Blutkreislauf Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu halten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige professionelle Zahnreinigung ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
     ],
   },
   {
     category: ServiceCategory.VorsorgeUndZahnerhalt,
     title: "Regenerative Zahnfleisch-Operationen",
     paragraphs: [
-      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wiederherzustellen. Mithilfe von Schmelz-Matrixproteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
+      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wiederherzustellen. Mithilfe von spezifischen Proteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
     ],
   },
   {

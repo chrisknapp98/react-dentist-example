@@ -44,8 +44,7 @@ export default function LeistungenPage() {
                   die wir in unserer Gemeinschaftspraxis anbieten. Wichtig ist
                   uns im Gespräch mit Ihnen bei Ihrer Untersuchung
                   herauszufinden, was für Sie und Ihre Zähne die passende
-                  Therapie ist. Dabei steht eine angst- und schmerzfreie
-                  Behandlung an oberster Stelle. Sprechen Sie uns gerne auf
+                  Therapie ist. Sprechen Sie uns gerne auf
                   Sorgen und Wünsche rund um Ihre Zähne an. Wir nehmen uns Zeit
                   für eine individuelle Beratung.
                 </p>

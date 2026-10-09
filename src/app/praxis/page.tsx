@@ -36,8 +36,8 @@ export default function PraxisPage() {
                   Unsere Praxis in Pegnitz
                 </p>
                 <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
-                  Aus bewährter Kieferorthopädie wurde ein Ort für umfassende
-                  Zahnmedizin.
+                  Aus bewährter Kieferorthopädie wurde ein Ort für das ganze
+                  Spektrum der Zahnmedizin.
                 </h2>
                 <div className="mt-6 space-y-4 text-base leading-7 sm:text-lg sm:leading-8">
                   <p>
@@ -47,10 +47,8 @@ export default function PraxisPage() {
                     Kieferorthopädie gemeinsam anbieten.
                   </p>
                   <p>
-                    Dabei ist uns wichtig, dass medizinische Qualität und eine
-                    angenehme Atmosphäre zusammengehören: mit Zeit für
-                    persönliche Gespräche, kurzen Wegen und einer Behandlung,
-                    die zu Ihnen passt.
+                    Dabei ist uns wichtig, dass zahnmedizinische Qualität und
+                    eine angenehme Atmosphäre zusammengehören.
                   </p>
                 </div>
               </div>
@@ -82,12 +80,12 @@ export default function PraxisPage() {
 
         <section className="bg-white px-6 py-14 sm:px-12 md:py-20 lg:px-20">
           <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
+            <div className="max-w-4xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
                 Einblicke in die Praxis
               </p>
               <h2 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl">
-                Räume und Ausstattung, die zum Wohlfühlen einladen
+                Wir freuen uns, Sie in unseren Räumen zu begrüßen
               </h2>
             </div>
             <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
@@ -136,8 +134,8 @@ export default function PraxisPage() {
               <p className="mt-6 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
                 Moderne Ausstattung unterstützt uns dabei, Befunde sorgfältig zu
                 beurteilen und Behandlungen nachvollziehbar zu planen. Wir
-                erklären Ihnen jeden Schritt verständlich und entscheiden
-                gemeinsam mit Ihnen, was sinnvoll ist.
+                erklären Ihnen jeden Schritt verständlich und finden gemeinsam
+                mit Ihnen die passende Therapie.
               </p>
             </div>
             <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
@@ -190,12 +188,8 @@ export default function PraxisPage() {
                 Ihr Besuch bei uns
               </p>
               <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
-                Wir freuen uns, Sie in Pegnitz zu begrüßen.
+                Vereinbaren Sie Ihren Termin bei uns.
               </h2>
-              <p className="mt-6 text-base leading-7 text-textGrey sm:text-lg sm:leading-8">
-                Ob Vorsorge, Behandlung oder Kieferorthopädie: Bei uns stehen
-                Ihre Wünsche und Ihre Zahngesundheit im Mittelpunkt.
-              </p>
               <a
                 href="/kontakt"
                 className={`mt-8 inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed ${BUTTON_INTERACTION_CLASS}`}

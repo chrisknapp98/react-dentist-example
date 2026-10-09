@@ -7,11 +7,11 @@ import { Footer } from "./common/footer/footer";
 const treatmentAreas = [
   {
     title: "Vorsorge & Prophylaxe",
-    text: "Kontrollen, professionelle Zahnreinigung und individuelle Tipps für die tägliche Mundhygiene.",
+    text: "Kontrollen, professionelle Zahnreinigung und individuelle Tipps für die tägliche Mundhygiene – für Groß und Klein.",
   },
   {
-    title: "Zahnerhalt & Ästhetik",
-    text: "Von Füllungen und Wurzelkanalbehandlungen bis zu Zahnersatz, Bleaching und Veneers.",
+    title: "Zahnmedizin",
+    text: "Von Füllungen und Wurzelkanalbehandlungen bis zu Zahnersatz und Implantologie.",
   },
   {
     title: "Kieferorthopädie",
@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <div className="max-w-xl text-textGrey">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
-              Zahnärzte &amp; Kieferorthopädie
+              Zahnmedizin &amp; Kieferorthopädie
             </p>
             <h2 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl">
               Persönlich für Sie da
@@ -78,7 +78,8 @@ export default function Home() {
               </span>
               , <span className="whitespace-nowrap">Dr. Johannes Dumbach</span>{" "}
               und <span className="whitespace-nowrap">Dr. Georg Dumbach</span>{" "}
-              verbinden Erfahrung, moderne Zahnmedizin und Kieferorthopädie.
+              verbinden Erfahrung und Empathie mit moderner Zahnmedizin und
+              Kieferorthopädie.
             </p>
             <p className="mt-4 text-base leading-7 sm:text-lg sm:leading-8">
               Wir nehmen uns Zeit für Ihre Fragen und finden gemeinsam die
