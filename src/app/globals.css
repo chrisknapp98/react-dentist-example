@@ -31,3 +31,29 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+ * Safari 26 samples fixed elements near a viewport edge to tint its browser UI.
+ * A fully transparent mask hides the sample elements without preventing Safari
+ * from reading their background color. Older Safari versions use theme-color.
+ */
+.safari-browser-tint {
+  position: fixed;
+  left: 50%;
+  z-index: 999;
+  width: 89%;
+  height: 11px;
+  background: var(--practice-red);
+  pointer-events: none;
+  transform: translateX(-50%);
+  mask-image: linear-gradient(to right, transparent, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, transparent);
+}
+
+.safari-browser-tint-top {
+  top: 4px;
+}
+
+.safari-browser-tint-bottom {
+  bottom: 3px;
+}
