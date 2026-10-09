@@ -25,7 +25,7 @@ export function SiteHeader() {
       <ContactHeader alignment="center" />
       <div
         className={`relative z-30 bg-gray-200 shadow-md transition-[height] duration-300 ease-in-out xl:h-24 ${
-          isMobileMenuOpen ? "h-[23rem] md:h-[25rem]" : "h-16 md:h-24"
+          isMobileMenuOpen ? "h-[26rem] md:h-[28rem]" : "h-16 md:h-24"
         }`}
       >
         <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-end px-5 sm:px-10 md:h-24 md:px-32">
@@ -72,8 +72,15 @@ export function SiteHeader() {
           </button>
           <nav
             aria-label="Hauptnavigation"
-            className="hidden items-center gap-4 text-xs font-medium text-textGrey sm:gap-7 sm:text-sm md:gap-10 md:text-base xl:absolute xl:left-[46rem] xl:flex"
+            className="hidden items-center gap-4 text-xs font-medium text-textGrey sm:gap-7 sm:text-sm md:gap-6 md:text-base xl:absolute xl:left-[46rem] xl:flex"
           >
+            <a
+              href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
+              className={navigationLinkClass("/")}
+            >
+              Startseite
+            </a>
             <a
               href="/leistungen"
               aria-current={pathname === "/leistungen" ? "page" : undefined}
@@ -123,6 +130,13 @@ export function SiteHeader() {
             }`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
+            <a
+              href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
+              className={navigationLinkClass("/", true)}
+            >
+              Startseite
+            </a>
             <a
               href="/leistungen"
               aria-current={pathname === "/leistungen" ? "page" : undefined}
