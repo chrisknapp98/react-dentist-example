@@ -37,7 +37,7 @@ export default function PraxisPage() {
                 </p>
                 <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
                   Aus bewährter Kieferorthopädie wurde ein Ort für das ganze
-                  Spektrum der Zahnmedizin.
+                  Spektrum der Zahnmedizin
                 </h2>
                 <div className="mt-6 space-y-4 text-base leading-7 sm:text-lg sm:leading-8">
                   <p>
