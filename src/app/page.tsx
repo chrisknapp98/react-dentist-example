@@ -51,9 +51,10 @@ export default function Home() {
           </div>
           <a
             href="/leistungen"
-            className="mt-8 inline-flex py-4 text-xl font-semibold leading-tight text-practiceRed underline underline-offset-8 transition-colors hover:text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:text-2xl"
+            className="mt-8 inline-flex items-center gap-3 rounded-full border border-practiceRed px-6 py-4 text-base font-medium leading-tight text-practiceRed transition-colors hover:bg-practiceRed hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:px-8 sm:text-lg"
           >
             Alle Leistungen ansehen
+            <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
