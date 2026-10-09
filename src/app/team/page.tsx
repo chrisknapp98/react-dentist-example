@@ -9,32 +9,35 @@ export const metadata: Metadata = {
   title:
     "Unser Team | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
   description:
-    "Lernen Sie das zahnärztliche Team der Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz kennen.",
+    "Lernen Sie unser Ärzteteam und die Mitarbeiterinnen der Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz kennen.",
 };
 
 const dentists = [
   {
     name: "Dr. Stephanie Knapp Dumbach",
     role: "Zahnärztin",
-    image: "/image-collection/dr-stephanie-knapp-dumbach-portrait-04.jpg",
+    image:
+      "/image-collection/dr-stephanie-knapp-dumbach-rezeption-02_cropped.jpg",
     alt: "Dr. Stephanie Knapp Dumbach im Empfangsbereich der Praxis",
-    text: "Mit einem offenen Ohr für Ihre Wünsche und einem Blick für das Wesentliche begleitet sie Sie persönlich durch Ihre Behandlung. Ihr Schwerpunkt liegt neben der allgemeinen Zahnmedizin in der modernen Kieferorthopädie, etwa mit transparenten Alignern.",
   },
   {
     name: "Dr. Johannes Dumbach",
     role: "Zahnarzt",
-    image: "/image-collection/dr-johannes-dumbach-portrait-07.jpg",
+    image: "/image-collection/dr-johannes-dumbach-portrait-04_cropped.jpg",
     alt: "Dr. Johannes Dumbach im Empfangsbereich der Praxis",
-    text: "Mit seiner umfassenden Erfahrung begleitet er Sie in allen Bereichen der modernen Zahnmedizin. Sorgfältige Planung und eine verständliche Beratung stehen für ihn im Mittelpunkt.",
   },
   {
     name: "Dr. Georg Dumbach",
     role: "Kieferorthopäde",
-    image: "/image-collection/dr-georg-dumbach-portrait.jpg",
+    image: "/image-collection/dr-georg-dumbach-portrait_cropped.jpg",
     alt: "Dr. Georg Dumbach im Empfangsbereich der Praxis",
-    text: "Seine langjährige Erfahrung in der Kieferorthopädie ergänzt unser gemeinsames Angebot für Kinder, Jugendliche und Erwachsene. Ein besonderer Schwerpunkt liegt auf der klassischen kieferorthopädischen Behandlung.",
   },
 ];
+
+const employeePlaceholders = Array.from(
+  { length: 15 },
+  (_, index) => index + 1,
+);
 
 export default function TeamPage() {
   return (
@@ -43,49 +46,93 @@ export default function TeamPage() {
       <main>
         <section
           className={`px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}
-          aria-labelledby="dentists-heading"
+          aria-labelledby="team-heading"
         >
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
-                Unser Team
+                Lernen Sie uns kennen
               </p>
               <h1
-                id="dentists-heading"
+                id="team-heading"
                 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl"
               >
-                Lernen Sie uns kennen
+                Unser Ärzteteam
               </h1>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {dentists.map((dentist) => (
-                <article
-                  key={dentist.name}
-                  className="overflow-hidden rounded-3xl bg-backgroundLightGray"
-                >
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    <Image
-                      src={dentist.image}
-                      alt={dentist.alt}
-                      fill
-                      sizes="(min-width: 768px) 30vw, 100vw"
-                      className="object-cover object-center"
-                    />
-                  </div>
-                  <div className="p-7 sm:p-8">
-                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-practiceRed">
-                      {dentist.role}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-light leading-tight text-textBlue">
-                      {dentist.name}
-                    </h3>
-                    <p className="mt-4 leading-7 text-textGrey">
-                      {dentist.text}
-                    </p>
-                  </div>
-                </article>
-              ))}
+            <div>
+              <div className="mt-8 grid gap-6 md:grid-cols-3">
+                {dentists.map((dentist) => (
+                  <article
+                    key={dentist.name}
+                    className="overflow-hidden rounded-3xl bg-backgroundLightGray"
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image
+                        src={dentist.image}
+                        alt={dentist.alt}
+                        fill
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                        className="object-contain object-center"
+                      />
+                    </div>
+                    <div className="p-7 sm:p-8">
+                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-practiceRed">
+                        {dentist.role}
+                      </p>
+                      <h2 className="mt-3 text-2xl font-light leading-tight text-textBlue">
+                        {dentist.name}
+                      </h2>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
+
+            <section
+              className="mt-14 sm:mt-20"
+              aria-labelledby="employees-heading"
+            >
+              <h2
+                id="employees-heading"
+                className="text-3xl font-light text-textBlue sm:text-4xl"
+              >
+                Unsere Mitarbeiterinnen
+              </h2>
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {employeePlaceholders.map((number) => (
+                  <article
+                    key={number}
+                    className="overflow-hidden rounded-2xl bg-backgroundLightGray"
+                  >
+                    <div
+                      className="flex aspect-square items-center justify-center bg-practiceSkin/40"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        viewBox="0 0 120 140"
+                        fill="currentColor"
+                        className="w-2/5 text-practiceBlue/20"
+                      >
+                        <circle cx="60" cy="42" r="26" />
+                        <path d="M12 132v-14a48 48 0 0 1 96 0v14Z" />
+                      </svg>
+                    </div>
+                    <div className="p-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-practiceRed">
+                        Mitarbeiterin
+                      </p>
+                      <h3 className="mt-2 text-lg font-light leading-tight text-textBlue">
+                        Vorname Nachname
+                      </h3>
+                      <p className="mt-2 text-xs text-textGrey">
+                        Platzhalter {String(number).padStart(2, "0")}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
 
