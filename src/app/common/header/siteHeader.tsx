@@ -28,12 +28,12 @@ export function SiteHeader() {
           isMobileMenuOpen ? "h-[26rem] md:h-[28rem]" : "h-16 md:h-24"
         }`}
       >
-        <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-end px-5 sm:px-10 md:h-24 md:px-32">
+        <div className="relative mx-auto flex h-16 max-w-[82rem] items-center justify-end px-6 sm:px-12 md:h-24 lg:px-20">
           <Link
             href="/"
             aria-label="Zur Startseite"
             className="
-              absolute left-5 top-5 z-20
+              absolute left-6 top-5 z-20
               [--logo-width:266px] w-[var(--logo-width)] rounded-[calc(var(--logo-width)*20/600)]
               overflow-hidden shadow-lg
               focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed
@@ -51,7 +51,7 @@ export function SiteHeader() {
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
-            className="rounded-md p-2 text-textGrey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed md:-mr-20 lg:mr-0 xl:hidden"
+            className="rounded-md p-2 text-textGrey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed xl:hidden"
           >
             <span className="relative block h-7 w-7" aria-hidden="true">
               <MenuIcon
@@ -72,7 +72,7 @@ export function SiteHeader() {
           </button>
           <nav
             aria-label="Hauptnavigation"
-            className="hidden items-center gap-4 text-xs font-medium text-textGrey sm:gap-7 sm:text-sm md:gap-6 md:text-base xl:absolute xl:left-[46rem] xl:flex"
+            className="hidden items-center gap-8 text-base font-medium text-textGrey xl:flex"
           >
             <a
               href="/"
@@ -123,7 +123,7 @@ export function SiteHeader() {
             id="mobile-navigation"
             aria-label="Hauptnavigation"
             aria-hidden={!isMobileMenuOpen}
-            className={`absolute left-0 top-full w-full px-5 pb-3 pt-10 text-right text-base font-medium text-textGrey transition-all duration-200 sm:px-10 md:px-32 xl:hidden ${
+            className={`absolute left-0 top-full w-full px-6 pb-3 pt-10 text-right text-base font-medium text-textGrey transition-all duration-200 sm:px-12 lg:px-20 xl:hidden ${
               isMobileMenuOpen
                 ? "visible translate-y-0 opacity-100"
                 : "invisible -translate-y-2 opacity-0 pointer-events-none"

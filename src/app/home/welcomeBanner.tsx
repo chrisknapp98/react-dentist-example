@@ -19,7 +19,7 @@ export function WelcomeBanner() {
           className="object-cover object-[59%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
-        <div className="relative mx-auto w-full max-w-7xl px-20 pb-10">
+        <div className="relative mx-auto w-full max-w-[82rem] px-6 pb-10 sm:px-12 lg:px-20">
           <div className="max-w-xl text-white">
             <p className="mb-1 inline-flex py-2 text-sm font-semibold uppercase tracking-[0.16em] text-practiceSkin">
               Zahnmedizin &amp; Kieferorthopädie in Pegnitz
