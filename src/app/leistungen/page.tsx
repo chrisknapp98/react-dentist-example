@@ -43,10 +43,11 @@ export default function LeistungenPage() {
                   Hier zeigen wir Ihnen einen Einblick in viele Behandlungen,
                   die wir in unserer Gemeinschaftspraxis anbieten. Wichtig ist
                   uns im Gespräch mit Ihnen bei Ihrer Untersuchung
-                  herauszufinden, was für Sie und Ihre Zähne die passende
-                  Therapie ist. Sprechen Sie uns gerne auf Sorgen und Wünsche
-                  rund um Ihre Zähne an. Wir nehmen uns Zeit für eine
-                  individuelle Beratung.
+                  herauszufinden, was für Sie die passende Therapie ist.
+                  Sprechen Sie uns gerne auf Sorgen und Wünsche rund um Ihre
+                  Zähne an. Wir nehmen uns Zeit für eine individuelle Beratung.
+                  Unser Ärzteteam spricht neben Deutsch auch Englisch, Spanisch
+                  und Französisch.
                 </p>
                 <p>
                   Wir freuen uns, wenn wir Sie als Patientinnen und Patienten
@@ -89,10 +90,7 @@ export default function LeistungenPage() {
                 sinnvoll sein kann.
               </p>
             </div>
-            <a
-              href="/kontakt"
-              className={`w-fit ${PRIMARY_BUTTON_CLASS}`}
-            >
+            <a href="/kontakt" className={`w-fit ${PRIMARY_BUTTON_CLASS}`}>
               Termin vereinbaren
               <span aria-hidden="true">→</span>
             </a>

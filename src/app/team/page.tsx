@@ -64,23 +64,58 @@ export default function TeamPage() {
           aria-labelledby="team-heading"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
+            <div className="max-w-4xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
-                Lernen Sie uns kennen
+                Unser Team
               </p>
               <h1
                 id="team-heading"
                 className="mt-4 text-3xl font-light text-textBlue sm:text-4xl"
               >
-                Unser Ärzteteam
+                Lernen Sie uns kennen
               </h1>
+              <div className="mt-6 space-y-4 text-base leading-7 text-textGrey sm:text-lg sm:leading-8">
+                <p>
+                  Nach fast 40 Jahren reiner Kieferorthopädie in der Praxis von
+                  Dr. Georg Dumbach entstand 2025 gemeinsam mit seinem Sohn
+                  Dr. Johannes Dumbach und dessen Frau Dr. Stephanie Knapp Dumbach
+                  eine neue zahnmedizinische und kieferorthopädische
+                  Gemeinschaftspraxis.
+                </p>
+                <p>
+                  Zu dritt bieten wir Ihnen heute das gesamte Spektrum der
+                  Zahnmedizin an. Mit der neuen Generation der Behandler führen
+                  wir neben der modernen Zahnheilkunde auch die Kieferorthopädie
+                  weiter – unter dem Motto „gesund &amp; gerade“.
+                </p>
+                <p>
+                  Was uns besonders auszeichnet, ist das familiäre Miteinander –
+                  sowohl unter uns Behandlern als auch im gesamten Praxisteam.
+                  Wir legen großen Wert auf persönliche Betreuung,
+                  vertrauensvolle Zusammenarbeit und eine angenehme, herzliche
+                  Atmosphäre. Mit moderner Technik und Erfahrung aus zwei
+                  Generationen möchten wir unseren Patientinnen und Patienten
+                  eine hohe Behandlungsqualität bieten.
+                </p>
+              </div>
             </div>
-            <div>
+          </div>
+        </section>
+
+        <div className="bg-backgroundLightGray px-6 py-14 sm:px-12 md:py-20 lg:px-20">
+          <div className="mx-auto max-w-6xl">
+            <section aria-labelledby="dentists-heading">
+              <h2
+                id="dentists-heading"
+                className="text-3xl font-light text-textBlue sm:text-4xl"
+              >
+                Unser Ärzteteam
+              </h2>
               <div className="mt-8 grid gap-6 md:grid-cols-3">
                 {dentists.map((dentist) => (
                   <article
                     key={dentist.name}
-                    className="overflow-hidden rounded-3xl bg-backgroundLightGray"
+                    className="overflow-hidden rounded-3xl bg-white"
                   >
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <Image
@@ -95,14 +130,14 @@ export default function TeamPage() {
                       <p className="text-sm font-semibold uppercase tracking-[0.12em] text-practiceRed">
                         {dentist.role}
                       </p>
-                      <h2 className="mt-3 text-2xl font-light leading-tight text-textBlue">
+                      <h3 className="mt-3 text-2xl font-light leading-tight text-textBlue">
                         {dentist.name}
-                      </h2>
+                      </h3>
                     </div>
                   </article>
                 ))}
               </div>
-            </div>
+            </section>
 
             <section
               className="mt-14 sm:mt-20"
@@ -118,7 +153,7 @@ export default function TeamPage() {
                 {employees.map((employee) => (
                   <article
                     key={employee.id}
-                    className="overflow-hidden rounded-2xl bg-backgroundLightGray"
+                    className="overflow-hidden rounded-2xl bg-white"
                   >
                     <div
                       className="flex aspect-square items-center justify-center bg-practiceSkin/40"
@@ -149,7 +184,7 @@ export default function TeamPage() {
               </div>
             </section>
           </div>
-        </section>
+        </div>
 
         <section className="bg-textBlue px-6 py-14 sm:px-12 md:py-20 lg:px-20">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-20">
