@@ -63,7 +63,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
             <Image
-              src="/image-collection/praxis-dumbach-aerzteteam-terrasse-01-cropped.jpg"
+              src="/images/praxis-dumbach-aerzteteam-terrasse-01-cropped.jpg"
               alt="Dr. Georg Dumbach, Dr. Stephanie Knapp Dumbach und Dr. Johannes Dumbach"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

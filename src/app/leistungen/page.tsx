@@ -21,7 +21,7 @@ export default function LeistungenPage() {
         <section className="bg-backgroundLightGray">
           <div className="relative h-72 overflow-hidden sm:h-80 lg:h-96">
             <Image
-              src="/image-collection/praxis-dumbach-behandlungszimmer-04.jpg"
+              src="/images/praxis-dumbach-behandlungszimmer-04.jpg"
               alt="Behandlungseinheit mit zahnmedizinischen Instrumenten"
               fill
               priority

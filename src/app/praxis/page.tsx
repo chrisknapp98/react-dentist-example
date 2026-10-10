@@ -19,7 +19,7 @@ export default function PraxisPage() {
         <section className="bg-backgroundLightGray">
           <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[30rem]">
             <Image
-              src="/image-collection/praxis-dumbach-rezeption-ansicht-01.jpg"
+              src="/images/praxis-dumbach-rezeption-ansicht-01.jpg"
               alt="Heller, moderner Empfangsbereich der Praxis"
               fill
               priority
@@ -55,7 +55,7 @@ export default function PraxisPage() {
               <div className="relative pb-12 sm:pb-16">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
                   <Image
-                    src="/image-collection/praxis-dumbach-kieferorthopaedie-arbeitsplatz-02-zensiert.jpg"
+                    src="/images/praxis-dumbach-kieferorthopaedie-arbeitsplatz-02-zensiert.jpg"
                     alt="Arbeitsplatz im kieferorthopädischen Praxislabor"
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
@@ -65,7 +65,7 @@ export default function PraxisPage() {
                 <div className="absolute bottom-0 right-5 w-[42%] overflow-hidden rounded-2xl border-4 border-backgroundLightGray shadow-lg sm:right-8">
                   <div className="relative aspect-[3/4]">
                     <Image
-                      src="/image-collection/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpg"
+                      src="/images/praxis-dumbach-kieferorthopaedie-zahnmodell-lila-01-cropped.jpg"
                       alt="Kieferorthopädisches Modell mit einer Zahnspange"
                       fill
                       sizes="(min-width: 1024px) 18vw, 42vw"
@@ -91,7 +91,7 @@ export default function PraxisPage() {
             <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
               <div className="relative aspect-[11/10] overflow-hidden rounded-3xl lg:min-h-[38rem] lg:aspect-auto">
                 <Image
-                  src="/image-collection/praxis-dumbach-rezeption-durchgang-01.jpg"
+                  src="/images/praxis-dumbach-rezeption-durchgang-01.jpg"
                   alt="Durchgang vom Empfangsbereich der Praxis"
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
@@ -101,7 +101,7 @@ export default function PraxisPage() {
               <div className="grid gap-5">
                 <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
-                    src="/image-collection/praxis-dumbach-wartezimmer-glastuer.jpg"
+                    src="/images/praxis-dumbach-wartezimmer-glastuer.jpg"
                     alt="Wartebereich der Praxis"
                     fill
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
@@ -110,7 +110,7 @@ export default function PraxisPage() {
                 </div>
                 <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
-                    src="/image-collection/praxis-dumbach-rezeption-durchgang_patientenbad-01.jpg"
+                    src="/images/praxis-dumbach-rezeption-durchgang_patientenbad-01.jpg"
                     alt="Durchgang zwischen Empfang und Patientenbad"
                     fill
                     sizes="(min-width: 1024px) 40vw, (min-width: 640px) 90vw, 100vw"
@@ -141,7 +141,7 @@ export default function PraxisPage() {
             <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
               <div className="relative aspect-[7/5] overflow-hidden rounded-3xl lg:min-h-[32rem] lg:aspect-auto">
                 <Image
-                  src="/image-collection/praxis-dumbach-behandlungszimmer-06.jpg"
+                  src="/images/praxis-dumbach-behandlungszimmer-06.jpg"
                   alt="Modernes Behandlungszimmer der Praxis"
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
@@ -151,7 +151,7 @@ export default function PraxisPage() {
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
                 <div className="relative aspect-[5/3] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
-                    src="/image-collection/praxis-dumbach-behandlungseinheit-instrumententablett-01.jpg"
+                    src="/images/praxis-dumbach-behandlungseinheit-instrumententablett-01.jpg"
                     alt="Instrumente auf einer Behandlungseinheit"
                     fill
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
@@ -160,7 +160,7 @@ export default function PraxisPage() {
                 </div>
                 <div className="relative aspect-[5/3] overflow-hidden rounded-3xl lg:aspect-auto">
                   <Image
-                    src="/image-collection/praxis-dumbach-roentgenraum-gesamtansicht-01.jpg"
+                    src="/images/praxis-dumbach-roentgenraum-gesamtansicht-01.jpg"
                     alt="Modern ausgestatteter Röntgenraum der Praxis"
                     fill
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
@@ -176,7 +176,7 @@ export default function PraxisPage() {
           <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-10">
             <div className="relative aspect-[3/2] overflow-hidden rounded-3xl lg:min-h-[28rem] lg:aspect-auto">
               <Image
-                src="/image-collection/praxis-dumbach-behandlungseinheit-mit-instrumententablett.jpg"
+                src="/images/praxis-dumbach-behandlungseinheit-mit-instrumententablett.jpg"
                 alt="Modernes Behandlungszimmer mit Behandlungsstuhl"
                 fill
                 sizes="(min-width: 1024px) 55vw, 100vw"

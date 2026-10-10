@@ -10,7 +10,7 @@ export function WelcomeBanner() {
       {/* <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end"> */}
       <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end">
         <Image
-          src="/image-collection/praxis-dumbach-gebaeude-strassenansicht-04-desktop.jpg"
+          src="/images/praxis-dumbach-gebaeude-strassenansicht-04-desktop.jpg"
           alt="Außenansicht der Zahnarztpraxis in Pegnitz"
           fill
           priority
@@ -39,7 +39,7 @@ export function WelcomeBanner() {
       <div className="overflow-hidden bg-backgroundLightGray md:hidden">
         <div className="relative aspect-[16/15]">
           <Image
-            src="/image-collection/praxis-dumbach-gebaeude-strassenansicht-04-portrait.jpg"
+            src="/images/praxis-dumbach-gebaeude-strassenansicht-04-portrait.jpg"
             alt="Außenansicht der Zahnarztpraxis in Pegnitz"
             fill
             priority

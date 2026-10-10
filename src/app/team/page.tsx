@@ -17,19 +17,19 @@ const dentists = [
     name: "Dr. Stephanie Knapp\u00a0Dumbach",
     role: "Zahnärztin",
     image:
-      "/image-collection/dr-stephanie-knapp-dumbach-rezeption-02_cropped.jpg",
+      "/images/dr-stephanie-knapp-dumbach-rezeption-02_cropped.jpg",
     alt: "Dr. Stephanie Knapp Dumbach im Empfangsbereich der Praxis",
   },
   {
     name: "Dr. Johannes Dumbach",
     role: "Zahnarzt",
-    image: "/image-collection/dr-johannes-dumbach-portrait-04_cropped.jpg",
+    image: "/images/dr-johannes-dumbach-portrait-04_cropped.jpg",
     alt: "Dr. Johannes Dumbach im Empfangsbereich der Praxis",
   },
   {
     name: "Dr. Georg Dumbach",
     role: "Kieferorthopäde",
-    image: "/image-collection/dr-georg-dumbach-portrait_cropped.jpg",
+    image: "/images/dr-georg-dumbach-portrait_cropped.jpg",
     alt: "Dr. Georg Dumbach im Empfangsbereich der Praxis",
   },
 ];
@@ -190,7 +190,7 @@ export default function TeamPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-20">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
               <Image
-                src="/image-collection/dr-stephanie-knapp-dumbach-dr-johannes-dumbach-behandlungszimmer-01.jpg"
+                src="/images/dr-stephanie-knapp-dumbach-dr-johannes-dumbach-behandlungszimmer-01.jpg"
                 alt="Dr. Stephanie Knapp Dumbach und Dr. Johannes Dumbach lachen gemeinsam im Behandlungszimmer"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
