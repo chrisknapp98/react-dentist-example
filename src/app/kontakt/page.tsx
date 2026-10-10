@@ -38,12 +38,12 @@ export default function KontaktPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-practiceRed">
               Kontakt
             </p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-light leading-tight text-textBlue sm:text-5xl">
-              Wir freuen uns, von Ihnen zu hören.
+            <h1 className="mt-4 max-w-4xl text-4xl font-light leading-tight text-textBlue sm:text-5xl">
+              Wir freuen uns auf Ihren Besuch bei uns.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-textGrey sm:text-lg sm:leading-8">
               Für Termine, Fragen oder ein persönliches Anliegen erreichen Sie
-              uns telefonisch oder per E-Mail. Wir sind gern für Sie da.
+              uns telefonisch oder per E-Mail. Wir sind gerne für Sie da.
             </p>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
