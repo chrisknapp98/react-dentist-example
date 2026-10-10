@@ -118,21 +118,21 @@ export const services: readonly Service[] = [
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Funktionstherapie",
     paragraphs: [
-      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen Angewohnheiten, aber auch das Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans und für Ihr Wohlbefinden eine große Rolle spielen.",
+      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen Angewohnheiten, aber auch das Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans und für Ihr Wohlbefinden eine große Rolle spielen. Häufig findet eine Kombinationstherapie mit Funktionsanalyse, Apparaturen wie Aufbissschienen oder Physiotherapie statt.",
     ],
   },
   {
     category: ServiceCategory.KieferorthopaedieUndFunktion,
-    title: "Botulinum Behandlung des Kaumuskels Musculus masseter (Botox)",
+    title: "Botulinumtoxin-Behandlung des Kaumuskels Masseter",
     paragraphs: [
-      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, die Muskelentspannung zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse und Apparaturen, wie Aufbiss-Schienen statt.",
+      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, eine Entspannung der Muskulatur zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse, Apparaturen wie Aufbissschienen oder Physiotherapie statt.",
     ],
   },
   {
     category: ServiceCategory.DigitalePraxis,
     title: "Intraoralscanner",
     paragraphs: [
-      "Mit unserem modernen Intraoralscanner können wir Ihre Zähne digital und detailgenau erfassen – ganz ohne herkömmlichen Abdruck. Das Verfahren ist besonders komfortabel und ermöglicht eine präzise Planung verschiedener Behandlungen und Versorgungen.",
+      "Mit unserem modernen Intraoralscanner können wir Ihre Zähne digital und präzise erfassen – ganz ohne herkömmlichen Abdruck. Das Verfahren ist besonders komfortabel und ermöglicht eine genaue Planung verschiedener Behandlungen und Versorgungen.",
       "Das dreidimensionale Modell der Kiefer und Zähne ermöglicht viele weiterführende digitale Schritte im zahntechnischen Labor zur Erstellung von zum Beispiel gedruckten Modellen und Schienen oder gefräßten Kronen und Brücken.",
     ],
   },
@@ -140,7 +140,7 @@ export const services: readonly Service[] = [
     category: ServiceCategory.DigitalePraxis,
     title: "Digitales 2D- und 3D-Röntgen (DVT)",
     paragraphs: [
-      "Moderne digitale Röntgentechnik ermöglicht eine präzise und detailreiche Darstellung von Zähnen, Kiefer und umliegenden Strukturen. Mit 2D- und 3D-Aufnahmen können wir Befunde zuverlässig beurteilen und Behandlungen sorgfältig planen.",
+      "Moderne digitale Röntgentechnik ermöglicht eine präzise und detailreiche Darstellung von Zähnen, Kiefer und umliegenden Strukturen. Mit einer 2D- oder 3D-Aufnahme, der sogenannten digitalen Volumentomografie (DVT), können wir Befunde zuverlässig beurteilen und Behandlungen sorgfältig planen.",
     ],
   },
   {
