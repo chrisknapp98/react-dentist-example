@@ -38,10 +38,26 @@ export const services: readonly Service[] = [
     ],
   },
   {
-    category: ServiceCategory.ZahnersatzUndAesthetik,
-    title: "Zahnersatz / Prothetik",
+    category: ServiceCategory.VorsorgeUndZahnerhalt,
+    title: "Parodontitisbehandlung",
     paragraphs: [
-      "Wenn Zähne fehlen oder stark geschädigt sind, kann hochwertiger Zahnersatz Funktion und Ästhetik wiederherstellen. Gemeinsam mit Ihnen finden wir eine individuelle Lösung, die zu Ihren Bedürfnissen passt – von Veneers und Inlays über Kronen und Brücken bis hin zu herausnehmbarem Zahnersatz auf eigenen Zähnen oder Implantaten. Wir finden für jede Situation eine passende Lösung.",
+      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparats, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher und führt zu einer Entzündung des Zahnfleischs. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über den Blutkreislauf Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu halten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige professionelle Zahnreinigung ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
+    ],
+  },
+  {
+    category: ServiceCategory.VorsorgeUndZahnerhalt,
+    title: "Wurzelkanalbehandlung",
+    paragraphs: [
+      "Ist der Zahnnerv irreversibel entzündet oder abgestorben, kann eine Wurzelkanalbehandlung den natürlichen Zahn häufig langfristig erhalten. Mit modernen Verfahren der maschinellen Wurzelkanalaufbereitung, hochwertigen Instrumenten und Füllmaterialien behandeln wir die Wurzelkanäle präzise und schonend – für eine optimale Grundlage zum langfristigen Ausheilen und Zahnerhalt.",
+    ],
+  },
+  {
+    category: ServiceCategory.VorsorgeUndZahnerhalt,
+    title: "Kinderbehandlung und -prophylaxe",
+    paragraphs: [
+      "Unsere jungen Patientinnen und Patienten sollen sich bei uns von Anfang an wohlfühlen. Mit regelmäßigen Kontrollen ab dem ersten Zahn gewöhnen sich Kinder meist schnell an den Zahnarztbesuch. Mit einer kindgerechten Behandlung, regelmäßiger Prophylaxe und spielerischer Vermittlung von Mundhygiene schaffen wir die Grundlage für gesunde Zähne von klein auf. Auch die Kontrolle des Putzerfolgs zu Hause ist entscheidend.",
+      "Wir beraten Sie, ob Fissurenversiegelungen sinnvoll sind, und füllen kariöse Zähne.",
+      "Uns ist auch die Analyse des Schluckens, der Atmung und bestimmter Angewohnheiten wichtig – auch mit Blick auf eine eventuell sinnvolle kieferorthopädische Behandlung.",
     ],
   },
   {
@@ -75,27 +91,10 @@ export const services: readonly Service[] = [
     ],
   },
   {
-    category: ServiceCategory.KieferorthopaedieUndFunktion,
-    title: "Kieferorthopädie für Kinder & Erwachsene",
+    category: ServiceCategory.ZahnersatzUndAesthetik,
+    title: "Zahnersatz / Prothetik",
     paragraphs: [
-      "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis – seit fast 40 Jahren.",
-      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit und Jugend kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag beeinträchtigen.",
-      "Diese Korrekturen sind neben klassischen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
-      "Wann ist der richtige Zeitpunkt, eine kieferorthopädische Therapie zu beginnen? Vereinbaren Sie gerne einen Beratungstermin, um den Behandlungsbedarf einzuordnen und die möglichen Therapien zu besprechen.",
-    ],
-  },
-  {
-    category: ServiceCategory.VorsorgeUndZahnerhalt,
-    title: "Parodontitisbehandlung",
-    paragraphs: [
-      "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparats, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher und führt zu einer Entzündung des Zahnfleischs. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über den Blutkreislauf Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu halten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige professionelle Zahnreinigung ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
-    ],
-  },
-  {
-    category: ServiceCategory.VorsorgeUndZahnerhalt,
-    title: "Wurzelkanalbehandlung",
-    paragraphs: [
-      "Ist der Zahnnerv irreversibel entzündet oder abgestorben, kann eine Wurzelkanalbehandlung den natürlichen Zahn häufig langfristig erhalten. Mit modernen Verfahren der maschinellen Wurzelkanalaufbereitung, hochwertigen Instrumenten und Füllmaterialien behandeln wir die Wurzelkanäle präzise und schonend – für eine optimale Grundlage zum langfristigen Ausheilen und Zahnerhalt.",
+      "Wenn Zähne fehlen oder stark geschädigt sind, kann hochwertiger Zahnersatz Funktion und Ästhetik wiederherstellen. Gemeinsam mit Ihnen finden wir eine individuelle Lösung, die zu Ihren Bedürfnissen passt – von Veneers und Inlays über Kronen und Brücken bis hin zu herausnehmbarem Zahnersatz auf eigenen Zähnen oder Implantaten. Wir finden für jede Situation eine passende Lösung.",
     ],
   },
   {
@@ -103,6 +102,16 @@ export const services: readonly Service[] = [
     title: "Ästhetik (Bleaching, Zahnaufhellung, Kunststoffinfiltration, Veneers)",
     paragraphs: [
       "Ein strahlendes Lächeln kann das persönliche Wohlbefinden und Selbstvertrauen stärken. Neben der Zahnstellung (Thema der Kieferorthopädie) sind oft bereits das Aufhellen der Zahnfarbe oder das Ausgleichen von Unebenheiten oder kleinen Defekten der Zahnsubstanz ausreichend, um ein harmonisches Aussehen der Zähne zu erreichen. Von der professionellen Zahnreinigung über Bleaching bis zu Kunststoffinfiltrationen und Veneers aus Keramik oder Komposit bieten wir Ihnen verschiedene individuelle Möglichkeiten, das Erscheinungsbild Ihrer Zähne zu verbessern.",
+    ],
+  },
+  {
+    category: ServiceCategory.KieferorthopaedieUndFunktion,
+    title: "Kieferorthopädie für Kinder & Erwachsene",
+    paragraphs: [
+      "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis – seit fast 40 Jahren.",
+      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit und Jugend kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag beeinträchtigen.",
+      "Diese Korrekturen sind neben klassischen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
+      "Wann ist der richtige Zeitpunkt, eine kieferorthopädische Therapie zu beginnen? Vereinbaren Sie gerne einen Beratungstermin, um den Behandlungsbedarf einzuordnen und die möglichen Therapien zu besprechen.",
     ],
   },
   {
@@ -117,15 +126,6 @@ export const services: readonly Service[] = [
     title: "Botulinum Behandlung des Kaumuskels Musculus masseter (Botox)",
     paragraphs: [
       "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, die Muskelentspannung zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse und Apparaturen, wie Aufbiss-Schienen statt.",
-    ],
-  },
-  {
-    category: ServiceCategory.VorsorgeUndZahnerhalt,
-    title: "Kinderbehandlung und -prophylaxe",
-    paragraphs: [
-      "Unsere jungen Patientinnen und Patienten sollen sich bei uns von Anfang an wohlfühlen. Mit regelmäßigen Kontrollen ab dem ersten Zahn gewöhnen sich Kinder meist schnell an den Zahnarztbesuch. Mit einer kindgerechten Behandlung, regelmäßiger Prophylaxe und spielerischer Vermittlung von Mundhygiene schaffen wir die Grundlage für gesunde Zähne von klein auf. Auch die Kontrolle des Putzerfolgs zu Hause ist entscheidend.",
-      "Wir beraten Sie, ob Fissurenversiegelungen sinnvoll sind, und füllen kariöse Zähne.",
-      "Uns ist auch die Analyse des Schluckens, der Atmung und bestimmter Angewohnheiten wichtig – auch mit Blick auf eine eventuell sinnvolle kieferorthopädische Behandlung.",
     ],
   },
   {
