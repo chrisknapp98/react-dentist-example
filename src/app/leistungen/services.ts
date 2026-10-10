@@ -118,7 +118,7 @@ export const services: readonly Service[] = [
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Funktionstherapie",
     paragraphs: [
-      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen schlechten Angewohnheiten, aber auch das Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans und für Ihr Wohlbefinden eine große Rolle spielen.",
+      "Zähne, Kiefergelenke und Kaumuskulatur stehen in engem Zusammenhang mit dem gesamten Kausystem. Bei Kiefergelenksproblemen, Zähneknirschen oder Verspannungen analysieren wir die Ursachen und entwickeln eine individuell passende Behandlung. Das Unterbrechen von teils jahrelangen Angewohnheiten, aber auch das Ausgleichen von Fehlstellungen der Zähne und Kiefer kann für ein physiologisch korrektes Zusammenspiel der einzelnen Bestandteile des Kauorgans und für Ihr Wohlbefinden eine große Rolle spielen.",
     ],
   },
   {
