@@ -110,7 +110,7 @@ export const services: readonly Service[] = [
     paragraphs: [
       "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis – seit fast 40 Jahren.",
       "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit und Jugend kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag beeinträchtigen.",
-      "Diese Korrekturen sind neben klassischen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
+      "Diese Korrekturen sind neben klassischen herausnehmbaren oder festen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
       "Wann ist der richtige Zeitpunkt, eine kieferorthopädische Therapie zu beginnen? In der Regel ist eine erste kieferorthopädische Beratung ab dem 6. Lebensjahr sinnvoll. In einigen Fällen können bereits davor, im reinen Milchgebiss, erste Weichen für ein physiologisches Wachstum gestellt werden. Vereinbaren Sie gerne einen Beratungstermin, um den Behandlungsbedarf einzuordnen und die möglichen Therapien zu besprechen.",
     ],
   },
