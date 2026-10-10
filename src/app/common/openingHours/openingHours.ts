@@ -2,7 +2,7 @@ export const openingHours = [
   { day: "Montag", morning: "8:00 – 12:00", afternoon: "13:00 – 17:40" },
   { day: "Dienstag", morning: "8:00 – 12:00", afternoon: "13:00 – 17:40" },
   { day: "Mittwoch", morning: "8:00 – 12:00", afternoon: "13:00 – 17:40" },
-  { day: "Donnerstag", morning: "8:00 – 12:00", afternoon: "13:40 – 17:40" },
+  { day: "Donnerstag", morning: "8:00 – 12:00", afternoon: "13:00 – 17:40" },
   { day: "Freitag", morning: "8:00 – 13:00", afternoon: "" },
 ] as const;
 
