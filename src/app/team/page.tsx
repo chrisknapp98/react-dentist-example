@@ -133,8 +133,8 @@ export default function TeamPage() {
                         <path d="M12 132v-14a48 48 0 0 1 96 0v14Z" />
                       </svg>
                     </div>
-                    <div className="p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-practiceRed">
+                    <div className="px-1 py-4 min-[400px]:px-4">
+                      <p className="h-8 text-[10px] font-semibold uppercase leading-4 tracking-[0.02em] text-practiceRed min-[400px]:text-xs">
                         {employee.role}
                       </p>
                       <h3 className="mt-2 text-lg font-light leading-tight text-textBlue">
