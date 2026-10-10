@@ -1,7 +1,15 @@
+import type { Metadata } from 'next';
 import { ContactInformation } from '../common/contactInformation/contactInformation';
 import { Footer } from '../common/footer/footer';
 import { SiteHeader } from '../common/header/siteHeader';
 import { SITE_HEADER_CONTENT_TOP_PADDING } from '../common/header/siteHeaderLayout';
+
+export const metadata: Metadata = {
+    title:
+        "Datenschutz | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
+    description:
+        "Datenschutzerklärung der Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz: Informationen zum Umgang mit personenbezogenen Daten.",
+};
 
 export default function Datenschutz() {
     return (

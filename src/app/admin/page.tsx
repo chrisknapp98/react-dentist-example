@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 
 import { useMemo, useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -248,9 +247,6 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f2f4] via-white to-[#f3f3f6] text-textGrey">
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       {confirmState ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
           <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">

@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -48,9 +47,6 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f2f4] via-white to-[#f3f3f6] text-textGrey">
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-md">
           <div className="mb-3 text-xs text-textGrey/70">

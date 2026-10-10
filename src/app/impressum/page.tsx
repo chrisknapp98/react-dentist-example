@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Footer } from "../common/footer/footer";
 import { SiteHeader } from "../common/header/siteHeader";
 import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
+
+export const metadata: Metadata = {
+  title:
+    "Impressum | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
+  description:
+    "Impressum und Anbieterinformationen der Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz.",
+};
 
 export default function Impressum() {
   return (
