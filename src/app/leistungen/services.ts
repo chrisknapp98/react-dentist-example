@@ -125,7 +125,7 @@ export const services: readonly Service[] = [
     category: ServiceCategory.KieferorthopaedieUndFunktion,
     title: "Botulinumtoxin-Behandlung des Kaumuskels Masseter",
     paragraphs: [
-      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin helfen, eine Entspannung der Muskulatur zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse, Apparaturen wie Aufbissschienen oder Physiotherapie statt.",
+      "Bei einer ausgeprägten Aktivität der Kaumuskulatur kann eine gezielte Behandlung des Musculus masseter mit Botulinumtoxin (Botox) helfen, eine Entspannung der Muskulatur zu erzielen. Dies kann insbesondere bei Zähneknirschen und einer starken Belastung des Kieferbereichs sinnvoll sein. Die Behandlung erfolgt gezielt und individuell abgestimmt auf Ihre Beschwerden und Bedürfnisse. Häufig findet eine Kombinationstherapie mit Funktionsanalyse, Apparaturen wie Aufbissschienen oder Physiotherapie statt.",
     ],
   },
   {
