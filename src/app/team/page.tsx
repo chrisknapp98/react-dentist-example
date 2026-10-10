@@ -36,22 +36,22 @@ const dentists = [
 
 // prettier-ignore
 const employees = [
-  { name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
-  { name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
-  { name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
-  { name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Verwaltung, Abrechnung & Assistenz" },
-  { name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
-  { name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz (KFO)" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Auszubildende", responsibility: "Assistenz" },
-  { name: "Vorname", role: "Zahntechnikerin", responsibility: "KFO & Prothetik" },
-  { name: "Vorname", role: "Reinigungskraft", responsibility: "Praxishygiene" },
+  { id: "01", name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
+  { id: "02", name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
+  { id: "03", name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
+  { id: "04", name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
+  { id: "05", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Verwaltung, Abrechnung & Assistenz" },
+  { id: "06", name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
+  { id: "07", name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
+  { id: "08", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz (KFO)" },
+  { id: "09", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { id: "10", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { id: "11", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { id: "12", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { id: "13", name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { id: "14", name: "Vorname", role: "Auszubildende", responsibility: "Assistenz" },
+  { id: "15", name: "Vorname", role: "Zahntechnikerin", responsibility: "KFO & Prothetik" },
+  { id: "16", name: "Vorname", role: "Reinigungskraft", responsibility: "Praxishygiene" },
 ];
 
 export default function TeamPage() {
@@ -117,7 +117,7 @@ export default function TeamPage() {
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {employees.map((employee) => (
                   <article
-                    key={employee.name}
+                    key={employee.id}
                     className="overflow-hidden rounded-2xl bg-backgroundLightGray"
                   >
                     <div
