@@ -190,8 +190,12 @@ export default function Impressum() {
               teilzunehmen.
             </p>
           </div>
+
         </div>
-          <p className="text-sm text-gray-500 mt-10">
+          <section className="mt-10 border-t border-gray-200 pt-6 text-sm leading-relaxed text-gray-600">
+            <h2 className="mb-3 font-medium text-gray-800">Bildnachweise</h2>
+            <p className="mb-2">Die Fotografien dieser Website stammen von Julian Hochgesang.</p>
+            <p>
             Die auf dieser Website verwendeten Icons stammen von{" "}
             <a
               href="https://feathericons.com"
@@ -202,7 +206,8 @@ export default function Impressum() {
               Feather Icons
             </a>{" "}
             und stehen unter der MIT-Lizenz.
-          </p>
+            </p>
+          </section>
         </div>
       </main>
       <Footer />
