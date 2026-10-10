@@ -27,7 +27,7 @@ export default function Impressum() {
             <h2 className="text-lg mb-2">Angaben gemäß § 5 DDG</h2>
             <p>
               Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp
-              Dumbach
+              Dumbach (GbR)
               <br />
               Dr. Johannes Dumbach, Dr. Stephanie Knapp Dumbach, Dr. Georg
               Dumbach
@@ -64,6 +64,16 @@ export default function Impressum() {
           </div>
 
           <div>
+            <h2 className="text-lg mb-2">Umsatzsteuer-Identifikationsnummer</h2>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE457897387</p>
+          </div>
+
+          <div>
+            <h2 className="text-lg mb-2">Wirtschafts-Identifikationsnummer</h2>
+            <p>Wirtschafts-Identifikationsnummer gemäß § 139c AO: DE457897387</p>
+          </div>
+
+          <div>
             <h2 className="text-lg mb-2">Aufsichtsbehörde</h2>
             <p>
               Regierung von Unterfranken
@@ -78,6 +88,23 @@ export default function Impressum() {
                 className="underline"
               >
                 https://www.regierung.unterfranken.bayern.de
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg mb-2">Zuständige Kassenzahnärztliche Vereinigung</h2>
+            <p>
+              Kassenzahnärztliche Vereinigung Bayerns
+              <br />
+              Fallstraße 34
+              <br />
+              81369 München
+              <br />
+              Telefon: <a href="tel:+4989724010" className="underline">089-72401-0</a>
+              <br />
+              <a href="https://www.kzvb.de" target="_blank" rel="noopener noreferrer" className="underline">
+                www.kzvb.de
               </a>
             </p>
           </div>
@@ -107,6 +134,12 @@ export default function Impressum() {
               <br />
               Flößergasse 1<br />
               81369 München
+              <br />
+              Telefon: <a href="tel:+49892302110" className="underline">089-230211-0</a>
+              <br />
+              <a href="https://www.blzk.de" target="_blank" rel="noopener noreferrer" className="underline">
+                www.blzk.de
+              </a>
             </p>
             <p>
               Berufsbezeichnungen und Approbationen verliehen durch Bundesland
