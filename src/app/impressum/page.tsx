@@ -70,7 +70,7 @@ export default function Impressum() {
 
           <div>
             <h2 className="text-lg mb-2">Wirtschafts-Identifikationsnummer</h2>
-            <p>Wirtschafts-Identifikationsnummer gemäß § 139c AO: DE457897387</p>
+            <p>Wirtschafts-Identifikationsnummer gemäß § 139c AO: DE457897387-00001</p>
           </div>
 
           <div>
