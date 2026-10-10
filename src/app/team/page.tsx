@@ -127,7 +127,7 @@ export default function TeamPage() {
                       <svg
                         viewBox="0 0 120 140"
                         fill="currentColor"
-                        className="w-2/5 text-practiceBlue/20"
+                        className="w-2/5 text-practiceBlue opacity-20"
                       >
                         <circle cx="60" cy="42" r="26" />
                         <path d="M12 132v-14a48 48 0 0 1 96 0v14Z" />
