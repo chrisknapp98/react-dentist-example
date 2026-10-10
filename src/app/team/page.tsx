@@ -155,9 +155,8 @@ export default function TeamPage() {
                 Wir freuen uns auf Ihren Besuch in Pegnitz.
               </h2>
               <p className="mt-6 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
-                Ob Vorsorge, Behandlung oder Kieferorthopädie: Sprechen Sie uns
-                an. Wir nehmen uns Zeit für Ihre Fragen und finden gemeinsam den
-                passenden Weg.
+                Ob Vorsorge, zahnärztliche Behandlung oder Kieferorthopädie –
+                Melden Sie sich gerne für einen Termin bei uns.
               </p>
               <a
                 href="/kontakt"
