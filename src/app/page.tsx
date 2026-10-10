@@ -32,7 +32,7 @@ export default function Home() {
               Behandlungen im Überblick
             </p>
             <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
-              Zahnmedizin und Kieferorthopädie unter einem Dach.
+              Zahnmedizin und Kieferorthopädie unter einem Dach
             </h2>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

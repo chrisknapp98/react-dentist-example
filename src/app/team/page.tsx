@@ -202,7 +202,7 @@ export default function TeamPage() {
                 Für Sie da
               </p>
               <h2 className="mt-4 text-3xl font-light leading-tight sm:text-4xl">
-                Wir freuen uns auf Ihren Besuch in Pegnitz.
+                Wir freuen uns auf Ihren Besuch in Pegnitz
               </h2>
               <p className="mt-6 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
                 Ob Vorsorge, zahnärztliche Behandlung oder Kieferorthopädie –

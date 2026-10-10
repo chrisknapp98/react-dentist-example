@@ -39,7 +39,7 @@ export default function KontaktPage() {
               Kontakt
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-light leading-tight text-textBlue sm:text-5xl">
-              Wir freuen uns auf Ihren Besuch bei uns.
+              Wir freuen uns auf Ihren Besuch bei uns
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-textGrey sm:text-lg sm:leading-8">
               Für Termine, Fragen oder ein persönliches Anliegen erreichen Sie

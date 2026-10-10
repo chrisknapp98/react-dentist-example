@@ -188,7 +188,7 @@ export default function PraxisPage() {
                 Ihr Besuch bei uns
               </p>
               <h2 className="mt-4 text-3xl font-light leading-tight text-textBlue sm:text-4xl">
-                Vereinbaren Sie Ihren Termin bei uns.
+                Vereinbaren Sie Ihren Termin bei uns
               </h2>
               <a
                 href="/kontakt"
