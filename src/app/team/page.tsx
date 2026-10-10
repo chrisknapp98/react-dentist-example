@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const dentists = [
   {
-    name: "Dr. Stephanie Knapp Dumbach",
+    name: "Dr. Stephanie Knapp\u00a0Dumbach",
     role: "Zahnärztin",
     image:
       "/image-collection/dr-stephanie-knapp-dumbach-rezeption-02_cropped.jpg",
