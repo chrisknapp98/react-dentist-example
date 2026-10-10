@@ -31,7 +31,7 @@ export function SiteHeader() {
         <div className="relative mx-auto flex h-16 max-w-[82rem] items-center justify-end px-6 sm:px-12 md:h-24 lg:px-20">
           <Link
             href="/"
-            aria-label="Zur Startseite"
+            aria-label="Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach – zur Startseite"
             className="
               absolute left-6 top-5 z-20
               [--logo-width:266px] w-[var(--logo-width)] rounded-[calc(var(--logo-width)*20/600)]
@@ -43,7 +43,7 @@ export function SiteHeader() {
             "
           >
             {/* The SVG viewBox determines the height at each responsive width. */}
-            <LogoPraxis className="block h-auto w-full" />
+            <LogoPraxis className="block h-auto w-full" aria-hidden="true" focusable="false" />
           </Link>
           <button
             type="button"
