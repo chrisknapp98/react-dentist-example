@@ -1,5 +1,6 @@
 export enum ServiceCategory {
   VorsorgeUndZahnerhalt = "Vorsorge & Zahnerhalt",
+  Chirurgie = "Chirurgie",
   ZahnersatzUndAesthetik = "Zahnersatz & Ästhetik",
   KieferorthopaedieUndFunktion = "Kieferorthopädie & Funktion",
   DigitalePraxis = "Digitale Praxis",
@@ -7,6 +8,7 @@ export enum ServiceCategory {
 
 export const serviceCategories = [
   ServiceCategory.VorsorgeUndZahnerhalt,
+  ServiceCategory.Chirurgie,
   ServiceCategory.ZahnersatzUndAesthetik,
   ServiceCategory.KieferorthopaedieUndFunktion,
   ServiceCategory.DigitalePraxis,
@@ -43,11 +45,33 @@ export const services: readonly Service[] = [
     ],
   },
   {
-    category: ServiceCategory.ZahnersatzUndAesthetik,
-    title: "Implantate",
+    category: ServiceCategory.Chirurgie,
+    title: "Implantologie",
     paragraphs: [
-      "Implantate bieten eine moderne und langfristige Möglichkeit, fehlende Zähne zu ersetzen. Als künstliche Zahnwurzel bilden sie die Basis für einen festsitzenden oder herausnehmbaren, funktionellen und ästhetisch natürlichen Zahnersatz.",
-      "Dank unseres modernen 3D-Röntgengeräts können wir die anatomischen Strukturen bereits vor dem Eingriff dreidimensional darstellen und die Implantation präzise planen – direkt bei uns in der Praxis. So können wichtige anatomische Strukturen geschont und gleichzeitig die optimale Position des Implantats für eine funktionelle und ästhetisch hochwertige Versorgung bestimmt werden.",
+      "Implantate bieten eine zuverlässige und langfristige Möglichkeit, fehlende Zähne zu ersetzen. Als künstliche Zahnwurzel bilden sie die Basis für einen festsitzenden oder herausnehmbaren, funktionellen und ästhetischen Zahnersatz.",
+      "Dank unseres modernen 3D-Röntgengeräts (DVT) können wir die anatomischen Strukturen bereits vor dem Eingriff räumlich darstellen und die Implantation präzise planen – direkt bei uns in der Praxis. So können wichtige anatomische Strukturen geschont und gleichzeitig die optimale Position des Implantats für eine hochwertige Versorgung bestimmt werden.",
+    ],
+  },
+  {
+    category: ServiceCategory.Chirurgie,
+    title: "Zahnentfernung und -freilegung",
+    paragraphs: [
+      "Kann ein Zahn nicht mehr erhalten werden, ist eine Entfernung häufig nicht vermeidbar. Auch bei Weisheitszähnen prüfen wir sorgfältig, ob eine Entfernung empfehlenswert ist. Bei Bedarf unterstützt uns dabei eine dreidimensionale Röntgendiagnostik.",
+      "Verlagerte Zähne können wir operativ freilegen und anschließend mithilfe kieferorthopädischer Apparaturen schonend in die natürliche Zahnreihe eingliedern.",
+    ],
+  },
+  {
+    category: ServiceCategory.Chirurgie,
+    title: "Mikrochirurgische Zahnfleischoperationen",
+    paragraphs: [
+      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wiederherzustellen. Mithilfe von beispielsweise spezifischen Proteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
+    ],
+  },
+  {
+    category: ServiceCategory.Chirurgie,
+    title: "Wurzelspitzenresektion",
+    paragraphs: [
+      "Wenn eine Entzündung an der Wurzelspitze trotz einer Wurzelkanalbehandlung bestehen bleibt, kann eine Wurzelspitzenresektion helfen, den betroffenen Zahn zu erhalten. Dabei wird die entzündete Wurzelspitze sowie das umliegende entzündete Gewebe entfernt.",
     ],
   },
   {
@@ -65,13 +89,6 @@ export const services: readonly Service[] = [
     title: "Parodontitisbehandlung",
     paragraphs: [
       "Parodontitis ist eine häufige Erkrankung des Zahnhalteapparats, die oft unbemerkt voranschreitet. Sie geht mit einem bakteriellen Ungleichgewicht der Mundhöhle einher und führt zu einer Entzündung des Zahnfleischs. Unbehandelt kann eine Parodontitis zum Verlust von Zähnen führen und über den Blutkreislauf Einfluss im gesamten Körper haben. Eine frühzeitige Diagnose und gezielte Behandlung helfen dabei, Zahnfleisch und Zahnhalteapparat langfristig gesund zu halten. Wichtig ist uns hierbei die Reinigung durch uns, aber vor allem auch die korrekte Anleitung unserer Patientinnen und Patienten zur besseren Mundhygiene zu Hause. Auch die regelmäßige professionelle Zahnreinigung ist ein entscheidender Bestandteil einer langfristigen Mundgesundheit.",
-    ],
-  },
-  {
-    category: ServiceCategory.VorsorgeUndZahnerhalt,
-    title: "Regenerative Zahnfleisch-Operationen",
-    paragraphs: [
-      "Unter bestimmten Voraussetzungen ist es möglich, Zahnfleisch- oder Knochenverlust operativ wiederherzustellen. Mithilfe von spezifischen Proteinen, Knochenersatzmaterialien oder Bindegewebstransplantaten können Knochendefekte oder Rezessionen effektiv mikrochirurgisch bei uns in der Praxis behandelt werden.",
     ],
   },
   {
