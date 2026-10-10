@@ -79,7 +79,7 @@ export const services: readonly Service[] = [
     title: "Kieferorthopädie für Kinder & Erwachsene",
     paragraphs: [
       "Die Kieferorthopädie ist der älteste Bestandteil unserer Praxis – seit fast 40 Jahren.",
-      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag einschränken.",
+      "Das Begradigen von Zähnen und Korrekturen der Bissposition können die Ästhetik stark beeinflussen. Wir betrachten dabei aber vor allem die Funktion des Kiefers und des Kauapparats. Ein durch Zahnspangen gesteuertes Wachstum in der Kindheit und Jugend kann ein Leben lang Einfluss auf Themen wie Kauen, Körperhaltung, Atmung oder Schnarchen haben. Aber auch im Erwachsenenalter lassen sich viele Dinge optimieren, die Sie stören oder im Alltag beeinträchtigen.",
       "Diese Korrekturen sind neben klassischen Zahnspangen oft auch mit nahezu unsichtbaren Zahnschienen (Alignern) möglich.",
       "Wann ist der richtige Zeitpunkt, eine kieferorthopädische Therapie zu beginnen? Vereinbaren Sie gerne einen Beratungstermin, um den Behandlungsbedarf einzuordnen und die möglichen Therapien zu besprechen.",
     ],
@@ -95,14 +95,14 @@ export const services: readonly Service[] = [
     category: ServiceCategory.VorsorgeUndZahnerhalt,
     title: "Wurzelkanalbehandlung",
     paragraphs: [
-      "Ist der Zahnnerv irreversibel entzündet oder abgestorben, kann eine Wurzelkanalbehandlung den natürlichen Zahn häufig langfristig erhalten. Mit modernen Verfahren der maschinellen Wurzelkanalaufbereitung, hochwertigen Instrumenten und Füllmaterialien behandeln wir die Wurzelkanäle präzise und schonend. Dabei legen wir besonderen Wert auf eine sorgfältige Reinigung und die Vermeidung von Instrumentenbrüchen – für eine optimale Grundlage zum langfristigen Ausheilen und Zahnerhalt.",
+      "Ist der Zahnnerv irreversibel entzündet oder abgestorben, kann eine Wurzelkanalbehandlung den natürlichen Zahn häufig langfristig erhalten. Mit modernen Verfahren der maschinellen Wurzelkanalaufbereitung, hochwertigen Instrumenten und Füllmaterialien behandeln wir die Wurzelkanäle präzise und schonend – für eine optimale Grundlage zum langfristigen Ausheilen und Zahnerhalt.",
     ],
   },
   {
     category: ServiceCategory.ZahnersatzUndAesthetik,
     title: "Ästhetik (Bleaching, Zahnaufhellung, Kunststoffinfiltration, Veneers)",
     paragraphs: [
-      "Ein strahlendes Lächeln kann das persönliche Wohlbefinden und Selbstvertrauen stärken. Neben der Zahnstellung (Thema der Kieferorthopädie) sind oft bereits das Aufhellen der Zahnfarbe oder das Ausgleichen von Unebenheiten oder kleinen Defekten der Zahnsubstanz ausreichend, um ein harmonisches Aussehen der Zähne zu erreichen. Von der professionellen Zahnaufhellung über Bleaching bis zu Kunststoffinfiltrationen und Veneers aus Keramik oder Komposit bieten wir Ihnen verschiedene individuelle Möglichkeiten, das Erscheinungsbild Ihrer Zähne zu verbessern.",
+      "Ein strahlendes Lächeln kann das persönliche Wohlbefinden und Selbstvertrauen stärken. Neben der Zahnstellung (Thema der Kieferorthopädie) sind oft bereits das Aufhellen der Zahnfarbe oder das Ausgleichen von Unebenheiten oder kleinen Defekten der Zahnsubstanz ausreichend, um ein harmonisches Aussehen der Zähne zu erreichen. Von der professionellen Zahnreinigung über Bleaching bis zu Kunststoffinfiltrationen und Veneers aus Keramik oder Komposit bieten wir Ihnen verschiedene individuelle Möglichkeiten, das Erscheinungsbild Ihrer Zähne zu verbessern.",
     ],
   },
   {
