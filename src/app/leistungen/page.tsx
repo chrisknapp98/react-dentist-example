@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "../common/footer/footer";
-import { BUTTON_INTERACTION_CLASS } from "../common/button/buttonStyles";
+import { PRIMARY_BUTTON_CLASS } from "../common/button/buttonStyles";
 import { SiteHeader } from "../common/header/siteHeader";
 import { ServicesAccordion } from "./servicesAccordion";
 import { services } from "./services";
@@ -91,9 +91,10 @@ export default function LeistungenPage() {
             </div>
             <a
               href="/kontakt"
-              className={`inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white ${BUTTON_INTERACTION_CLASS} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed`}
+              className={`w-fit ${PRIMARY_BUTTON_CLASS}`}
             >
               Termin vereinbaren
+              <span aria-hidden="true">→</span>
             </a>
           </div>
         </section>

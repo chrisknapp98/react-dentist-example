@@ -1,3 +1,4 @@
+import { PRIMARY_BUTTON_CLASS } from "./common/button/buttonStyles";
 import { ContactSection } from "./home/contactSection";
 import { WelcomeBanner } from "./home/welcomeBanner";
 import { OpeningHoursAndRecentNews } from "./comingSoon/openingHoursAndRecentNews";
@@ -51,7 +52,7 @@ export default function Home() {
           </div>
           <a
             href="/leistungen"
-            className="mt-8 inline-flex items-center gap-3 rounded-full border border-practiceRed px-6 py-4 text-base font-medium leading-tight text-practiceRed transition-colors hover:bg-practiceRed hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed sm:px-8 sm:text-lg"
+            className={`mt-8 ${PRIMARY_BUTTON_CLASS}`}
           >
             Alle Leistungen ansehen
             <span aria-hidden="true">→</span>

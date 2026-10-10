@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { BUTTON_INTERACTION_CLASS } from "../common/button/buttonStyles";
+import { WHITE_BUTTON_CLASS } from "../common/button/buttonStyles";
 import { Footer } from "../common/footer/footer";
 import { SiteHeader } from "../common/header/siteHeader";
 import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
@@ -175,9 +175,10 @@ export default function TeamPage() {
               </p>
               <a
                 href="/kontakt"
-                className={`mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${BUTTON_INTERACTION_CLASS}`}
+                className={`mt-8 ${WHITE_BUTTON_CLASS}`}
               >
                 Kontakt aufnehmen
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

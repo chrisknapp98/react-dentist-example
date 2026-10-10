@@ -1,5 +1,7 @@
 "use client";
 
+import { PRIMARY_BUTTON_CLASS } from "../common/button/buttonStyles";
+
 import { useEffect, useMemo, useState } from "react";
 import { BrowserStoreModule } from "../common/store/di/browserStoreModule";
 
@@ -71,7 +73,7 @@ export function MapEmbed({ src, title }: MapEmbedProps) {
       <button
         type="button"
         onClick={enableMap}
-        className="rounded-full bg-practiceRed px-5 py-3 text-sm font-semibold text-white transition-[background-color,transform] [@media(hover:hover)]:hover:scale-[1.03] [@media(hover:hover)]:hover:bg-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
+        className={PRIMARY_BUTTON_CLASS}
       >
         Google Maps laden
       </button>

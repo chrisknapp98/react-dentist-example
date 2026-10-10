@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "../common/footer/footer";
-import { BUTTON_INTERACTION_CLASS } from "../common/button/buttonStyles";
+import { PRIMARY_BUTTON_CLASS } from "../common/button/buttonStyles";
 import { SiteHeader } from "../common/header/siteHeader";
 
 export const metadata: Metadata = {
@@ -192,9 +192,10 @@ export default function PraxisPage() {
               </h2>
               <a
                 href="/kontakt"
-                className={`mt-8 inline-flex w-fit rounded-full bg-practiceRed px-6 py-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed ${BUTTON_INTERACTION_CLASS}`}
+                className={`mt-8 w-fit ${PRIMARY_BUTTON_CLASS}`}
               >
                 Kontakt aufnehmen
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

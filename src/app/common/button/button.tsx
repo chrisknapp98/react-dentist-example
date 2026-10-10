@@ -18,16 +18,16 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const baseClass =
-    `font-medium px-6 py-2.5 rounded-full shadow-md ${BUTTON_INTERACTION_CLASS}`;
+    `font-medium px-6 py-4 sm:px-8 text-base sm:text-lg leading-tight rounded-full border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed ${BUTTON_INTERACTION_CLASS}`;
   let colorClass = '';
 
   if (color === "practiceRed") {
-    colorClass = "bg-practiceRed text-white [@media(hover:hover)]:hover:bg-practiceRed/90";
+    colorClass = "border-practiceRed bg-practiceRed text-white [@media(hover:hover)]:enabled:hover:bg-transparent [@media(hover:hover)]:enabled:hover:text-practiceRed";
   } else if (color === "practiceGrey") {
-    colorClass = "bg-practiceGrey text-white [@media(hover:hover)]:hover:bg-practiceGrey/90";
+    colorClass = "border-practiceGrey bg-practiceGrey text-white [@media(hover:hover)]:enabled:hover:bg-transparent [@media(hover:hover)]:enabled:hover:text-practiceGrey";
   } else if (color === "practiceWhite") {
     colorClass =
-      "bg-practiceWhite text-practiceGrey border border-practiceGrey [@media(hover:hover)]:hover:bg-practiceGrey/10";
+      "border-practiceGrey bg-practiceWhite text-practiceGrey [@media(hover:hover)]:enabled:hover:bg-transparent";
   }
 
   return (
