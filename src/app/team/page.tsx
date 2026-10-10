@@ -34,10 +34,25 @@ const dentists = [
   },
 ];
 
-const employeePlaceholders = Array.from(
-  { length: 15 },
-  (_, index) => index + 1,
-);
+// prettier-ignore
+const employees = [
+  { name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
+  { name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
+  { name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
+  { name: "Vorname", role: "Zahnmedizinische Verwaltungsassistenz", responsibility: "Verwaltung & Abrechnung" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Verwaltung, Abrechnung & Assistenz" },
+  { name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
+  { name: "Vorname", role: "Medizinische Fachangestellte", responsibility: "Verwaltung & Rezeption" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz (KFO)" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Zahnmedizinische Fachangestellte", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Auszubildende", responsibility: "Assistenz" },
+  { name: "Vorname", role: "Zahntechnikerin", responsibility: "KFO & Prothetik" },
+  { name: "Vorname", role: "Reinigungskraft", responsibility: "Praxishygiene" },
+];
 
 export default function TeamPage() {
   return (
@@ -100,9 +115,9 @@ export default function TeamPage() {
                 Unsere Mitarbeiterinnen
               </h2>
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                {employeePlaceholders.map((number) => (
+                {employees.map((employee) => (
                   <article
-                    key={number}
+                    key={employee.name}
                     className="overflow-hidden rounded-2xl bg-backgroundLightGray"
                   >
                     <div
@@ -120,13 +135,13 @@ export default function TeamPage() {
                     </div>
                     <div className="p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.12em] text-practiceRed">
-                        Mitarbeiterin
+                        {employee.role}
                       </p>
                       <h3 className="mt-2 text-lg font-light leading-tight text-textBlue">
-                        Vorname Nachname
+                        {employee.name}
                       </h3>
                       <p className="mt-2 text-xs text-textGrey">
-                        Platzhalter {String(number).padStart(2, "0")}
+                        {employee.responsibility}
                       </p>
                     </div>
                   </article>
