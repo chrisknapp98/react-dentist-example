@@ -2,6 +2,7 @@ import { put } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import { AnnouncementDTO } from "./announcementDTO";
+import { requireAdmin } from "../../common/authentication/server/requireAdmin";
 
 const BLOB_FILENAME = "announcements.json";
 const BLOB_URL = process.env.NEXT_PUBLIC_VERCEL_BLOB_URL;
@@ -29,10 +30,13 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
     try {
-        if (!BLOB_URL) {
-            console.error("BLOB_URL is not set in the environment variables.");
-            return NextResponse.json({ error: "Blob storage URL not configured" }, { status: 500 });
+        if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
+            console.error("Blob storage configuration is missing.");
+            return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
         }
 
         const { message } = await req.json();
@@ -47,16 +51,17 @@ export async function POST(req: Request) {
         }
 
         const newAnnouncement = { id: randomUUID(), message, date: new Date().toISOString() };
-        announcements.push(newAnnouncement);
+        announcements.unshift(newAnnouncement);
 
         await put(BLOB_FILENAME, JSON.stringify(announcements, null, 2), {
             contentType: "application/json",
             access: "public",
             addRandomSuffix: false,
+            allowOverwrite: true,
             token: BLOB_WRITE_TOKEN,
         });
 
-        return NextResponse.json(newAnnouncement, { status: 201 });
+        return NextResponse.json(announcements, { status: 201 });
     } catch (error) {
         console.error("Error adding announcement:", error);
         return NextResponse.json({ error: "Failed to add announcement" }, { status: 500 });
@@ -64,6 +69,9 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
     if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
         return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
     }
@@ -91,12 +99,61 @@ export async function DELETE(req: Request) {
         contentType: "application/json",
         access: "public",
         addRandomSuffix: false,
+        allowOverwrite: true,
         token: BLOB_WRITE_TOKEN,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(announcements, { status: 200 });
+}
+
+export async function PUT(req: Request) {
+    const authError = await requireAdmin(req);
+    if (authError) return authError;
+
+    if (!BLOB_URL || !BLOB_WRITE_TOKEN) {
+        return NextResponse.json({ error: "Blob storage configuration missing" }, { status: 500 });
+    }
+
+    const { orderedIds } = await req.json();
+    if (!Array.isArray(orderedIds)) {
+        return NextResponse.json({ error: "orderedIds is required" }, { status: 400 });
+    }
+
+    let announcements: AnnouncementDTO[] = [];
+    const response = await fetchBlobBypassingCache();
+    if (response.ok) {
+        announcements = await response.json();
+    }
+    const announcementsById = new Map(announcements.map((a) => [a.id, a]));
+    const reordered: AnnouncementDTO[] = [];
+
+    orderedIds.forEach((id: string) => {
+        const item = announcementsById.get(id);
+        if (item) reordered.push(item);
+    });
+
+    announcements.forEach((item) => {
+        if (!orderedIds.includes(item.id)) reordered.push(item);
+    });
+    const missing = orderedIds.filter(id => !announcementsById.has(id));
+    if (missing.length) {
+        return NextResponse.json(
+            { error: "Some ids do not exist", missing },
+            { status: 400 }
+        );
+    }
+    await put(BLOB_FILENAME, JSON.stringify(reordered, null, 2), {
+        contentType: "application/json",
+        access: "public",
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        token: BLOB_WRITE_TOKEN,
+    });
+    return NextResponse.json(reordered, { status: 200 });
 }
 
 async function fetchBlobBypassingCache(): Promise<Response> {
-    return await fetch(`${BLOB_URL}?t=${Date.now()}`);
+  const url = new URL(BLOB_URL!);
+  url.searchParams.set("t", String(Date.now()));
+  return fetch(url.toString(), { cache: "no-store" });
 }

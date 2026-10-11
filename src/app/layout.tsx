@@ -1,36 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ContactInformation } from "./common/contactInformation/contactInformation";
-import Script from "next/script";
+import { services } from "./leistungen/services";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const PRACTICE_NAME = "Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach";
+const PRACTICE_NAME =
+  "Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach";
 
 export const metadata: Metadata = {
   metadataBase: new URL(ContactInformation.website),
-  title:  PRACTICE_NAME,
+  title: PRACTICE_NAME,
   description:
-    "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
-  alternates: {
-    canonical: ContactInformation.website,
-  },
+    "Ihre Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen. Zugang mit Rampe nach Voranmeldung.",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: ContactInformation.website,
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
     siteName: PRACTICE_NAME,
     locale: "de_DE",
     images: [
@@ -38,15 +25,15 @@ export const metadata: Metadata = {
         url: "/images/praxis_foto_cropped.jpg",
         width: 1200,
         height: 630,
-        alt: "Außenansicht der Zahnarztpraxis in Pegnitz"
-      }
-    ]
+        alt: "Außenansicht der Zahnarztpraxis in Pegnitz",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
   },
 };
 
@@ -58,46 +45,85 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": PRACTICE_NAME,
-    "url": ContactInformation.website,
-    "telephone": ContactInformation.telephoneDisplay,
-    "email": ContactInformation.email,
-    "address": {
+    "@id": `${ContactInformation.website}/#practice`,
+    name: PRACTICE_NAME,
+    url: ContactInformation.website,
+    telephone: ContactInformation.telephoneDisplay,
+    email: ContactInformation.email,
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": ContactInformation.address.street,
-      "postalCode": ContactInformation.address.postcode,
-      "addressLocality": ContactInformation.address.city,
-      "addressRegion": ContactInformation.address.region,
-      "addressCountry": ContactInformation.address.country
+      streetAddress: ContactInformation.address.street,
+      postalCode: ContactInformation.address.postcode,
+      addressLocality: ContactInformation.address.city,
+      addressRegion: ContactInformation.address.region,
+      addressCountry: ContactInformation.address.country,
     },
-    "description": "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
-    "availableLanguage": ["de", "en", "es", "fr"],
-    "areaServed": ["Pegnitz", "Bayreuth", "Creußen", "Auerbach", "Lauf", "Plech", "Kirchenthumbach", "Eschenbach"],
-    "amenityFeature": [
-      { "@type": "LocationFeatureSpecification", "name": "Barrierefrei", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Rollstuhlgerecht", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Nähe Bahnhof", "value": true }
+    description:
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
+    // Languages spoken by the doctors; this does not describe booking or other staff.
+    knowsLanguage: ["de", "en", "es", "fr"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Terminvereinbarung",
+      telephone: ContactInformation.telephoneDisplay,
+      email: ContactInformation.email,
+    },
+    areaServed: [
+      "Pegnitz",
+      "Bayreuth",
+      "Creußen",
+      "Auerbach",
+      "Lauf",
+      "Plech",
+      "Kirchenthumbach",
+      "Eschenbach",
     ],
-    "availableService": [
-      { "@type": "MedicalBusiness", "name": "Zahnreinigung (PZR)" },
-      { "@type": "MedicalBusiness", "name": "Kieferorthopädie" },
-      { "@type": "MedicalBusiness", "name": "unsichtbare Zahnspange (Aligner)" },
-      { "@type": "MedicalBusiness", "name": "Implantate" },
-      { "@type": "MedicalBusiness", "name": "CEREC – Kronen/Brücken" },
-      { "@type": "MedicalBusiness", "name": "Veneers" },
-      { "@type": "MedicalBusiness", "name": "Parodontitis-Behandlung" },
-      { "@type": "MedicalBusiness", "name": "Schienen (Knirschen/CMD)" }
-    ]
+    amenityFeature: [
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Zugang mit Rampe nach Voranmeldung",
+        description:
+          "Bitte kündigen Sie Ihren Besuch mit Rollstuhl oder Rollator im Vorfeld an, damit wir eine Rampe am Eingang bereitstellen können.",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Nähe Bahnhof",
+        value: true,
+      },
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Zahnmedizin & Kieferorthopädie",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          serviceType: service.category,
+          url: new URL("/leistungen", ContactInformation.website).href,
+        },
+      })),
+    },
   };
 
   return (
     <html lang="de">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+      </head>
+      <body className="antialiased">
         {children}
-        <Script id="ld-dentist" type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        <script
+          id="ld-dentist"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </body>
     </html>

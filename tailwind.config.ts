@@ -2,8 +2,6 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -26,24 +24,6 @@ export default {
         backgroundGray: "var(--background-gray)",
         backgroundLightGray: "var(--background-light-gray)",
       },
-      fontStretch: {
-        'extra-condensed': '50%',
-        'condensed': '75%',
-        'normal': '100%',
-        'expanded': '125%',
-        'extra-expanded': '150%',
-      },
     },
   },
-  plugins: [
-    function ({ addUtilities }: { addUtilities: (utilities: Record<string, any>) => void }) {
-      addUtilities({
-        ".font-stretch-extra-condensed": { fontStretch: "extra-condensed" },
-        ".font-stretch-condensed": { fontStretch: "condensed" },
-        ".font-stretch-normal": { fontStretch: "normal" },
-        ".font-stretch-expanded": { fontStretch: "expanded" },
-        ".font-stretch-extra-expanded": { fontStretch: "extra-expanded" },
-      });
-    },
-  ],
 } satisfies Config;

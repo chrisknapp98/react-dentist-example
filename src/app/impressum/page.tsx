@@ -1,30 +1,40 @@
+import type { Metadata } from "next";
 import { Footer } from "../common/footer/footer";
-import { ContactHeaderWithLogo } from "../common/header/contactHeaderWithLogo";
+import { SiteHeader } from "../common/header/siteHeader";
+import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayout";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
+
+export const metadata: Metadata = {
+  title:
+    "Impressum | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
+  description:
+    "Impressum und Anbieterinformationen der Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz.",
+};
 
 export default function Impressum() {
   return (
     <div className="w-full font-sans">
-      {/* <div className="absolute top-0 left-0 w-full z-10"> */}
-      {/* <div className="fixed top-0 left-0 w-full z-50"> */}
-      <ContactHeaderWithLogo />
+      <SiteHeader />
 
-      <div className="px-6 mb-6 sm:px-20">
-        <h1 className="font-extralight text-4xl">IMPRESSUM</h1>
-        <hr className="my-4 border-t border-gray-300" />
-        <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
+      <main
+        className={`px-6 pb-14 sm:px-12 md:pb-20 lg:px-20 ${SITE_HEADER_CONTENT_TOP_PADDING}`}
+      >
+        <div className="mx-auto max-w-6xl">
+          <h1 className="font-extralight text-4xl">IMPRESSUM</h1>
+          <hr className="my-4 border-t border-gray-300" />
+          <div className="text-sm text-gray-800 space-y-6 leading-relaxed">
           <div>
             <h2 className="text-lg mb-2">Angaben gemäß § 5 DDG</h2>
             <p>
               Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp
-              Dumbach
+              Dumbach (GbR)
               <br />
               Dr. Johannes Dumbach, Dr. Stephanie Knapp Dumbach, Dr. Georg
               Dumbach
               <br />
-              Bahnhofstr. 16
+              {ContactInformation.address.street}
               <br />
-              91257 Pegnitz
+              {ContactInformation.address.postcode} {ContactInformation.address.city}
             </p>
           </div>
 
@@ -54,6 +64,16 @@ export default function Impressum() {
           </div>
 
           <div>
+            <h2 className="text-lg mb-2">Umsatzsteuer-Identifikationsnummer</h2>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE457897387</p>
+          </div>
+
+          <div>
+            <h2 className="text-lg mb-2">Wirtschafts-Identifikationsnummer</h2>
+            <p>Wirtschafts-Identifikationsnummer gemäß § 139c AO: DE457897387-00001</p>
+          </div>
+
+          <div>
             <h2 className="text-lg mb-2">Aufsichtsbehörde</h2>
             <p>
               Regierung von Unterfranken
@@ -68,6 +88,23 @@ export default function Impressum() {
                 className="underline"
               >
                 https://www.regierung.unterfranken.bayern.de
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg mb-2">Zuständige Kassenzahnärztliche Vereinigung</h2>
+            <p>
+              Kassenzahnärztliche Vereinigung Bayerns
+              <br />
+              Fallstraße 34
+              <br />
+              81369 München
+              <br />
+              Telefon: <a href="tel:+4989724010" className="underline">089-72401-0</a>
+              <br />
+              <a href="https://www.kzvb.de" target="_blank" rel="noopener noreferrer" className="underline">
+                www.kzvb.de
               </a>
             </p>
           </div>
@@ -97,6 +134,12 @@ export default function Impressum() {
               <br />
               Flößergasse 1<br />
               81369 München
+              <br />
+              Telefon: <a href="tel:+49892302110" className="underline">089-230211-0</a>
+              <br />
+              <a href="https://www.blzk.de" target="_blank" rel="noopener noreferrer" className="underline">
+                www.blzk.de
+              </a>
             </p>
             <p>
               Berufsbezeichnungen und Approbationen verliehen durch Bundesland
@@ -147,20 +190,26 @@ export default function Impressum() {
               teilzunehmen.
             </p>
           </div>
+
         </div>
-        <p className="text-sm text-gray-500 mt-10">
-          Die auf dieser Website verwendeten Icons stammen von{" "}
-          <a
-            href="https://feathericons.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Feather Icons
-          </a>{" "}
-          und stehen unter der MIT-Lizenz.
-        </p>
-      </div>
+          <section className="mt-10 border-t border-gray-200 pt-6 text-sm leading-relaxed text-gray-600">
+            <h2 className="mb-3 font-medium text-gray-800">Bildnachweise</h2>
+            <p className="mb-2">Die Fotografien dieser Website stammen von Julian Hochgesang.</p>
+            <p>
+            Die auf dieser Website verwendeten Icons stammen von{" "}
+            <a
+              href="https://feathericons.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Feather Icons
+            </a>{" "}
+            und stehen unter der MIT-Lizenz.
+            </p>
+          </section>
+        </div>
+      </main>
       <Footer />
     </div>
   );
