@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AnnouncementDTO } from "../api/announcements/announcementDTO";
-import { RecentNewsFrame } from "../comingSoon/recentNewsFrame";
+import { RecentNewsFrame } from "../home/recentNewsFrame";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
 import { Button } from "../common/button/button";
@@ -68,7 +68,7 @@ export default function AdminPage() {
     }
 
     checkAuth();
-  }, []);
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,13 +1,11 @@
 import Image from "next/image";
 import { SiteHeader } from "../common/header/siteHeader";
-import { ContactInformation } from "../common/contactInformation/contactInformation";
 
 export function WelcomeBanner() {
   return (
     <section>
       <SiteHeader />
 
-      {/* <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end"> */}
       <div className="relative hidden min-h-[610px] overflow-hidden md:flex md:items-end">
         <Image
           src="/images/praxis-dumbach-gebaeude-strassenansicht-04-desktop.jpg"

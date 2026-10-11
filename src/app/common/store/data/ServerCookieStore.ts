@@ -25,10 +25,4 @@ export class ServerCookieStore implements Store {
     cookieStore.set(key, "", { path: "/", maxAge: 0 });
   }
 
-  async clear(): Promise<void> {
-    const cookieStore = await cookies();
-    cookieStore.getAll().forEach((cookie) => {
-      cookieStore.set(cookie.name, "", { path: "/", maxAge: 0 });
-    });
-  }
 }

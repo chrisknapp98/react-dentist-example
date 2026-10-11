@@ -1,7 +1,7 @@
 import { PRIMARY_BUTTON_CLASS } from "./common/button/buttonStyles";
 import { ContactSection } from "./home/contactSection";
 import { WelcomeBanner } from "./home/welcomeBanner";
-import { OpeningHoursAndRecentNews } from "./comingSoon/openingHoursAndRecentNews";
+import { OpeningHoursAndRecentNews } from "./home/openingHoursAndRecentNews";
 import Image from "next/image";
 import { Footer } from "./common/footer/footer";
 

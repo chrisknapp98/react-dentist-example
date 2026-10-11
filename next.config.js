@@ -4,14 +4,14 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'DENY' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
           },
         ],
       },
@@ -22,22 +22,22 @@ const nextConfig = {
   },
   turbopack: {
     rules: {
-      '*.svg': {
+      "*.svg": {
         loaders: [
           {
-            loader: '@svgr/webpack',
+            loader: "@svgr/webpack",
             options: {
               svgo: true,
               svgoConfig: {
                 plugins: [
                   {
-                    name: 'removeDimensions',
+                    name: "removeDimensions",
                     active: true,
                   },
                   {
-                    name: 'removeAttrs',
+                    name: "removeAttrs",
                     params: {
-                      attrs: '(width|height)',
+                      attrs: "(width|height)",
                     },
                   },
                 ],
@@ -45,7 +45,7 @@ const nextConfig = {
             },
           },
         ],
-        as: '*.js',
+        as: "*.js",
       },
     },
   },

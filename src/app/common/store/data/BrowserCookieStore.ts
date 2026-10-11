@@ -26,12 +26,4 @@ export class BrowserCookieStore implements Store {
     document.cookie = `${key}=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=/; SameSite=Lax`;
   }
 
-  async clear(): Promise<void> {
-    const keys = document.cookie
-      .split(";")
-      .map((value) => value.trim().split("=")[0])
-      .filter(Boolean);
-
-    await Promise.all(keys.map((key) => this.removeItem(key)));
-  }
 }

@@ -20,9 +20,9 @@ export default function AdminLogin() {
       }
     }
     checkAuth();
-  }, []);
+  }, [router]);
   const handleLogin = async () => {
-    setError(""); // Clear previous errors
+    setError("");
 
     try {
       const res = await fetch("/api/auth", {
@@ -32,7 +32,7 @@ export default function AdminLogin() {
       });
 
       if (res.ok) {
-        router.push("/admin"); // Redirect to admin panel
+        router.push("/admin");
       } else if (res.status === 429) {
         setError("Zu viele Anmeldeversuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.");
       } else if (res.status >= 500) {

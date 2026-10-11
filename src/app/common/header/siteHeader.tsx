@@ -74,41 +74,41 @@ export function SiteHeader() {
             aria-label="Hauptnavigation"
             className="hidden items-center gap-8 text-base font-medium text-textGrey xl:flex"
           >
-            <a
+            <Link
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
               className={navigationLinkClass("/")}
             >
               Startseite
-            </a>
-            <a
+            </Link>
+            <Link
               href="/leistungen"
               aria-current={pathname === "/leistungen" ? "page" : undefined}
               className={navigationLinkClass("/leistungen")}
             >
               Leistungen
-            </a>
-            <a
+            </Link>
+            <Link
               href="/praxis"
               aria-current={pathname === "/praxis" ? "page" : undefined}
               className={navigationLinkClass("/praxis")}
             >
               Praxis
-            </a>
-            <a
+            </Link>
+            <Link
               href="/team"
               aria-current={pathname === "/team" ? "page" : undefined}
               className={navigationLinkClass("/team")}
             >
               Team
-            </a>
-            <a
+            </Link>
+            <Link
               href="/kontakt"
               aria-current={pathname === "/kontakt" ? "page" : undefined}
               className={navigationLinkClass("/kontakt")}
             >
               Kontakt
-            </a>
+            </Link>
             <a
               href={ContactInformation.instagramLink}
               target="_blank"
@@ -130,41 +130,41 @@ export function SiteHeader() {
             }`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <a
+            <Link
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
               className={navigationLinkClass("/", true)}
             >
               Startseite
-            </a>
-            <a
+            </Link>
+            <Link
               href="/leistungen"
               aria-current={pathname === "/leistungen" ? "page" : undefined}
               className={navigationLinkClass("/leistungen", true)}
             >
               Leistungen
-            </a>
-            <a
+            </Link>
+            <Link
               href="/praxis"
               aria-current={pathname === "/praxis" ? "page" : undefined}
               className={navigationLinkClass("/praxis", true)}
             >
               Praxis
-            </a>
-            <a
+            </Link>
+            <Link
               href="/team"
               aria-current={pathname === "/team" ? "page" : undefined}
               className={navigationLinkClass("/team", true)}
             >
               Team
-            </a>
-            <a
+            </Link>
+            <Link
               href="/kontakt"
               aria-current={pathname === "/kontakt" ? "page" : undefined}
               className={navigationLinkClass("/kontakt", true)}
             >
               Kontakt
-            </a>
+            </Link>
             <a
               href={ContactInformation.instagramLink}
               target="_blank"

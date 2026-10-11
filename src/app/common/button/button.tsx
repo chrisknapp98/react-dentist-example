@@ -4,7 +4,7 @@ type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
   color?: "practiceRed" | "practiceGrey" | "practiceWhite";
-  className?: string; // optional for future customization
+  className?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
 };
