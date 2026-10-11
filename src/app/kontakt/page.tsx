@@ -93,6 +93,16 @@ export default function KontaktPage() {
                 </p>
               </div>
             </div>
+            <div className="mt-8 max-w-3xl">
+              <h2 className="text-xl font-medium text-textBlue">
+                Barrierefreier Zugang:
+              </h2>
+              <p className="mt-3 leading-7 text-textGrey">
+                Wenn Sie mit dem Rollstuhl oder Rollator zu uns kommen, teilen
+                Sie es uns bitte im Vorfeld mit. Dann stellen wir eine Rampe an
+                unserem Eingang für Sie bereit.
+              </p>
+            </div>
           </div>
         </section>
 
