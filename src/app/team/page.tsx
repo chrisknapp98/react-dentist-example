@@ -16,6 +16,7 @@ const dentists = [
   {
     name: "Dr. Stephanie Knapp\u00a0Dumbach",
     role: "Zahnärztin",
+    qualifications: ["Curriculum Parodontologie", "Curriculum Kieferorthopädie"],
     image:
       "/images/dr-stephanie-knapp-dumbach-rezeption-02_cropped.jpg",
     alt: "Dr. Stephanie Knapp Dumbach im Empfangsbereich der Praxis",
@@ -23,12 +24,14 @@ const dentists = [
   {
     name: "Dr. Johannes Dumbach",
     role: "Zahnarzt",
+    qualifications: ["Curriculum Implantologie"],
     image: "/images/dr-johannes-dumbach-portrait-04_cropped.jpg",
     alt: "Dr. Johannes Dumbach im Empfangsbereich der Praxis",
   },
   {
     name: "Dr. Georg Dumbach",
     role: "Kieferorthopäde",
+    qualifications: ["Fachzahnarzt für Kieferorthopädie"],
     image: "/images/dr-georg-dumbach-portrait_cropped.jpg",
     alt: "Dr. Georg Dumbach im Empfangsbereich der Praxis",
   },
@@ -133,6 +136,13 @@ export default function TeamPage() {
                       <h3 className="mt-3 text-2xl font-light leading-tight text-textBlue">
                         {dentist.name}
                       </h3>
+                      {dentist.qualifications.length > 0 && (
+                        <ul className="mt-4 space-y-1 text-sm leading-6 text-textGrey">
+                          {dentist.qualifications.map((qualification) => (
+                            <li key={qualification}>{qualification}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </article>
                 ))}
