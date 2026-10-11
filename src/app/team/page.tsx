@@ -8,8 +8,10 @@ import { SITE_HEADER_CONTENT_TOP_PADDING } from "../common/header/siteHeaderLayo
 export const metadata: Metadata = {
   title:
     "Unser Team | Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach",
+  // Original description for when the Mitarbeiterinnen section returns:
+  // "Lernen Sie unser Ärzteteam und die Mitarbeiterinnen der Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz kennen.",
   description:
-    "Lernen Sie unser Ärzteteam und die Mitarbeiterinnen der Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz kennen.",
+    "Lernen Sie unser Ärzteteam der Zahnarztpraxis Dres. Dumbach & Dr. Knapp Dumbach in Pegnitz kennen.",
 };
 
 const dentists = [
@@ -37,6 +39,7 @@ const dentists = [
   },
 ];
 
+/* Mitarbeiterinnen: restore when profiles are ready.
 // prettier-ignore
 const employees = [
   { id: "01", name: "Vorname", role: "Dentalhygienikerin", responsibility: "Prophylaxe" },
@@ -56,6 +59,7 @@ const employees = [
   { id: "15", name: "Vorname", role: "Zahntechnikerin", responsibility: "KFO & Prothetik" },
   { id: "16", name: "Vorname", role: "Reinigungskraft", responsibility: "Praxishygiene" },
 ];
+*/
 
 export default function TeamPage() {
   return (
@@ -151,6 +155,7 @@ export default function TeamPage() {
               </div>
             </section>
 
+            {/* Mitarbeiterinnen: restore when profiles are ready.
             <section
               className="mt-14 sm:mt-20"
               aria-labelledby="employees-heading"
@@ -195,6 +200,7 @@ export default function TeamPage() {
                 ))}
               </div>
             </section>
+            */}
           </div>
         </div>
 
