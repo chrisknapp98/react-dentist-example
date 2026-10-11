@@ -80,7 +80,7 @@ export default function Datenschutz() {
                         <h2 className="text-lg mb-2">7. Externe Links</h2>
                         <p>Unsere Website enthält Links zu externen Websites, beispielsweise zu Instagram, Google Maps und Apple Maps. Wenn Sie einen solchen Link öffnen, verlassen Sie unsere Website. Für die Verarbeitung Ihrer Daten auf der verlinkten Website gelten die Datenschutzhinweise des jeweiligen Anbieters.</p>
                     </article>
-                    <p className="text-gray-500">Stand: 10. Oktober 2026</p>
+                    <p className="text-gray-500">Stand: 11. Oktober 2026</p>
                     </div>
                 </div>
             </main>
