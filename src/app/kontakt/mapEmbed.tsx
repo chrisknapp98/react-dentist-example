@@ -1,6 +1,7 @@
 "use client";
 
 import { PRIMARY_BUTTON_CLASS } from "../common/button/buttonStyles";
+import Link from "next/link";
 
 import { useEffect, useMemo, useState } from "react";
 import { BrowserStoreModule } from "../common/store/di/browserStoreModule";
@@ -61,13 +62,14 @@ export function MapEmbed({ src, title }: MapEmbedProps) {
   }
 
   return (
-    <div className="flex h-[26rem] flex-col items-center justify-center gap-5 px-6 text-center text-textGrey">
+    <div className="flex min-h-[26rem] flex-col items-center justify-center gap-5 px-6 py-8 text-center text-textGrey">
       <div>
         <p className="font-medium text-textBlue">Google Maps ist deaktiviert.</p>
         <p className="mt-2 max-w-md text-sm leading-6">
-          Erst nach Ihrer Einwilligung wird die Karte geladen. Dabei können
-          personenbezogene Daten, insbesondere Ihre IP-Adresse, an Google
-          übermittelt werden.
+          Mit „Google Maps laden“ stimmen Sie der Datenübermittlung an Google
+          und der Verwendung von Cookies für die Karte zu. Daten können auch
+          außerhalb der EU verarbeitet werden, insbesondere in den USA. Die
+          Zustimmung ist jederzeit widerrufbar.
         </p>
       </div>
       <button
@@ -77,14 +79,12 @@ export function MapEmbed({ src, title }: MapEmbedProps) {
       >
         Google Maps laden
       </button>
-      <a
-        href="https://policies.google.com/privacy?hl=de"
-        target="_blank"
-        rel="noreferrer"
-        className="text-sm text-practiceRed underline decoration-practiceRed/50 underline-offset-4 transition-colors [@media(hover:hover)]:hover:text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
+      <Link
+        href="/datenschutz#google-maps"
+        className="text-sm text-practiceRed underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed"
       >
-        Datenschutzhinweise von Google
-      </a>
+        Details in unserer Datenschutzerklärung
+      </Link>
     </div>
   );
 }
