@@ -115,7 +115,7 @@ export default function TeamPage() {
                 Unser Ärzteteam
               </h2>
               <div className="mt-8 grid gap-6 md:grid-cols-3">
-                {dentists.map((dentist) => (
+                {dentists.map((dentist, index) => (
                   <article
                     key={dentist.name}
                     className="overflow-hidden rounded-3xl bg-white"
@@ -124,6 +124,7 @@ export default function TeamPage() {
                       <Image
                         src={dentist.image}
                         alt={dentist.alt}
+                        loading={index === 0 ? "eager" : "lazy"}
                         fill
                         sizes="(min-width: 768px) 30vw, 100vw"
                         className="object-contain object-center"
