@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ContactInformation } from "./common/contactInformation/contactInformation";
-import Script from "next/script";
+import { services } from "./leistungen/services";
 
 const PRACTICE_NAME =
   "Zahnarztpraxis & Kieferorthopädie Dres. Dumbach & Dr. Knapp Dumbach";
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(ContactInformation.website),
   title: PRACTICE_NAME,
   description:
-    "Ihre neue Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen, barrierefrei.",
+    "Ihre Zahnarztpraxis mit Kieferorthopädie in Pegnitz. Moderne Zahnmedizin, zentral gelegen. Zugang mit Rampe nach Voranmeldung.",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: ContactInformation.website,
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
     siteName: PRACTICE_NAME,
     locale: "de_DE",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: PRACTICE_NAME,
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
   },
 };
 
@@ -45,6 +45,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
+    "@id": `${ContactInformation.website}/#practice`,
     name: PRACTICE_NAME,
     url: ContactInformation.website,
     telephone: ContactInformation.telephoneDisplay,
@@ -58,8 +59,15 @@ export default function RootLayout({
       addressCountry: ContactInformation.address.country,
     },
     description:
-      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage, barrierefrei.",
-    availableLanguage: ["de", "en", "es", "fr"],
+      "Moderne Zahnmedizin & Kieferorthopädie in Pegnitz. Zentrale Lage. Zugang mit Rampe nach Voranmeldung.",
+    // Languages spoken by the doctors; this does not describe booking or other staff.
+    knowsLanguage: ["de", "en", "es", "fr"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Terminvereinbarung",
+      telephone: ContactInformation.telephoneDisplay,
+      email: ContactInformation.email,
+    },
     areaServed: [
       "Pegnitz",
       "Bayreuth",
@@ -73,12 +81,9 @@ export default function RootLayout({
     amenityFeature: [
       {
         "@type": "LocationFeatureSpecification",
-        name: "Barrierefrei",
-        value: true,
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        name: "Rollstuhlgerecht",
+        name: "Zugang mit Rampe nach Voranmeldung",
+        description:
+          "Bitte kündigen Sie Ihren Besuch mit Rollstuhl oder Rollator im Vorfeld an, damit wir eine Rampe am Eingang bereitstellen können.",
         value: true,
       },
       {
@@ -87,16 +92,19 @@ export default function RootLayout({
         value: true,
       },
     ],
-    availableService: [
-      { "@type": "MedicalBusiness", name: "Zahnreinigung (PZR)" },
-      { "@type": "MedicalBusiness", name: "Kieferorthopädie" },
-      { "@type": "MedicalBusiness", name: "unsichtbare Zahnspange (Aligner)" },
-      { "@type": "MedicalBusiness", name: "Implantate" },
-      { "@type": "MedicalBusiness", name: "CEREC – Kronen/Brücken" },
-      { "@type": "MedicalBusiness", name: "Veneers" },
-      { "@type": "MedicalBusiness", name: "Parodontitis-Behandlung" },
-      { "@type": "MedicalBusiness", name: "Schienen (Knirschen/CMD)" },
-    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Zahnmedizin & Kieferorthopädie",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          serviceType: service.category,
+          url: new URL("/leistungen", ContactInformation.website).href,
+        },
+      })),
+    },
   };
 
   return (
@@ -110,10 +118,12 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <Script
+        <script
           id="ld-dentist"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </body>
     </html>
