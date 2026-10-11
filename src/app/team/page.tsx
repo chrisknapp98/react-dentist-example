@@ -100,6 +100,7 @@ export default function TeamPage() {
                   Generationen möchten wir unseren Patientinnen und Patienten
                   eine hohe Behandlungsqualität bieten.
                 </p>
+                <p>Hier erfahren Sie mehr über unser Team.</p>
               </div>
             </div>
           </div>
