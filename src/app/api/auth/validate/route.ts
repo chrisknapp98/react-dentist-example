@@ -1,9 +1,5 @@
-import { NextResponse } from "next/server";
-import { AuthenticationModule } from "@/app/common/authentication/di/authenticationModule";
+import { proxyToBackend } from "@/app/common/backend/proxy";
 
-export async function GET() {
-    const authManager = new AuthenticationModule().provideManager();
-    const isValid = await authManager.validateSession();
-
-    return NextResponse.json({ valid: isValid }, { status: isValid ? 200 : 401 });
+export async function GET(request: Request) {
+  return proxyToBackend(request, "/api/auth/validate");
 }

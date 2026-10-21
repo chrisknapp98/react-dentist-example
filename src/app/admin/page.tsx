@@ -6,6 +6,7 @@ import { AnnouncementDTO } from "../api/announcements/announcementDTO";
 import { RecentNewsFrame } from "../home/recentNewsFrame";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
+import { sessionFetch } from "../common/authentication/sessionFetch";
 import { Button } from "../common/button/button";
 
 type Feedback = {
@@ -56,6 +57,7 @@ export default function AdminPage() {
         const res = await fetch("/api/auth/validate");
         const data = await res.json();
 
+        if (res.status !== 401 && !res.ok) throw new Error("Session service unavailable");
         if (data.valid) {
           setIsAuthenticated(true);
           await fetchAnnouncements();
@@ -85,7 +87,7 @@ export default function AdminPage() {
   const submitAnnouncement = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch("/api/announcements", {
+      const res = await sessionFetch("/api/announcements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
@@ -122,7 +124,7 @@ export default function AdminPage() {
     setIsSaving(true);
 
     try {
-      const res = await fetch(`/api/announcements?id=${id}`, {
+      const res = await sessionFetch(`/api/announcements?id=${id}`, {
         method: "DELETE",
       });
       if (res.status === 401) {
@@ -145,8 +147,13 @@ export default function AdminPage() {
   };
 
   const handleLogout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/admin/login");
+    try {
+      const response = await sessionFetch("/api/auth/logout", { method: "POST" });
+      if (!response.ok) throw new Error("Logout failed");
+      router.push("/admin/login");
+    } catch {
+      setFeedback({ kind: "error", message: "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut." });
+    }
   };
 
   const moveAnnouncement = (fromIndex: number, direction: "up" | "down") => {
@@ -172,7 +179,7 @@ export default function AdminPage() {
     setIsSaving(true);
 
     try {
-      const res = await fetch("/api/announcements", {
+      const res = await sessionFetch("/api/announcements", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ orderedIds: next.map((item) => item.id) }),

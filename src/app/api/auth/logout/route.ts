@@ -1,9 +1,5 @@
-import { NextResponse } from "next/server";
-import { AuthenticationModule } from "@/app/common/authentication/di/authenticationModule";
+import { proxyToBackend } from "@/app/common/backend/proxy";
 
-export async function POST() {
-    const authManager = new AuthenticationModule().provideManager();
-    await authManager.logout();
-
-    return NextResponse.json({ success: true }, { status: 200 });
+export async function POST(request: Request) {
+  return proxyToBackend(request, "/api/auth/logout");
 }

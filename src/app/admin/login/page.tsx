@@ -3,20 +3,24 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { sessionFetch } from "../../common/authentication/sessionFetch";
 import { Button } from "../../common/button/button";
 
 export default function AdminLogin() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     async function checkAuth() {
-      const res = await fetch("/api/auth/validate");
-      const data = await res.json();
-
-      if (data.valid) {
-        router.push("/admin");
+      try {
+        const res = await fetch("/api/auth/validate");
+        if (res.status !== 401 && !res.ok) throw new Error("Session service unavailable");
+        const data = await res.json();
+        if (data.valid) router.push("/admin");
+      } catch {
+        setError("Die Anmeldung ist momentan nicht verfügbar.");
       }
     }
     checkAuth();
@@ -25,10 +29,10 @@ export default function AdminLogin() {
     setError("");
 
     try {
-      const res = await fetch("/api/auth", {
+      const res = await sessionFetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (res.ok) {
@@ -38,7 +42,7 @@ export default function AdminLogin() {
       } else if (res.status >= 500) {
         setError("Die Anmeldung ist momentan nicht verfügbar. Bitte versuchen Sie es später erneut.");
       } else {
-        setError("Falsches Passwort");
+        setError("Benutzername oder Passwort ist falsch");
       }
     } catch {
       setError("Keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.");
@@ -61,7 +65,7 @@ export default function AdminLogin() {
           </p>
           <h1 className="mt-2 text-3xl font-light text-textBlue">Anmeldung</h1>
           <p className="mt-3 text-sm text-textGrey/70">
-            Bitte Passwort eingeben, um fortzufahren.
+            Bitte Benutzername und Passwort eingeben, um fortzufahren.
           </p>
 
           <form
@@ -71,6 +75,18 @@ export default function AdminLogin() {
               handleLogin();
             }}
           >
+            <label className="block text-sm font-medium text-textGrey" htmlFor="admin-username">
+              Benutzername
+            </label>
+            <input
+              id="admin-username"
+              name="username"
+              autoComplete="username"
+              required
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              className="w-full rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
+            />
             <label
               className="block text-sm font-medium text-textGrey"
               htmlFor="admin-password"
@@ -80,6 +96,9 @@ export default function AdminLogin() {
             <input
               id="admin-password"
               type="password"
+              name="password"
+              autoComplete="current-password"
+              required
               placeholder="Passwort eingeben"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
