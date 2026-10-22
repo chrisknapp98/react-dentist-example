@@ -18,7 +18,7 @@ type Feedback = {
 export default function PracticeDashboard() {
   const [message, setMessage] = useState("");
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
-  const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
+  const [showAllAnnouncements, setShowAllAnnouncements] = useState(false);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [confirmState, setConfirmState] = useState<{
     message: string;
@@ -336,18 +336,18 @@ export default function PracticeDashboard() {
                   <input
                     type="checkbox"
                     className="h-4 w-4 rounded border-practiceGrey/40 text-practiceRed focus:ring-practiceRed/30"
-                    checked={previewOnlyCurrent}
+                    checked={showAllAnnouncements}
                     onChange={(event) =>
-                      setPreviewOnlyCurrent(event.target.checked)
+                      setShowAllAnnouncements(event.target.checked)
                     }
                   />
-                  Nur aktuelle Meldung
+                  Alle Meldungen anzeigen
                 </label>
               </div>
               <div className="h-full w-full flex items-stretch">
                 <RecentNewsFrame
                   announcements={previewItems}
-                  showOnlyCurrent={previewOnlyCurrent}
+                  showOnlyCurrent={!showAllAnnouncements}
                   autoAdvanceMs={5000}
                   frameClassName="w-full max-w-none h-full"
                   isLoading={isLoading}
