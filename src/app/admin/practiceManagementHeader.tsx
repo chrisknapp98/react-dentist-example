@@ -35,10 +35,10 @@ export function PracticeManagementHeader({ username, isLoggingOut, onLogout }: P
         }
       }}
     >
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 py-1 sm:px-6 lg:flex-nowrap lg:gap-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 py-3 sm:px-6 lg:flex-nowrap lg:gap-8">
         <Link href="/admin" onClick={() => setMenuPath(null)} aria-label="Praxisverwaltung – zur Übersicht" className="flex min-w-0 items-center gap-3 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-practiceRed">
           <span className="shrink-0 overflow-hidden rounded-lg">
-            <PracticeLogo className="block h-12 w-auto sm:h-14" aria-hidden="true" focusable="false" />
+            <PracticeLogo className="block h-14 w-auto sm:h-16" aria-hidden="true" focusable="false" />
           </span>
           <span className="border-l border-black/15 pl-3 text-xs font-light tracking-wide text-textBlue sm:pl-4 sm:text-base">Praxisverwaltung</span>
         </Link>
@@ -61,7 +61,7 @@ export function PracticeManagementHeader({ username, isLoggingOut, onLogout }: P
         <nav
           id="practice-navigation"
           aria-label="Praxisverwaltung"
-          className="flex w-full flex-col gap-1 border-t border-black/10 pb-2 pt-3 text-sm lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:p-0"
+          className="mt-3 flex w-full flex-col gap-1 border-t border-black/10 pb-2 pt-3 text-sm lg:mt-0 lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:p-0"
         >
           {links.map(({ href, label }) => (
             <Link
