@@ -13,13 +13,13 @@ export function RoundedFrame({
 }: RoundedFrameProps) {
   return (
     <div
-      className={`max-w-[45ch] rounded-2xl bg-practiceRed overflow-hidden shadow-lg items-center flex flex-col ${className ?? ""}`}
+      className={`w-full min-w-0 max-w-[45ch] rounded-2xl bg-practiceRed overflow-hidden shadow-lg items-center flex flex-col ${className ?? ""}`}
     >
       <div className="text-white text-xl font-bold text-center p-2">
         {title}
       </div>
       <div
-        className={`rounded-t-2xl bg-backgroundLightGray w-full h-full overflow-hidden min-h-40 justify-center items-center flex ${
+        className={`rounded-t-2xl bg-backgroundLightGray w-full min-w-0 h-full overflow-hidden min-h-40 justify-center items-center flex ${
           bodyClassName ?? ""
         }`}
       >

@@ -146,7 +146,7 @@ export function RecentNewsFrame({
       bodyClassName={`${isSingle ? "p-3 sm:p-4" : "py-3 sm:py-4"}`}
     >
       <div
-        className="w-full text-sm vs:text-md sm:text-lg font-light"
+        className="w-full min-w-0 [overflow-wrap:anywhere] text-sm vs:text-md sm:text-lg font-light"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onTouchStart={handleTouchStart}
@@ -168,8 +168,8 @@ export function RecentNewsFrame({
             {renderMessageWithLinks(emptyState)}
           </div>
         ) : (
-          <div className="space-y-4">
-            <div className="relative w-full overflow-hidden rounded-xl">
+          <div className="min-w-0 space-y-4">
+            <div className="relative w-full min-w-0 overflow-hidden rounded-xl">
               {showOnlyCurrent ? (
                 <div
                   className={`rounded-xl p-3 sm:p-4 ${isSingle ? "" : "bg-white/60"}`}
@@ -182,7 +182,7 @@ export function RecentNewsFrame({
                 </div>
               ) : (
                 <div
-                  className="flex w-full transition-transform duration-500 ease-out will-change-transform"
+                  className="flex w-full min-w-0 transition-transform duration-500 ease-out will-change-transform"
                   style={{
                     transform: `translate3d(-${activeIndex * 100}%,0,0)`,
                   }}
@@ -190,7 +190,7 @@ export function RecentNewsFrame({
                   {announcements.map((a) => (
                     <div
                       key={a.id}
-                      className="w-full min-w-full flex-shrink-0 px-3 sm:px-4"
+                      className="w-full min-w-0 basis-full shrink-0 px-3 sm:px-4"
                     >
                       <div
                         className={`rounded-xl ${isSingle ? "" : "p-4 bg-white/60"}`}
@@ -206,7 +206,7 @@ export function RecentNewsFrame({
             </div>
 
             {!showOnlyCurrent && announcements.length > 1 ? (
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2 px-3">
                 {announcements.map((announcement, index) => (
                   <button
                     key={announcement.id}
