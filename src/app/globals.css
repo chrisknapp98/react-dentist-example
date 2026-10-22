@@ -48,3 +48,43 @@ body {
 .safari-browser-tint-bottom {
   bottom: 3px;
 }
+
+/* Keep dialogs in the top layer until their exit transition finishes. */
+.confirmation-dialog {
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  transition: opacity 180ms ease, transform 180ms ease,
+    overlay 180ms allow-discrete, display 180ms allow-discrete;
+}
+
+.confirmation-dialog[open] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.confirmation-dialog::backdrop {
+  background: rgb(0 0 0 / 0);
+  transition: background 180ms ease, overlay 180ms allow-discrete,
+    display 180ms allow-discrete;
+}
+
+.confirmation-dialog[open]::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+@starting-style {
+  .confirmation-dialog[open] {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  .confirmation-dialog[open]::backdrop {
+    background: rgb(0 0 0 / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirmation-dialog,
+  .confirmation-dialog::backdrop {
+    transition: none;
+  }
+}

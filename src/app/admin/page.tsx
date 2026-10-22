@@ -7,6 +7,7 @@ import { RecentNewsFrame } from "../home/recentNewsFrame";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
 import { renderMessageWithLinks } from "../common/text/renderMessageWithLinks";
 import { sessionFetch } from "../common/authentication/sessionFetch";
+import { ConfirmationDialog } from "./confirmationDialog";
 import { Button } from "../common/button/button";
 
 type Feedback = {
@@ -18,6 +19,7 @@ export default function PracticeDashboard() {
   const [message, setMessage] = useState("");
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
   const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [confirmState, setConfirmState] = useState<{
     message: string;
     onConfirm: () => void | Promise<void>;
@@ -60,6 +62,7 @@ export default function PracticeDashboard() {
       });
       return;
     }
+    setIsConfirmOpen(true);
     setConfirmState({
       message: "Neue Meldung jetzt veröffentlichen?",
       onConfirm: submitAnnouncement,
@@ -99,6 +102,7 @@ export default function PracticeDashboard() {
   };
 
   const handleDelete = (id: string) => {
+    setIsConfirmOpen(true);
     setConfirmState({
       message: "Diese Meldung wirklich löschen?",
       onConfirm: () => deleteAnnouncement(id),
@@ -141,6 +145,7 @@ export default function PracticeDashboard() {
       direction === "up"
         ? "Meldung nach oben verschieben?"
         : "Meldung nach unten verschieben?";
+    setIsConfirmOpen(true);
     setConfirmState({
       message: confirmText,
       onConfirm: () => performMove(fromIndex, direction),
@@ -210,36 +215,19 @@ export default function PracticeDashboard() {
 
   const confirmAction = async () => {
     const action = confirmState?.onConfirm;
-    setConfirmState(null);
+    setIsConfirmOpen(false);
     if (action) await action();
   };
 
   return (
     <div>
-      {confirmState ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
-          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
-            <p className="text-sm text-textGrey">{confirmState.message}</p>
-            <div className="mt-6 flex items-center justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setConfirmState(null)}
-                className="rounded-full border border-practiceGrey/40 px-4 py-2 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10"
-              >
-                Abbrechen
-              </button>
-              <button
-                type="button"
-                onClick={confirmAction}
-                disabled={isSaving}
-                className="rounded-full bg-practiceRed px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-practiceRed/30 transition hover:bg-practiceRed/90"
-              >
-                Bestätigen
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      <ConfirmationDialog
+        open={isConfirmOpen}
+        message={confirmState?.message ?? ""}
+        onCancel={() => setIsConfirmOpen(false)}
+        onConfirm={confirmAction}
+        disabled={isSaving}
+      />
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
