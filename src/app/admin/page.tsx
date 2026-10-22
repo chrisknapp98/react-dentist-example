@@ -230,10 +230,10 @@ export default function PracticeDashboard() {
         onConfirm={confirmAction}
         disabled={isSaving}
       />
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-6 pb-12 pt-6 sm:pt-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className="mt-2 text-3xl font-light text-textBlue sm:text-4xl">
+            <h1 className="text-3xl font-light text-textBlue sm:mt-2 sm:text-4xl">
               Aktuelles
             </h1>
             <p className="mt-2 text-sm text-textGrey/80">
