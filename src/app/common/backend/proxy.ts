@@ -9,7 +9,9 @@ export async function proxyToBackend(request: Request, path: string) {
 
   const incoming = new URL(request.url);
   const unsafe = !["GET", "HEAD", "OPTIONS"].includes(request.method);
-  if (unsafe && request.headers.get("origin") !== incoming.origin) {
+  // Next.js may build request.url with localhost even when the browser uses a LAN host.
+  const publicOrigin = new URL(`${incoming.protocol}//${request.headers.get("host") ?? incoming.host}`).origin;
+  if (unsafe && request.headers.get("origin") !== publicOrigin) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
