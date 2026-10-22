@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import EyeIcon from "@/icons/eye.svg";
+import EyeOffIcon from "@/icons/eye-off.svg";
 import { sessionFetch } from "../../common/authentication/sessionFetch";
 import { Button } from "../../common/button/button";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
 
@@ -26,6 +30,8 @@ export default function AdminLogin() {
     checkAuth();
   }, [router]);
   const handleLogin = async () => {
+    if (isLoggingIn) return;
+    setIsLoggingIn(true);
     setError("");
 
     try {
@@ -37,6 +43,7 @@ export default function AdminLogin() {
 
       if (res.ok) {
         router.push("/admin");
+        return;
       } else if (res.status === 429) {
         setError("Zu viele Anmeldeversuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.");
       } else if (res.status >= 500) {
@@ -47,6 +54,7 @@ export default function AdminLogin() {
     } catch {
       setError("Keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.");
     }
+    setIsLoggingIn(false);
   };
 
   return (
@@ -70,46 +78,77 @@ export default function AdminLogin() {
 
           <form
             className="mt-8 space-y-4"
+            aria-busy={isLoggingIn}
             onSubmit={(event) => {
               event.preventDefault();
               handleLogin();
             }}
           >
-            <label className="block text-sm font-medium text-textGrey" htmlFor="admin-username">
-              Benutzername
-            </label>
-            <input
-              id="admin-username"
-              name="username"
-              autoComplete="username"
-              required
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-              className="w-full rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
-            />
-            <label
-              className="block text-sm font-medium text-textGrey"
-              htmlFor="admin-password"
-            >
-              Passwort
-            </label>
-            <input
-              id="admin-password"
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              required
-              placeholder="Passwort eingeben"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
-            />
-            <Button
-              type="submit"
-              className="mt-2 w-full text-sm font-semibold shadow-lg shadow-practiceRed/30"
-            >
-              Anmelden
-            </Button>
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-textGrey" htmlFor="admin-username">
+                Benutzername
+              </label>
+              <input
+                id="admin-username"
+                name="username"
+                autoComplete="username"
+                  disabled={isLoggingIn}
+                required
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                className="w-full rounded-2xl border border-practiceGrey/30 bg-white px-4 py-3 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label
+                className="block text-sm font-medium text-textGrey"
+                htmlFor="admin-password"
+              >
+                Passwort
+              </label>
+              <div className="relative">
+                <input
+                  id="admin-password"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  autoComplete="current-password"
+                  disabled={isLoggingIn}
+                  required
+                  placeholder="Passwort eingeben"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full rounded-2xl border border-practiceGrey/30 bg-white py-3 pl-4 pr-14 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((visible) => !visible)}
+                  aria-label={showPassword ? "Passwort verbergen" : "Passwort anzeigen"}
+                  aria-controls="admin-password"
+                  title={showPassword ? "Passwort verbergen" : "Passwort anzeigen"}
+                  className="absolute inset-y-1 right-1 flex w-11 items-center justify-center rounded-xl text-textGrey/60 transition hover:bg-practiceGrey/10 hover:text-textBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-practiceRed"
+                >
+                  {showPassword ? (
+                    <EyeOffIcon className="h-5 w-5" aria-hidden="true" />
+                  ) : (
+                    <EyeIcon className="h-5 w-5" aria-hidden="true" />
+                  )}
+                </button>
+              </div>
+            </div>
+            <div className="pt-4">
+              <Button
+                type="submit"
+                disabled={isLoggingIn}
+                className="w-full text-sm font-semibold shadow-lg shadow-practiceRed/30"
+              >
+                <span className="flex items-center justify-center gap-2" role="status" aria-live="polite">
+                  {isLoggingIn && (
+                    <span aria-hidden="true" className="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent motion-reduce:animate-none" />
+                  )}
+                  {isLoggingIn ? "Anmeldung läuft…" : "Anmelden"}
+                </span>
+              </Button>
+            </div>
           </form>
 
           {error && (
