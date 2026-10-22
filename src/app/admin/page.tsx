@@ -2,6 +2,8 @@
 
 import { useMemo, useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import ChevronUpIcon from "@/icons/chevron-up.svg";
+import ChevronDownIcon from "@/icons/chevron-down.svg";
 import { AnnouncementDTO } from "../api/announcements/announcementDTO";
 import { RecentNewsFrame } from "../home/recentNewsFrame";
 import { ContactInformation } from "../common/contactInformation/contactInformation";
@@ -387,13 +389,17 @@ export default function PracticeDashboard() {
               Noch keine Meldungen. Lege oben die erste Meldung an.
             </div>
           ) : (
-            <ul className="mt-6 space-y-4">
+            <ol className="mt-6 space-y-4">
               {announcements.map((a, index) => (
                 <li
                   key={a.id}
                   className="flex flex-col gap-4 rounded-3xl border border-practiceGrey/20 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <div>
+                  <div className="flex min-w-0 flex-1 items-center gap-4">
+                    <span aria-label={`Position ${index + 1}`} className="w-6 shrink-0 text-center text-base font-medium tabular-nums text-practiceRed">
+                      {index + 1}
+                    </span>
+                    <div className="min-w-0 break-words">
                     <p className="text-xs uppercase tracking-[0.22em] text-practiceGrey">
                       {new Date(a.date).toLocaleString("de-DE")}
                     </p>
@@ -402,22 +408,31 @@ export default function PracticeDashboard() {
                         linkClassName: "underline",
                       })}
                     </p>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex shrink-0 items-center gap-3">
+                    <div className="flex flex-col gap-1">
                     <button
+                      type="button"
+                      aria-label={`Meldung ${index + 1} nach oben verschieben`}
+                      title="Nach oben verschieben"
                       onClick={() => moveAnnouncement(index, "up")}
                       disabled={isSaving || index === 0}
-                      className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-practiceGrey/40 text-practiceGrey transition enabled:hover:border-practiceGrey enabled:hover:bg-practiceGrey/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed disabled:opacity-40"
                     >
-                      Nach oben
+                      <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
                     </button>
                     <button
+                      type="button"
+                      aria-label={`Meldung ${index + 1} nach unten verschieben`}
+                      title="Nach unten verschieben"
                       onClick={() => moveAnnouncement(index, "down")}
                       disabled={isSaving || index === announcements.length - 1}
-                      className="rounded-full border border-practiceGrey/40 px-3 py-2 text-xs font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-practiceGrey/10 disabled:opacity-40"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-practiceGrey/40 text-practiceGrey transition enabled:hover:border-practiceGrey enabled:hover:bg-practiceGrey/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed disabled:opacity-40"
                     >
-                      Nach unten
+                      <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
                     </button>
+                    </div>
                     <button
                       onClick={() => handleDelete(a.id)}
                       disabled={isSaving}
@@ -428,7 +443,7 @@ export default function PracticeDashboard() {
                   </div>
                 </li>
               ))}
-            </ul>
+            </ol>
           )}
         </div>
       </div>
