@@ -14,16 +14,16 @@ type Feedback = {
   message: string;
 };
 
-export default function AdminPage() {
+export default function PracticeDashboard() {
   const [message, setMessage] = useState("");
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
+  const [username, setUsername] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
   const [confirmState, setConfirmState] = useState<{
     message: string;
     onConfirm: () => void | Promise<void>;
   } | null>(null);
-  const [isRefreshing, setIsRefreshing] = useState(false);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,6 @@ export default function AdminPage() {
 
   const fetchAnnouncements = async () => {
     setIsLoading(true);
-    setIsRefreshing(true);
     try {
       const res = await fetch("/api/announcements");
       if (!res.ok) throw new Error("Failed to load announcements");
@@ -43,11 +42,11 @@ export default function AdminPage() {
     } catch {
       setFeedback({
         kind: "error",
-        message: "Aktuelle Meldungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+        message:
+          "Aktuelle Meldungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
       });
     } finally {
       setIsLoading(false);
-      setTimeout(() => setIsRefreshing(false), 500);
     }
   };
 
@@ -57,15 +56,19 @@ export default function AdminPage() {
         const res = await fetch("/api/auth/validate");
         const data = await res.json();
 
-        if (res.status !== 401 && !res.ok) throw new Error("Session service unavailable");
+        if (res.status !== 401 && !res.ok)
+          throw new Error("Session service unavailable");
         if (data.valid) {
+          setUsername(typeof data.username === "string" ? data.username : "");
           setIsAuthenticated(true);
           await fetchAnnouncements();
         } else {
           router.push("/admin/login");
         }
       } catch {
-        setAccessError("Die Anmeldung konnte nicht überprüft werden. Bitte laden Sie die Seite erneut.");
+        setAccessError(
+          "Die Anmeldung konnte nicht überprüft werden. Bitte laden Sie die Seite erneut.",
+        );
       }
     }
 
@@ -75,7 +78,10 @@ export default function AdminPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim()) {
-      setFeedback({ kind: "error", message: "Bitte geben Sie eine Meldung ein." });
+      setFeedback({
+        kind: "error",
+        message: "Bitte geben Sie eine Meldung ein.",
+      });
       return;
     }
     setConfirmState({
@@ -97,16 +103,19 @@ export default function AdminPage() {
         return;
       }
       if (!res.ok) throw new Error("Failed to publish announcement");
+      setAnnouncements(await res.json());
 
       setMessage("");
       setFeedback({
         kind: "success",
-        message: "Meldung veröffentlicht. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+        message:
+          "Meldung veröffentlicht.",
       });
     } catch {
       setFeedback({
         kind: "error",
-        message: "Die Meldung konnte nicht veröffentlicht werden. Bitte versuchen Sie es erneut.",
+        message:
+          "Die Meldung konnte nicht veröffentlicht werden. Bitte versuchen Sie es erneut.",
       });
     } finally {
       setIsSaving(false);
@@ -132,14 +141,17 @@ export default function AdminPage() {
         return;
       }
       if (!res.ok) throw new Error("Delete failed");
+      setAnnouncements(await res.json());
       setFeedback({
         kind: "success",
-        message: "Meldung gelöscht. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+        message:
+          "Meldung gelöscht.",
       });
     } catch {
       setFeedback({
         kind: "error",
-        message: "Die Meldung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
+        message:
+          "Die Meldung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
       });
     } finally {
       setIsSaving(false);
@@ -148,11 +160,16 @@ export default function AdminPage() {
 
   const handleLogout = async () => {
     try {
-      const response = await sessionFetch("/api/auth/logout", { method: "POST" });
+      const response = await sessionFetch("/api/auth/logout", {
+        method: "POST",
+      });
       if (!response.ok) throw new Error("Logout failed");
       router.push("/admin/login");
     } catch {
-      setFeedback({ kind: "error", message: "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut." });
+      setFeedback({
+        kind: "error",
+        message: "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      });
     }
   };
 
@@ -189,14 +206,17 @@ export default function AdminPage() {
         return;
       }
       if (!res.ok) throw new Error("Reorder failed");
+      setAnnouncements(await res.json());
       setFeedback({
         kind: "success",
-        message: "Reihenfolge gespeichert. Über „Aktualisieren“ erscheint der aktuelle Stand.",
+        message:
+          "Reihenfolge gespeichert.",
       });
     } catch {
       setFeedback({
         kind: "error",
-        message: "Die Reihenfolge konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+        message:
+          "Die Reihenfolge konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
       });
     } finally {
       setIsSaving(false);
@@ -282,7 +302,7 @@ export default function AdminPage() {
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-practiceGrey">
-              Adminbereich
+              Praxisverwaltung
             </p>
             <h1 className="mt-2 text-3xl font-light text-textBlue sm:text-4xl">
               Aktuelles
@@ -291,12 +311,19 @@ export default function AdminPage() {
               Kurze Hinweise für die Startseite veröffentlichen.
             </p>
           </div>
-          <button
-            onClick={handleLogout}
-            className="inline-flex items-center justify-center rounded-full border border-practiceGrey/40 px-5 py-2 text-sm font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-white"
-          >
-            Abmelden
-          </button>
+          <div className="flex flex-wrap items-center gap-10 md:justify-end">
+            {username && (
+              <p className="min-w-0 break-words text-sm text-textGrey opacity-80">
+                {username}
+              </p>
+            )}
+            <button
+              onClick={handleLogout}
+              className="inline-flex items-center justify-center rounded-full border border-practiceGrey/40 px-5 py-2 text-sm font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-white"
+            >
+              Abmelden
+            </button>
+          </div>
         </div>
         <div className="flex justify-center">
           <div className="flex w-full max-w-5xl flex-col gap-6 md:gap-10 items-stretch justify-center py-10 lg:flex-row">
@@ -431,34 +458,6 @@ export default function AdminPage() {
         ) : null}
 
         <div className="mt-8 space-y-6">
-          <div className="flex flex-col gap-3 rounded-2xl border border-practiceGrey/20 bg-white/70 px-5 py-3 text-xs text-textGrey/80 sm:flex-row sm:items-center sm:justify-between">
-            <p>
-              Hinweis: Aktualisierungen können einige Sekunden bis Minuten
-              dauern. Bitte jeweils nur eine Änderung durchführen und warten,
-              bis sie im Backend verarbeitet wurde.
-            </p>
-            <button
-              type="button"
-              onClick={fetchAnnouncements}
-              className="relative inline-flex min-w-[140px] items-center justify-center rounded-full border border-practiceGrey/40 px-4 py-1.5 text-xs font-medium text-textGrey transition hover:border-practiceGrey hover:bg-white disabled:opacity-60"
-              disabled={isRefreshing}
-            >
-              <span
-                className={`transition-opacity duration-200 ${
-                  isRefreshing ? "opacity-0" : "opacity-100"
-                }`}
-              >
-                Aktualisieren
-              </span>
-              <span
-                className={`absolute inline-flex h-4 w-4 items-center justify-center transition-all duration-200 ${
-                  isRefreshing ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <span className="h-3.5 w-3.5 rounded-full border-2 border-practiceGrey/60 border-t-transparent animate-spin" />
-              </span>
-            </button>
-          </div>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-textBlue">
               Aktive Meldungen

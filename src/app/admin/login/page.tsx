@@ -8,7 +8,7 @@ import EyeOffIcon from "@/icons/eye-off.svg";
 import { sessionFetch } from "../../common/authentication/sessionFetch";
 import { Button } from "../../common/button/button";
 
-export default function AdminLogin() {
+export default function PracticeLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -69,7 +69,7 @@ export default function AdminLogin() {
         </div>
         <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-[0_25px_70px_-40px_rgba(65,71,125,0.6)] ring-1 ring-black/5">
           <p className="text-xs uppercase tracking-[0.3em] text-practiceGrey">
-            Adminbereich
+            Praxisverwaltung
           </p>
           <h1 className="mt-2 text-3xl font-light text-textBlue">Anmeldung</h1>
           <p className="mt-3 text-sm text-textGrey/70">
