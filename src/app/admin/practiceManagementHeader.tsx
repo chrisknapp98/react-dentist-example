@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ExternalLinkIcon from "@/icons/external-link.svg";
 import MenuIcon from "@/icons/menu.svg";
 import CloseIcon from "@/icons/x.svg";
 import PracticeLogo from "@/images/gesund-und-gerade.svg";
@@ -73,7 +74,19 @@ export function PracticeManagementHeader({ username, isLoggingOut, onLogout }: P
               {label}
             </Link>
           ))}
-          <div className="mt-3 flex min-w-0 items-center justify-between gap-4 border-t border-black/10 px-3 pt-4 lg:ml-auto lg:mt-0 lg:justify-end lg:border-0 lg:p-0">
+
+          <div className="mt-3 flex min-w-0 flex-wrap items-center justify-between gap-4 border-t border-black/10 px-3 pt-4 lg:ml-auto lg:mt-0 lg:justify-end lg:border-0 lg:p-0">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuPath(null)}
+            aria-label="Website ansehen (öffnet in neuem Tab)"
+            className="flex min-h-11 items-center gap-2 rounded-lg px-3 py-2 text-textGrey transition-colors hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-practiceRed lg:min-h-0 lg:rounded-sm lg:px-0 lg:py-1"
+          >
+            Website ansehen
+            <ExternalLinkIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
+          </a>
             <span className="min-w-0 max-w-48 truncate text-sm text-textGrey opacity-60 lg:max-w-32" title={username}>{username}</span>
             <button type="button" onClick={onLogout} disabled={isLoggingOut} className="min-h-11 shrink-0 rounded-full border border-practiceGrey bg-white/60 px-4 py-2 text-sm text-textGrey transition hover:border-practiceRed hover:text-practiceRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-practiceRed disabled:opacity-60">
               {isLoggingOut ? "Abmeldung läuft…" : "Abmelden"}
