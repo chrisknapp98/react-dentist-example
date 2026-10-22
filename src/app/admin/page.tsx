@@ -17,8 +17,6 @@ type Feedback = {
 export default function PracticeDashboard() {
   const [message, setMessage] = useState("");
   const [announcements, setAnnouncements] = useState<AnnouncementDTO[]>([]);
-  const [username, setUsername] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [previewOnlyCurrent, setPreviewOnlyCurrent] = useState(true);
   const [confirmState, setConfirmState] = useState<{
     message: string;
@@ -29,7 +27,6 @@ export default function PracticeDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
-  const [accessError, setAccessError] = useState<string | null>(null);
 
   const fetchAnnouncements = async () => {
     setIsLoading(true);
@@ -51,29 +48,8 @@ export default function PracticeDashboard() {
   };
 
   useEffect(() => {
-    async function checkAuth() {
-      try {
-        const res = await fetch("/api/auth/validate");
-        const data = await res.json();
-
-        if (res.status !== 401 && !res.ok)
-          throw new Error("Session service unavailable");
-        if (data.valid) {
-          setUsername(typeof data.username === "string" ? data.username : "");
-          setIsAuthenticated(true);
-          await fetchAnnouncements();
-        } else {
-          router.push("/admin/login");
-        }
-      } catch {
-        setAccessError(
-          "Die Anmeldung konnte nicht überprüft werden. Bitte laden Sie die Seite erneut.",
-        );
-      }
-    }
-
-    checkAuth();
-  }, [router]);
+    fetchAnnouncements();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -158,21 +134,6 @@ export default function PracticeDashboard() {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      const response = await sessionFetch("/api/auth/logout", {
-        method: "POST",
-      });
-      if (!response.ok) throw new Error("Logout failed");
-      router.push("/admin/login");
-    } catch {
-      setFeedback({
-        kind: "error",
-        message: "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
-      });
-    }
-  };
-
   const moveAnnouncement = (fromIndex: number, direction: "up" | "down") => {
     const targetIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
     if (targetIndex < 0 || targetIndex >= announcements.length) return;
@@ -253,27 +214,8 @@ export default function PracticeDashboard() {
     if (action) await action();
   };
 
-  if (accessError) {
-    return (
-      <main className="flex min-h-screen items-center justify-center px-6 text-center text-textGrey">
-        <div>
-          <p>{accessError}</p>
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className="mt-4 rounded-full bg-practiceRed px-5 py-2.5 text-sm font-semibold text-white"
-          >
-            Erneut versuchen
-          </button>
-        </div>
-      </main>
-    );
-  }
-
-  if (!isAuthenticated) return null;
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f7f2f4] via-white to-[#f3f3f6] text-textGrey">
+    <div>
       {confirmState ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
           <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
@@ -301,28 +243,12 @@ export default function PracticeDashboard() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-practiceGrey">
-              Praxisverwaltung
-            </p>
             <h1 className="mt-2 text-3xl font-light text-textBlue sm:text-4xl">
               Aktuelles
             </h1>
             <p className="mt-2 text-sm text-textGrey/80">
               Kurze Hinweise für die Startseite veröffentlichen.
             </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-10 md:justify-end">
-            {username && (
-              <p className="min-w-0 break-words text-sm text-textGrey opacity-80">
-                {username}
-              </p>
-            )}
-            <button
-              onClick={handleLogout}
-              className="inline-flex items-center justify-center rounded-full border border-practiceGrey/40 px-5 py-2 text-sm font-medium text-practiceGrey transition hover:border-practiceGrey hover:bg-white"
-            >
-              Abmelden
-            </button>
           </div>
         </div>
         <div className="flex justify-center">
