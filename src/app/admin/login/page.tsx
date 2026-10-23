@@ -91,6 +91,7 @@ export default function PracticeLogin() {
               <input
                 id="admin-username"
                 name="username"
+                  placeholder="Benutzername eingeben"
                 autoComplete="username"
                   disabled={isLoggingIn}
                 required
@@ -111,10 +112,10 @@ export default function PracticeLogin() {
                   id="admin-password"
                   type={showPassword ? "text" : "password"}
                   name="password"
+                  placeholder="Passwort eingeben"
                   autoComplete="current-password"
                   disabled={isLoggingIn}
                   required
-                  placeholder="Passwort eingeben"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded-2xl border border-practiceGrey/30 bg-white py-3 pl-4 pr-14 text-base text-textGrey shadow-sm outline-none transition focus:border-practiceRed/60 focus:ring-2 focus:ring-practiceRed/20"
