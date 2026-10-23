@@ -254,7 +254,7 @@ export default function PracticeDashboard() {
               </div>
               <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                 <label
-                  className="block text-sm font-medium text-textGrey"
+                  className="sr-only"
                   htmlFor="announcement-message"
                 >
                   Nachricht
@@ -314,7 +314,7 @@ export default function PracticeDashboard() {
                     Link
                   </button>
                 </div>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-xs text-textGrey/60">
                     Kurz und klar für Patient:innen formulieren.
                   </p>
