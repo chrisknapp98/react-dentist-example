@@ -32,3 +32,5 @@ npx tsc --noEmit
 npm run build
 npm start
 ```
+
+Homepage announcements are rendered on the server from the public backend endpoint and cached for 60 seconds. Successful admin create, edit/reorder, and delete requests invalidate the cache for the next homepage visit. Backend failures fall back to the existing empty state without failing the homepage.

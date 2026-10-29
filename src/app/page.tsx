@@ -5,6 +5,9 @@ import { OpeningHoursAndRecentNews } from "./home/openingHoursAndRecentNews";
 import Image from "next/image";
 import { Footer } from "./common/footer/footer";
 
+// Retry announcements periodically even if the backend was unavailable at build time.
+export const revalidate = 60;
+
 const treatmentAreas = [
   {
     title: "Vorsorge & Prophylaxe",
